@@ -2,8 +2,11 @@ package edu.spring.project.persistence;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import edu.spring.project.domain.BoardContents;
 
+@Repository
 public class BoardContentsDaoImple implements BoardContentsDao {
 
 	@Override

@@ -2,11 +2,9 @@ package edu.spring.project.persistence;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import edu.spring.project.domain.BoardContents;
 
-@Repository
+	
 public interface BoardContentsDao {
 	
 	// 게시글 전체 리스트 출력

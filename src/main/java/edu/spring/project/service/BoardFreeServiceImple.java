@@ -2,8 +2,11 @@ package edu.spring.project.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import edu.spring.project.domain.BoardFree;
 
+@Service
 public class BoardFreeServiceImple implements BoardFreeService {
 
 	@Override

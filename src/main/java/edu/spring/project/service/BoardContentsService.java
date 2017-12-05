@@ -2,11 +2,9 @@ package edu.spring.project.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
 import edu.spring.project.domain.BoardContents;
 
-@Service
+
 public interface BoardContentsService {
 	// 게시글 전체 리스트 출력
 	List<BoardContents> read();
