@@ -30,6 +30,7 @@ public class MemberController {
 			System.out.println("msk1");
 			// 수정 - 다시 수정
 			System.out.println("msk2");
+			// 해볼까?
 		}
 		
 		// TODO: REST에서 로그인 전 화면으로 보내줘야함 
