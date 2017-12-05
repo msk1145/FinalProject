@@ -34,5 +34,7 @@
 		</interceptor>
 	</interceptors>
 	
+	<context:annotation-config />
+	
 	
 </beans:beans>
