@@ -2,8 +2,11 @@ package edu.spring.project.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import edu.spring.project.domain.BoardFree;
 
+@Service
 public interface BoardFreeService {
 	// 게시글 전체 리스트 출력
 	List<BoardFree> read();
