@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<bean id="dataSource"
+        name="dataSource"
+        class="oracle.jdbc.pool.OracleDataSource">
+        <property name="URL"
+            value="jdbc:oracle:thin:@192.168.11.16:1521:xe" />
+        <property name="user" value="admin" />
+        <property name="password" value="admin" />
+    </bean>
+    
+    <bean id="sqlSessionFactory" 
+        name="sqlSessionFactory"
+        class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:/mybatis-config.xml" />
+        <property name="mapperLocations" value="classpath:/mappers/*.xml" />
+    </bean>
+
+	<bean id="sqlSession" name="sqlSession"
+		  class="org.mybatis.spring.SqlSessionTemplate"
+		  destroy-method="clearCache" >
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<!-- 기본생성자가 없는 경우 constructor-arg 태그를 사용해야함. name="변수이름" ref="?" -->
+	</bean>
+	
+	<context:component-scan base-package="edu.spring.project">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+	
+	
+</beans>

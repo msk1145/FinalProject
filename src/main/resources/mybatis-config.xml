@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- DB에서 컬림이름이나 테이블이름이 바뀔 때 유지보수하기 쉽게 쿼리문을 고칠필요 없게 -->
+	<!-- name속성은 개발자가 쓸 키값 value속성은 실제 DB에 있는 컬럼이름과 테이블 이름 -->
+	<properties>
+	
+		<!-- 컨텐츠별 영상 테이블 -->
+		<property name="tblContents" value="BOARD_CONTENTS"/>
+		<property name="colBno" value="bno"/>
+		<property name="colTitle" value="title"/>
+		<property name="colContent" value="content"/>
+		<property name="colRegdate" value="regdate"/>
+		<property name="colCount" value="count"/>
+		<property name="colCategory" value="category"/>
+	
+		<!-- 자유게시판 테이블 -->
+		<property name="tblFree" value="BOARD_FREE"/>
+		<property name="colFbno" value="fbno"/>
+		<property name="colFtitle" value="ftitle"/>
+		<property name="colFcontent" value="fcontent"/>
+		<property name="colFuserid" value="fuserid"/>
+		<property name="colFcount" value="fcount"/>
+		<property name="colFregdate" value="fregdate"/>
+		
+		<!-- 회원 테이블 -->
+		<property name="tblMember" value="MEMBER" />
+		<property name="colUserid" value="userid" />
+		<property name="colPassword" value="password" />
+		<property name="colEmail" value="email" />
+		<property name="colNickname" value="nickname" />
+		
+		<!-- 컨텐츠별 영상 테이블의 댓글 -->
+		<property name="tblReplycontents" value="REPLY_CONTENTS"/>
+		<property name="colRno" value="rno"/>
+		<property name="colBno" value="bno"/>
+		<property name="colContent" value="content"/>
+		<property name="colRegdate" value="regdate"/>
+		<property name="colUserid" value="userid"/>
+		<property name="colRrid" value="rrno"/>
+		
+		<!-- 자유게시판 댓글 테이블 -->
+		<property name="tblReplyfree" value="REPLY_FREE"/>
+		<property name="colFRno" value="frno"/>
+		<property name="colFBno" value="fbno"/>
+		<property name="colFContent" value="fcontent"/>
+		<property name="colFRegdate" value="fregdate"/>
+		<property name="colFUserid" value="fuserid"/>
+		<property name="colFRrid" value="frrno"/>
+		
+	</properties>
+	
+	<typeAliases>
+		<package name="edu.spring.project.domain"/>
+	</typeAliases>
+</configuration>
+
+
+
+
+
+
