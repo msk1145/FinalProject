@@ -24,9 +24,10 @@ public class MemberController {
 		
 		Member member = service.login(userid, password);
 		if(member == null) {// 로그인 실패
-			
+			// TODO: 실패 처리
 		}else { // 로그인 성공
 			m.addAttribute("member", member);
+			// TODO: ...
 		}
 		
 		// TODO: REST에서 로그인 전 화면으로 보내줘야함 
