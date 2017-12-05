@@ -28,6 +28,10 @@ public class MemberController {
 		}else { // 로그인 성공
 			m.addAttribute("member", member);
 			System.out.println("Test...");
+
+			// 수정 - 다시 수정
+			System.out.println("msk2");
+
 		}
 		
 		// TODO: REST에서 로그인 전 화면으로 보내줘야함 
