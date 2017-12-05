@@ -13,7 +13,7 @@ import edu.spring.project.service.MemberService;
 @RequestMapping(value="/member")
 public class MemberController {
 	// 추가추가추가추가추가
-	//
+	// 수정가능ㅇㅇㅇ
 	@Autowired MemberService service;
 	// 로그인
 	@RequestMapping(value="/login" , method=RequestMethod.GET)
