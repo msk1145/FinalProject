@@ -27,7 +27,7 @@ public class MemberController {
 			
 		}else { // 로그인 성공
 			m.addAttribute("member", member);
-			// 수정
+			// 수정 - 다시 수정
 		}
 		
 		// TODO: REST에서 로그인 전 화면으로 보내줘야함 
