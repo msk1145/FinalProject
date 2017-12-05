@@ -2,8 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 	<bean id="dataSource"
         name="dataSource"
@@ -28,6 +32,7 @@
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
 		<!-- 기본생성자가 없는 경우 constructor-arg 태그를 사용해야함. name="변수이름" ref="?" -->
 	</bean>
+	
 	
 	<context:component-scan base-package="edu.spring.project">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

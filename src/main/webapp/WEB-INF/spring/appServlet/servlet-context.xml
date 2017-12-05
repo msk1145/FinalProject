@@ -21,6 +21,10 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<context:annotation-config />
+	
+	
+	
 	<context:component-scan base-package="edu.spring.project">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -34,7 +38,6 @@
 		</interceptor>
 	</interceptors>
 	
-	<context:annotation-config />
 	
 	
 </beans:beans>
