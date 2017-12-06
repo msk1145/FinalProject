@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
-<title>main</title>
+<title>detail</title>
 
 <!-- 1. Bootstrap CSS -->
 <link rel="stylesheet"
@@ -20,6 +20,18 @@
 
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<style>
+.row{
+	margin: 10px;
+	padding: 10px;
+}
+.contentsTop{
+	border-bottom: 2px solid Gainsboro; 
+	background-color: #FFFFE9;
+	font-weight: bold;
+
+}
+</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -34,9 +46,10 @@
 		</div>
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>Main</h2>
+		<h2>detail</h2>
+		
 	</div>
-	<div>
+	
 		<div class="col-md-2">
 			<ul class="list-group">
 				<li class="list-group-item"><a href="#"
@@ -51,11 +64,43 @@
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
-		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
+		<div class="content">
+			<div class="col-md-10">
+				<!-- 여기가 컨텐츠 영역 -->
+				<div class="contentsTop">
+					<div class="row text-danger">
+					 	<div class="col-md-10">
+					 		글제목|영화(카테고리)
+					 	</div>
+					 	<div class="col-md-2 text-right">
+					 		<a class="btn btn-primary">목록</a>
+					 	</div>
+					</div>
+				</div>
+				<div class="row">
+				 	<div class="col-md-6">
+				 		운영자
+				 	</div>
+				 	<div class="col-md-6 text-right">
+				 		현재 게시글 주소
+				 	</div>
+				</div>
+				<div class="row" style="border-bottom: 2px solid Gainsboro;">
+				 	<div class="col-md-6">
+				 		조회수
+				 	</div>
+				 	<div class="col-md-6 text-right">
+				 		작성시간
+				 	</div>
+				</div>
+				<div class="row" style="border-bottom: 2px solid Gainsboro;">
+				 	<div class="col-md-12">
+				 		게시글 내용
+				 	</div>
+				</div>
+				
+	
+			</div>
 		</div>
-
-
-	</div>
 </body>
 </html>
