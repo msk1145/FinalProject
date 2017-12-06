@@ -33,6 +33,11 @@ public class BoardController {
 		logger.info("BoardController::update() 호출"); 
 	}
 	
+	
+	@RequestMapping(value="/boardinsert",method=RequestMethod.GET)
+	public void boardinsert() {
+		
+	}
 }
 
 

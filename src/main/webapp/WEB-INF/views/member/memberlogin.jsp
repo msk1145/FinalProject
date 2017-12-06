@@ -20,6 +20,10 @@
 
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<!-- 현규. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -51,8 +55,20 @@
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
-		<div class="col-md-10">
+		<div class="col-md-3">
 			<!-- 여기가 컨텐츠 영역 -->
+			<div class="container form-group" >
+			<form action="memberlogin" method="post">
+				<label for ="userid"> 아이디 </label>
+				<input class="form-control" type="text" name="userid" id="userid" required />
+   			 	<br/>
+   			 	<label for = "password"> 비밀번호 </label>
+   			 	<input class="form-control" type="text" name="password" id="password" required />
+   				<br/>
+   				<input class="form-control btn btn-sucess" type="submit" value="로그인" />
+   			</form> 			
+			</div>
+			</div>
 		</div>
 
 
