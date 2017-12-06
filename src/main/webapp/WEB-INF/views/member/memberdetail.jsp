@@ -25,7 +25,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
 				<li class=""><a href="#">로그인</a></li>
@@ -52,10 +52,23 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
+			<div class="container">
+				<!-- 여기가 컨텐츠 영역 -->
+				<h2 class="text-center">회원 정보</h2>
+				<form class="form-horizontal">
+					<label for="userid" class="control-label">아이디</label><br/> 
+					<input type="text" name="userid" id="userid" class="form-control" placeholder="userid" readonly><br/><br/> 
+					<label for="password" class="control-label">비밀번호</label><br/> 
+					<input type="text" name="password" id="password" class="form-control" placeholder="Password"><br/><br/>
+					<label for="email" class="control-label">이메일</label><br/>
+					<input type="text" name="eamil" id="email" class="form-control" placeholder="Email"><br/><br/>
+					<label for="nickname" class="control-label">닉네임</label><br/>
+					<input type="text" name="nickname" id="nickname" class="form-control" placeholder="NickName"><br/> <br/>
+					<button type="submit" class="btn btn-success">수정</button>
+					<button class="btn btn-danger">계정 삭제</button>
+				</form>
+			</div>
 		</div>
-
-
 	</div>
 </body>
 </html>

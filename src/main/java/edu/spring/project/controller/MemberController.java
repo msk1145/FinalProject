@@ -1,5 +1,9 @@
 package edu.spring.project.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +16,7 @@ import edu.spring.project.service.MemberService;
 @Controller
 @RequestMapping(value="/member")
 public class MemberController {
-	// 추가추가추가추가추가
-	// 수정가능ㅇㅇㅇ
+
 	@Autowired MemberService service;
 	// 로그인
 	@RequestMapping(value="/login" , method=RequestMethod.GET)
@@ -39,18 +42,31 @@ public class MemberController {
 	}
 	
 	// 회원 가입 화면 보여주기
-	@RequestMapping(value="/insert" , method=RequestMethod.GET)
+	@RequestMapping(value="/memberinsert" , method=RequestMethod.GET)
 	public void insert() {}
 	
 	// 회원 가입
-	@RequestMapping(value="/insert" , method=RequestMethod.POST)
-	public void insert(Member m) {
+	@RequestMapping(value="/memberinsert" , method=RequestMethod.POST)
+	public String insert(Member m, HttpServletRequest request) {
 		int i = service.insert(m);
 		if(i == 1) {
 			System.out.println("회원가입 성공");
+			HttpSession session = request.getSession();
+			session.setAttribute("member", m.getUserid());
+			return "redirect:/";
 		}else {
 			System.out.println("회원가입 실패");
+			return "redirect:/memberinsert";
 		}
+	}
+	
+	@RequestMapping(value="/memberdetail" , method=RequestMethod.GET)
+	public void memberdetail() {}
+	
+	@RequestMapping(value="/memberdetail" , method=RequestMethod.POST)
+	public void memberdetail(Member m) {
+		System.out.println(m.getUserid());
+		System.out.println(m.getNickname());
 	}
 	
 }
