@@ -24,11 +24,12 @@
 .row{
 	margin: 10px;
 	padding: 10px;
+	font-weight: bold;
 }
 .contentsTop{
 	border-bottom: 2px solid Gainsboro; 
 	background-color: #FFFFE9;
-	font-weight: bold;
+	
 
 }
 </style>
@@ -64,7 +65,7 @@
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
-		<div class="content">
+		<div class="form-group">
 			<div class="col-md-10">
 				<!-- 여기가 컨텐츠 영역 -->
 				<div class="contentsTop">
@@ -99,8 +100,16 @@
 				 	</div>
 				</div>
 				
+				<div class="row text-right">
+					<div class="col-md-12">
+						<a class="btn btn-info">게시물 수정</a>
+					</div>
+				</div>
 	
 			</div>
+			
 		</div>
+		
+		
 </body>
 </html>

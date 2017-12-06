@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset=UTF-8>
-<title>detail</title>
+<title>update</title>
 
 <!-- 1. Bootstrap CSS -->
 <link rel="stylesheet"
@@ -20,11 +20,7 @@
 
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<style>
-th{
-border-right: none;
-}
-</style>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -59,10 +55,15 @@ border-right: none;
 		</div>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
+			<div style="border-top: 2px solid Gainsboro; padding: 10px;"></div>
 		 	<form>
 				  <div class="form-group">
-				    <label for="title">제목|영화</label>
+				    <label for="title">제목</label>
 				    <input type="text" class="form-control" id="title" value="title">
+				  </div>
+				  <div class="form-group">
+				    <label for="category">장르</label>
+				    <input type="text" class="form-control" id="category" value="category">
 				  </div>
 				   <div class="form-group">
 				    <label for="userid">운영자</label>
@@ -76,7 +77,7 @@ border-right: none;
 				  <button type="submit" class="btn btn-success">수정완료</button>
 				  <a class="btn btn-danger">삭제</a>
 			</form>
-					
+			<div style="border-bottom: 2px solid Gainsboro; padding: 10px;"></div>
 
 		</div>
 </body>
