@@ -53,6 +53,18 @@
 		</div>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
+			<div class="container form-group" >
+			<form action="boardinsert" method="post">
+				<label for ="title">제 목  </label>
+				<input class="form-control" type="text" name="title" id="title" required />
+   			 	<br/>
+   			 	<label for = "password"> 비밀번호 </label>
+   			 	<input class="form-control" type="text" name="password" id="password" required />
+   				<br/>
+   				<input class="form-control btn btn-sucess" type="submit" value="게시글작성" />
+   			</form> 			
+			</div>
+			
 		</div>
 
 

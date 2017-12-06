@@ -27,6 +27,11 @@ public class BoardController {
 		
 	}
 	
+	
+	@RequestMapping(value="/boardinsert",method=RequestMethod.GET)
+	public void boardinsert() {
+		
+	}
 }
 
 
