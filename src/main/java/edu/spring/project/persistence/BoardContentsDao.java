@@ -11,7 +11,7 @@ public interface BoardContentsDao {
 	List<BoardContents> read();
 	
 	// 한 게시글 출력
-	List<BoardContents> read(int bno);
+	BoardContents read(int bno);
 	
 	// 게시글 작성
 	int insert(BoardContents b);
