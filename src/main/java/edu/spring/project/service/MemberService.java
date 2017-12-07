@@ -13,5 +13,10 @@ public interface MemberService {
 	// 아이디 체크
 	boolean idCheck(String userid);
 	
+	// 회원 수정을 위한 회원 정보 출력
+	Member readDetail(String userid);
+	
+	// 회원 정보 수정
+	Member updateDetail(Member m);
 	
 }

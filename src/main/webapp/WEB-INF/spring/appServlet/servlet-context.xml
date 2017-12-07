@@ -30,14 +30,24 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
 	</context:component-scan>
 	
-	<beans:bean id="idInterceptor" class="edu.spring.project.interceptor.IdInterceptor" />
+	<beans:bean id="logininterceptor" class="edu.spring.project.interceptor.LoginInterceptor" />
+	<beans:bean id="insertinterceptor" class="edu.spring.project.interceptor.InsertInterceptor" />
+	
+	<!-- 로그인 인터셉터 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/member/idCheck" />
-			<beans:ref bean="idInterceptor" />
+			<mapping path="/member/memberlogin-post" />
+			<beans:ref bean="logininterceptor" />
 		</interceptor>
 	</interceptors>
 	
+	<!-- 회원가입 인터셉터 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/memberinsert-post" />
+			<beans:ref bean="insertinterceptor" />
+		</interceptor>
+	</interceptors>
 	
 	
 </beans:beans>

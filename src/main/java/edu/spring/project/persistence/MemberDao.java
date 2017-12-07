@@ -14,4 +14,10 @@ public interface MemberDao {
 	
 	// id 체크
 	Member idCheck(String userid);
+	
+	// 회원 수정을 위한 회원 정보 출력
+	Member readDetail(String userid);
+	
+	// 회원 정보 수정
+	int updateDetail(Member m);
 }
