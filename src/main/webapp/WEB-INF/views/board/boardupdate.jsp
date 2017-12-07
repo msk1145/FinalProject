@@ -74,8 +74,10 @@
 				   <textarea rows="5" cols="200" class="form-control" id="content">내용들</textarea>
 				  </div>
 				  
-				  <button type="submit" class="btn btn-success">수정완료</button>
-				  <a class="btn btn-danger">삭제</a>
+				  <div class="form-group text-right">
+				  	<button type="submit" class="btn btn-success">수정완료</button>
+				  	<a class="btn btn-danger">삭제</a>
+				  </div>
 			</form>
 			<div style="border-bottom: 2px solid Gainsboro; padding: 10px;"></div>
 
