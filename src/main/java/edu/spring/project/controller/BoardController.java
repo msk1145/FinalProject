@@ -39,6 +39,14 @@ public class BoardController {
 	@Autowired
 	ReplyContentsService replyConSevice;
 	
+	@RequestMapping(value = "/boardList",
+			method = RequestMethod.GET)
+	public void list() {
+		logger.info("boardList 호출");
+		
+	}
+	
+	
 	@RequestMapping(value = "/boarddetail",
 			method = RequestMethod.GET)
 	public void detail(Model model) {

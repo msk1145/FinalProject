@@ -36,7 +36,7 @@
 	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardList"
 					class="list-group-item list-group-item-action btn-info">영화</a></li>
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">드라마</a></li>
