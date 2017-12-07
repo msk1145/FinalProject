@@ -32,7 +32,7 @@
 				<li class=""><a href="member/memberdetail">회원 정보</a></li>
 			</c:if>
 			<c:if test="${empty member}">
-				<li class=""><a href="#">로그인</a></li>
+				<li class=""><a href="member/memberlogin">로그인</a></li>
 				<li class=""><a href="member/memberinsert">회원가입</a></li>
 			</c:if>
 			</ul>

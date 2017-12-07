@@ -4,6 +4,7 @@ import java.util.List;
 
 import edu.spring.project.domain.BoardFree;
 
+	
 public interface BoardFreeService {
 	// 게시글 전체 리스트 출력
 	List<BoardFree> read();

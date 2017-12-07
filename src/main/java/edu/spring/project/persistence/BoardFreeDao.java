@@ -1,7 +1,9 @@
 package edu.spring.project.persistence;
 
 import java.util.List;
+
 import edu.spring.project.domain.BoardFree;
+
 
 public interface BoardFreeDao {
 

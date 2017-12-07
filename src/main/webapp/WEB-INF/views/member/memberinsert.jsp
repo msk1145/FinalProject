@@ -52,6 +52,7 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
+
 			<h2 class="text-center">회 원 가 입</h2>
 			<div class="container">
 				<!-- 여기가 컨텐츠 영역 -->

@@ -2,11 +2,9 @@ package edu.spring.project.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,26 +17,21 @@ public class MemberController {
 
 	@Autowired MemberService service;
 	// 로그인
-	@RequestMapping(value="/login" , method=RequestMethod.GET)
+	@RequestMapping(value="/memberlogin" , method=RequestMethod.GET)
 	public void login() {}
 	
-	@RequestMapping(value="/login", method=RequestMethod.POST)
-	public String login(String userid, String password, Model m) {
+	@RequestMapping(value="/memberlogin", method=RequestMethod.POST)
+	public String login(String userid, String password, HttpServletRequest request) {
 		
 		Member member = service.login(userid, password);
 		if(member == null) {// 로그인 실패
-			// TODO: 실패 처리
+			return "redirect:/member/memberlogin";
 		}else { // 로그인 성공
-			m.addAttribute("member", member);
-			System.out.println("Test...");
-
-			// 수정 - 다시 수정
-			System.out.println("msk2");
-			// ...
+			request.getSession().setAttribute("member", member.getUserid());
+			return "redirect:/";
 		}
 		
-		// TODO: REST에서 로그인 전 화면으로 보내줘야함 
-		return "sujung";
+		
 	}
 	
 	// 회원 가입 화면 보여주기
