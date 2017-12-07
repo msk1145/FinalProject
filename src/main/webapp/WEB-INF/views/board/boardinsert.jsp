@@ -20,7 +20,22 @@
 
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<style>
+.box {
+	margin: 0 auto;
+	width: 300px;
+	height: 100px;
+}
+</style>
+
+
 </head>
+
+
+
+
+
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -53,19 +68,43 @@
 		</div>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
-			<div class="container form-group" >
-			<form action="boardinsert" method="post">
-				<label for ="title">제 목  </label>
-				<input class="form-control" type="text" name="title" id="title" required />
-   			 	<br/>
-   			 	<label for = "password"> 비밀번호 </label>
-   			 	<input class="form-control" type="text" name="password" id="password" required />
-   				<br/>
-   				<input class="form-control btn btn-sucess" type="submit" value="게시글작성" />
-   			</form> 			
-			</div>
+			<form class="form-vertical" action="boardinsert" method="post"
+				enctype="multipart/form-data">
+				<div class="box">
+					<h3>게시글 작성</h3>
+				</div>
+				<div class="col-md-1">
+					<label for="title">제 목</label>
+				</div>
+				<div class="col-md-11">
+					<input class="form-control" type="text" name="title" id="title"
+						required /> <br />
+				</div>
+
+
+				<div class="col-md-1">
+					<label for="content">본문</label></br>
+				</div>
+				<div class="col-md-11">
+					<textarea style="resize: none;" rows="10" class="form-control"
+						name="content" id="content"></textarea>
+					<br />
+				</div>
+				<div class="col-md-12">
+				<input class="pull-right" type="file" name="uploadFile" placeholder="파일 선택" />
+				</div>
+				
+				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
+				
+			</form>
+
+
 			
+	
+
 		</div>
+
+
 
 
 	</div>
