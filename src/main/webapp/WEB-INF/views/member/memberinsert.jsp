@@ -25,7 +25,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
 				<li class=""><a href="#">로그인</a></li>
@@ -52,11 +52,68 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			
+
+			<h2 class="text-center">회 원 가 입</h2>
+			<div class="container">
+				<!-- 여기가 컨텐츠 영역 -->
+				<form method="post">
+					<div class="form-group" id="idSuccess">
+						<label class="control-label" id="userid" for="inputSuccess1">아이디</label><br/>
+						<input type="text" class="form-control" id="idCheck" name="userid" placeholder="아이디 입력..." required><br/><br/>
+					</div>
+					
+					<div class="form-group" id="pwSuccess">
+						<label class="control-label" for="password">비밀번호</label><br/>
+						<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력..." required><br/><br/>
+						<label class="control-label" for="passwordCheck">비밀번호확인</label><br/>
+						<input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 확인 입력..." required><br/><br/>
+					</div>
+					
+					<label class="control-label" id="email" for="inputSuccess1">이메일</label><br/>
+					<input type="text" class="form-control" id="email"	name="email" placeholder="이메일 입력..." required><br/><br/>
+					
+					<label class="control-label" id="nickname" for="inputSuccess1">닉네임</label><br/>
+					<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임 입력..." required><br/><br/>
+					
+					<input type="submit" id="btnsubmit" value="회원 가입" class="btn btn-success"/>
+				</form>
+			</div>
 		</div>
-
-
 	</div>
+<script>
+$(function(){
+	
+	$('#passwordCheck').change(function(){
+		if($('#password').val() != $('#passwordCheck').val() || $('#passwordCheck').val()==""){
+	        $('#pwSuccess').prop('class','form-group has-error');
+	        $('#passwordCheck').val('');
+	        $('#passwordCheck').prop('placeholder', '비밀번호 확인을 다시 입력 바랍니다..');
+	    }else{
+	    	$('#pwSuccess').prop('class','form-group has-success');
+	    }
+	})
+	
+	
+	$('#idCheck').change(function(){
+		$.ajax({
+			 url : "idCheck"
+			,type : "post"
+			,data : { userid : $('#idCheck').val() }
+			,success : function(res, status, xhr){
+				if(res){ // 아이디 중복
+					$('#idCheck').val("");
+					$('#idCheck').prop('placeholder', '중복된 아이디 입니다. 다른 아이디를 입력해 주세요..');
+					$('#btnsubmit').prop('disabled', true);
+					$('#idSuccess').prop('class','form-group has-error');
+				}else{ // 아이디 중복되지 않음
+					$('#btnsubmit').prop('disabled', false);
+					$('#idSuccess').prop('class','form-group has-success');
+				}
+			}
+		})
+	});
+	
+});
+</script>
 </body>
 </html>

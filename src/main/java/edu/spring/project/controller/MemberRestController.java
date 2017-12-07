@@ -14,13 +14,11 @@ public class MemberRestController {
 	@Autowired MemberService service;
 	
 	@RequestMapping(value="/idCheck" , method=RequestMethod.POST)
-	public boolean logincheck(String userid) {
+	public boolean logincheck(String userid) {		
+		System.out.println("1231231");
+		System.out.println(userid);
 		boolean bool = false;
-		if(userid == null) { // userid 가 널일경우
-			return bool;
-		}else { // 값을 제대로 가져옴
-			bool = service.idCheck(userid);
-		}		
+		bool = service.idCheck(userid);
 		return bool;
 	}
 }
