@@ -14,9 +14,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import edu.spring.project.domain.Member;
 
 
-public class LoginInterceptor extends HandlerInterceptorAdapter {
-
-	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
+public class InsertInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
@@ -30,7 +28,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		String target = request.getParameter("url");
-		
+
 		Map<String,Object> model = modelAndView.getModel();
 		Member m = (Member)model.get("member");
 		if(m != null) { 
@@ -38,11 +36,9 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 			session.setAttribute("member", m);
 			response.sendRedirect(target);
 		}else {
-			response.sendRedirect("/project/member/memberlogin?url=" + target);
+			response.sendRedirect("/project/member/memberinsert?url=" + target);
 		}
-		
 		super.postHandle(request, response, handler, modelAndView);
-		
 	}// end postHandle
 	
 }// end class LoginInterceptor

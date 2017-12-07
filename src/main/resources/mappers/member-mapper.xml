@@ -6,8 +6,8 @@
  
  <!-- 회원 가입 -->
 <insert id="memberInsert">
-	insert into ${tblMember} (${colUserid} , ${colPassword} , ${colEmail} , ${colNickname})
-	values (#{userid} , #{password} , #{email} , #{nickname})
+	insert into ${tblMember} (${colUserid} , ${colPassword} , ${colEmail} , ${colNickname}, ${colGrade})
+	values (#{userid} , #{password} , #{email} , #{nickname}, #{grade})
 </insert>
 
 <select id="idCheck" resultType="Member">
@@ -17,5 +17,16 @@ select * from ${tblMember} where ${colUserid} = #{userid}
 <select id="login" resultType="Member">
 select * from ${tblMember} where ${colUserid} = #{userid} and ${colPassword} = #{password}
 </select>
+
+<select id="detail" resultType="Member">
+select * from ${tblMember}
+where ${colUserid} = #{userid}
+</select>
+
+<update id="detailupdate">
+update ${tblMember} 
+set ${colPassword} = #{password}, ${colEmail} = #{email}, ${colNickname} = #{nickname} 
+where ${colUserid} = #{userid} 
+</update>
 
 </mapper>

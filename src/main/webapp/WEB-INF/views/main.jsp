@@ -6,20 +6,11 @@
 <head>
 <meta charset=UTF-8>
 <title>main</title>
-
-<!-- 1. Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-<!-- 2. jQuery : Bootstrap JS 파일은 jQuery 라이브러리를 사용 -->
+<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-<!-- 3. Bootstrap JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- jQuery 3.2.1 라이브러리 사용 -->
+<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -29,11 +20,12 @@
 			</div>
 			<ul class="nav navbar-nav pull-right">
 			<c:if test="${not empty member}">
-				<li class=""><a href="member/memberdetail">회원 정보</a></li>
+				<li><a>${member.nickname}님 </a></li>
+				<li><a href="member/memberdetail?userid=${member.userid}">회원 정보</a></li>
 			</c:if>
 			<c:if test="${empty member}">
-				<li class=""><a href="member/memberlogin">로그인</a></li>
-				<li class=""><a href="member/memberinsert">회원가입</a></li>
+				<li><a id="btn-login">로그인</a></li>
+				<li><a id="btn-insert">회원가입</a></li>
 			</c:if>
 			</ul>
 		</div>

@@ -15,10 +15,10 @@ public class MemberRestController {
 	
 	@RequestMapping(value="/idCheck" , method=RequestMethod.POST)
 	public boolean logincheck(String userid) {		
-		System.out.println("1231231");
-		System.out.println(userid);
 		boolean bool = false;
 		bool = service.idCheck(userid);
 		return bool;
 	}
+	
+	
 }

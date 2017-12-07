@@ -41,4 +41,24 @@ public class MemberServiceImple implements MemberService {
 		return dao.login(map);
 	}
 
+	@Override
+	public Member readDetail(String userid) {
+		return dao.readDetail(userid);
+	}
+
+	@Override
+	public Member updateDetail(Member m) {
+		if(m != null) {
+			Integer i = dao.updateDetail(m);
+			System.out.println(i);
+			if(i > 0) {
+				return dao.readDetail(m.getUserid());
+			}else {
+				return null;
+			}
+		}else {
+			return null;
+		}
+	}
+
 }
