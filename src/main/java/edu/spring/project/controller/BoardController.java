@@ -24,9 +24,20 @@ public class BoardController {
 	@RequestMapping(value = "/boarddetail",
 			method = RequestMethod.GET)
 	public void detail() {
-		
+		logger.info("BoardController::deail() 호출"); 
 	}
 	
+	@RequestMapping(value = "/boardupdate",
+			method = RequestMethod.GET)
+	public void update() {
+		logger.info("BoardController::update() 호출"); 
+	}
+	
+	
+	@RequestMapping(value="/boardinsert",method=RequestMethod.GET)
+	public void boardinsert() {
+		
+	}
 }
 
 
