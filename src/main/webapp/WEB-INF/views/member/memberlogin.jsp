@@ -29,11 +29,11 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
-				<li class=""><a href="#">로그인</a></li>
-				<li class=""><a href="#">회원가입</a></li>
+				<li><a href="memberlogin?url=${url}">로그인</a></li>
+				<li><a href="memberinsert?url=${url}">회원가입</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -55,23 +55,25 @@
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
-			<div class="container form-group" >
-			<form action="memberlogin" method="post">
-				<label for ="userid"> 아이디 </label>
-				<input class="form-control" type="text" name="userid" id="userid" required />
-   			 	<br/>
-   			 	<label for = "password"> 비밀번호 </label>
-   			 	<input class="form-control" type="text" name="password" id="password" required />
-   				<br/>
-   				<input class="form-control btn btn-sucess" type="submit" value="로그인" />
-   			</form> 			
-			</div>
+			<h2 class="text-center">로그인</h2>
+				<div class="container form-group" >
+					<form action="memberlogin-post" method="post">
+						<label for ="userid"> 아이디 </label>
+						<input class="form-control" type="text" name="userid" id="userid" required />
+		   			 	<br/>
+		   			 	<label for = "password"> 비밀번호 </label>
+		   			 	<input class="form-control" type="password" name="password" id="password" required />
+		   			 	<input type="hidden" name="url" value="${url}" />
+		   				<br/>
+		   				<div class="col-md-1">
+		   					<input class="form-control btn btn-success" type="submit" value="로그인" />
+		   				</div>
+		   				<a class="btn btn-info" href="memberinsert?url=${url}">회원 가입</a>
+		   			</form> 			
+				</div>
 			</div>
 		</div>
-
-
-	</div>
 </body>
 </html>

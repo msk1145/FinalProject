@@ -22,14 +22,28 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
+<c:if test="${bool == 1}">
+<script>
+$(function(){
+	alert('수정 완료');
+});
+</script>
+</c:if>
+<c:if test="${bool == 0}">
+<script>
+$(function(){
+	alert('수정 실패');
+});
+</script>
+</c:if>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
-				<li class=""><a href="#">로그인</a></li>
-				<li class=""><a href="#">회원가입</a></li>
+				<li class=""><a href="memberlogin">로그인</a></li>
+				<li class=""><a href="memberinsert">회원가입</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -55,20 +69,33 @@
 			<div class="container">
 				<!-- 여기가 컨텐츠 영역 -->
 				<h2 class="text-center">회원 정보</h2>
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="memberdetail" method="post">
 					<label for="userid" class="control-label">아이디</label><br/> 
-					<input type="text" name="userid" id="userid" class="form-control" placeholder="userid" readonly><br/><br/> 
+					<input type="text" value="${member.userid}" name="userid" id="userid" class="form-control" placeholder="userid" readonly><br/><br/> 
 					<label for="password" class="control-label">비밀번호</label><br/> 
-					<input type="text" name="password" id="password" class="form-control" placeholder="Password"><br/><br/>
+					<input type="text" value="${member.password}" name="password" id="password" class="form-control" placeholder="Password"><br/><br/>
 					<label for="email" class="control-label">이메일</label><br/>
-					<input type="text" name="eamil" id="email" class="form-control" placeholder="Email"><br/><br/>
+					<input type="text" value="${member.email}" name="email" id="email" class="form-control" placeholder="Email"><br/><br/>
 					<label for="nickname" class="control-label">닉네임</label><br/>
-					<input type="text" name="nickname" id="nickname" class="form-control" placeholder="NickName"><br/> <br/>
+					<input type="text" value="${member.nickname}" name="nickname" id="nickname" class="form-control" placeholder="NickName"><br/> <br/>
 					<button type="submit" class="btn btn-success">수정</button>
-					<button class="btn btn-danger">계정 삭제</button>
+					<button class="btn btn-danger" id="btn-delete">계정 삭제</button>
 				</form>
 			</div>
 		</div>
 	</div>
+<script>
+// TODO: 내일 하자 여기서
+$(function(){
+	$('#btn-delete').click(function(){
+		var check = confirm("정말 삭제 하시겠습니까");
+		if(check){
+			location = '/memberdelete?userid='+ $('#userid').val();
+		}
+	});
+});
+</script>
 </body>
 </html>
+
+

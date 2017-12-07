@@ -30,4 +30,17 @@ public class MemberDaoImple implements MemberDao {
 		return session.selectOne(NAMESPACE + ".login", map);
 	}
 
+	@Override
+	public Member readDetail(String userid) {
+		return session.selectOne(NAMESPACE+".detail", userid);
+	}
+
+	@Override
+	public int updateDetail(Member m) {
+		 System.out.println(m);
+		 int i = session.update(NAMESPACE+".detailupdate", m);
+		 System.out.println(i);
+		 return i;
+	}
+
 }
