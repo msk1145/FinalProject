@@ -100,6 +100,7 @@
 				<input class="pull-right" type="file" name="uploadFile" placeholder="파일 선택" />
 				</div>
 				
+				
 				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
 				
 			</form>

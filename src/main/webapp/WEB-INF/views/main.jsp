@@ -13,16 +13,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
-<style type="text/css">
-.footer {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 50px;
-	background: #a3c2c2;
-	text-align: center;
-}
-</style>
+
 </head>
 
 
@@ -175,15 +166,29 @@
 							<td>fuserid</td>
 							<td>fcount</td>
 						</tr>
+						<tr class="text-center text-info">
+							<td>fbno</td>
+							<td>ftitle</td>
+							<td>fuserid</td>
+							<td>fcount</td>
+						</tr>
+						<tr class="text-center text-info">
+							<td>fbno</td>
+							<td>ftitle</td>
+							<td>fuserid</td>
+							<td>fcount</td>
+						</tr>
+						<tr class="text-center text-info">
+							<td>fbno</td>
+							<td>ftitle</td>
+							<td>fuserid</td>
+							<td>fcount</td>
+						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
-	<div class="footer">
-		<span> <h3>(주)Sex Power</h3> </span>
-	</div>
-
 
 </body>
 </html>

@@ -27,7 +27,8 @@ import edu.spring.project.service.ReplyContentsService;
 public class BoardController {
 	public static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
-	private static final String UPLOAD_PATH = "C:\\Study\\Fileupload";
+	private static final String UPLOAD_PATH_IMAGE = "C:\\Users\\user\\git\\FinalProject1\\src\\main\\webapp\\resources\\images";
+	private static final String UPLOAD_PATH_MOVIE = "C:\\Users\\user\\git\\FinalProject1\\src\\main\\webapp\\resources\\video";
 
 	@Autowired
 	BoardContentsService boardConService;
@@ -90,7 +91,7 @@ public class BoardController {
 		String saveName = uuid + "_" + file.getOriginalFilename();
 
 		// 저장할 File 객체를 생성
-		File saveFile = new File(UPLOAD_PATH, saveName);
+		File saveFile = new File(UPLOAD_PATH_IMAGE, saveName);
 
 		// 생성된 파일 객체를 저장
 		try {
