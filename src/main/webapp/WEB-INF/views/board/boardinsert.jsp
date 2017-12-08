@@ -97,9 +97,11 @@
 					<br />
 				</div>
 				<div class="col-md-12">
-				<input class="pull-right" type="file" name="uploadFile" placeholder="파일 선택" />
+				<input class="pull-right" type="file" name="uploadimage" placeholder="이미지파일 선택" />
 				</div>
-				
+				<div class="col-md-12">
+				<input class="pull-right" type="file" name="uploadmovie" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
+				</div>
 				
 				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
 				
