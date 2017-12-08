@@ -11,57 +11,88 @@ public class BoardContents {
 	private Date regdate;
 	private int count;
 	private String category;
+	private String videoPath;
+	private String imagePath;
 	
 	/* 생성자 */
 	public BoardContents(){}
-	public BoardContents(int bno, String title, String content, Date regdate, int count, String category) {
+	
+	public BoardContents(int bno, String title, String content, Date regdate, int count, String category,
+			String videoPath, String imagePath) {
 		this.bno = bno;
 		this.title = title;
 		this.content = content;
 		this.regdate = regdate;
 		this.count = count;
 		this.category = category;
+		this.videoPath = videoPath;
+		this.imagePath = imagePath;
 	}
-	
-	/* getter , setter */
+
+
+
 	public int getBno() {
 		return bno;
 	}
+
 	public void setBno(int bno) {
 		this.bno = bno;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public String getContent() {
 		return content;
 	}
+
 	public void setContent(String content) {
 		this.content = content;
 	}
+
 	public Date getRegdate() {
 		return regdate;
 	}
+
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+
 	public int getCount() {
 		return count;
 	}
+
 	public void setCount(int count) {
 		this.count = count;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	
-	
-	
+
+	public String getVideoPath() {
+		return videoPath;
+	}
+
+	public void setVideoPath(String videoPath) {
+		this.videoPath = videoPath;
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 	
 }
