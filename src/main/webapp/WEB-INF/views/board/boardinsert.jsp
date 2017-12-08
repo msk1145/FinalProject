@@ -40,7 +40,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
 				<c:if test="${not empty member}">
@@ -99,6 +99,7 @@
 				<div class="col-md-12">
 				<input class="pull-right" type="file" name="uploadFile" placeholder="파일 선택" />
 				</div>
+				
 				
 				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
 				
