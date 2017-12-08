@@ -1,5 +1,6 @@
 package edu.spring.project.persistence;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,6 +19,11 @@ public class AdminDaoImple implements AdminDao {
 	public Member login(Map<String, String> map) {
 
 		return session.selectOne(NAMESPACE+".adminLogin", map);
+	}
+
+	@Override
+	public List<Member> memberList() {
+		return session.selectList(NAMESPACE + ".MemberSelectAll");
 	}
 
 }

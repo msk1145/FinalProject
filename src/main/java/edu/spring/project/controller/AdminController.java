@@ -1,5 +1,7 @@
 package edu.spring.project.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +35,15 @@ public class AdminController {
 	@RequestMapping(value = "/main",
 			method = RequestMethod.GET)
 	public void adminMain() {
-
+		
+	}
+	
+	@RequestMapping(value = "/memberList",
+			method = RequestMethod.GET)
+	public void memberList(Model model) {
+		List<Member> memberList =  adminService.memberList();
+		model.addAttribute("member", memberList);
+		
 	}
 	
 	

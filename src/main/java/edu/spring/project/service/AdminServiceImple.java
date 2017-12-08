@@ -1,6 +1,7 @@
 package edu.spring.project.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,12 @@ public class AdminServiceImple implements AdminService {
 		map.put("userid", userid);
 		map.put("password", password);
 		return dao.login(map);
+	}
+
+	@Override
+	public List<Member> memberList() {
+		
+		return dao.memberList();
 	}
 
 }
