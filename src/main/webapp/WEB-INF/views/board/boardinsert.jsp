@@ -79,23 +79,36 @@
 				<div class="box">
 					<h3>게시글 작성</h3>
 				</div>
+
+				<div class="col-md-1">
+					<label for="title">게시판 선택</label>
+				</div>
+				<div class="col-md-11">
+			
+				</div>
+				<br/>
+
+
 				<div class="col-md-1">
 					<label for="title">제 목</label>
 				</div>
 				<div class="col-md-11">
-					<input class="form-control" type="text" name="title" id="title"
-						required /> <br />
+					<input class="form-control" type="text" name="title" id="title" required /> 
 				</div>
+				<br/>
 
 
 				<div class="col-md-1">
-					<label for="content">본문</label></br>
+					<label for="content">본문</label><br/>
 				</div>
 				<div class="col-md-11">
 					<textarea style="resize: none;" rows="10" class="form-control"
-						name="content" id="content"></textarea>
-					<br />
+						name="content" id="content" required ></textarea>
+					
 				</div>
+				<br />
+				
+				
 				<div class="col-md-12">
 				<input class="pull-right" type="file" name="uploadimage" placeholder="이미지파일 선택" />
 				</div>
@@ -103,19 +116,20 @@
 				<input class="pull-right" type="file" name="uploadmovie" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
 				</div>
 				
+				<br/><br/><br/>
+				<hr/>
+				
 				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
 				
 			</form>
 
-
-			
-	
-
 		</div>
 
-
-
-
 	</div>
+	
+	
+	
+
+
 </body>
 </html>
