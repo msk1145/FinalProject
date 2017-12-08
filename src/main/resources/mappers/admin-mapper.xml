@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="edu.spring.project.mappers.AdminMapper">
+
+<!-- 로그인 -->
+<select id="adminLogin" resultType="Member">
+select * from ${tblMember} 
+where ${colGrade} = admin 
+and ${colUserid} = #{userid} 
+and ${colPassword} = #{password}
+</select>
+
+<!-- 회원 리스트 조회 -->
+<select id="MemberSelectAll" resultType="Member">
+select * from ${tblMember}
+</select>
+
+<!-- 회원 정보 수정 -->
+<update id="DetailUpdate">
+update ${tblMember} 
+set ${colUserid} = #{userid} ,${colPassword} = #{password}, ${colEmail} = #{email}, ${colNickname} = #{nickname} 
+where ${colUserid} = #{userid}
+</update>
+
+<!-- 회원 삭제 -->
+<delete id="MemberDelete">
+delete from ${tblMember}
+where ${colUserid} = #{userid}
+</delete>
+ 
+<!-- 회원 권한 수정 -->
+<update id="MemberGradeUpdate">
+update ${tblMember}
+set ${colGrade} = #{grade}
+where ${colUserid} = ${userid}
+</update>
+
+<!-- //////////////////////////////////// 밑으로 Board 영역 -->
+
+<!-- video 게시판 조회 -->
+<select id="BoardContentsSelectAll" resultType="BoardContents">
+select * from ${tblContents}
+</select>
+
+<!-- 자유 게시판 조회 -->
+<select id="BoardFreeSelectAll" resultType="BoardContents">
+select * from ${tblFree}
+</select>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

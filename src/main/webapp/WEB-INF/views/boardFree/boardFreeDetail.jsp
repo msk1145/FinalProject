@@ -38,12 +38,16 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
-			<ul class="nav navbar-nav pull-right">
-				<li class=""><a href="#">로그인</a></li>
-				<li class=""><a href="#">회원가입</a></li>
-			</ul>
+			<c:if test="${not empty member}">
+				<li><a>${member.nickname}님 </a></li>
+				<li><a href="member/memberdetail?userid=${member.userid}">회원 정보</a></li>
+			</c:if>
+			<c:if test="${empty member}">
+				<li><a id="btn-login">로그인</a></li>
+				<li><a id="btn-insert">회원가입</a></li>
+			</c:if>
 		</div>
 	</nav>
 	<div class="jumbotron text-center">
