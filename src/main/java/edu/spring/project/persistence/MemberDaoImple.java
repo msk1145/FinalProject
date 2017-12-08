@@ -43,4 +43,9 @@ public class MemberDaoImple implements MemberDao {
 		 return i;
 	}
 
+	@Override
+	public int memberdelete(String userid) {
+		return session.delete(NAMESPACE+".memberdelete", userid);
+	}
+
 }
