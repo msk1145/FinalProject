@@ -39,12 +39,33 @@
 					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			aaa
+			<div class="container">
+				<table>
+					<thead>
+						<tr>
+							<th>아이디</th>
+							<th>비밀번호</th>
+							<th>이메일</th>
+							<th>닉네임</th>
+							<th>등급</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach var="m" items="${member}">
+						<tr>
+							<td><a href="memberdetail?userid=${m.userid}">${m.userid}</a></td>
+							<td>${m.password}</td>
+							<td>${m.email}</td>
+							<td>${m.nickname}</td>
+							<td>${m.grade}</td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 

@@ -27,8 +27,8 @@ import edu.spring.project.service.ReplyContentsService;
 public class BoardController {
 	public static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
-	private static final String UPLOAD_PATH_IMAGE = "C:\\";
-	private static final String UPLOAD_PATH_MOVIE = "C:\\";
+	private static final String UPLOAD_PATH_IMAGE = "C:\\Study";
+	private static final String UPLOAD_PATH_MOVIE = "C:\\Study";
 
 	@Autowired
 	BoardContentsService boardConService;
