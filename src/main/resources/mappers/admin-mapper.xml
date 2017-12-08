@@ -12,9 +12,15 @@ and ${colUserid} = #{userid}
 and ${colPassword} = #{password}
 </select>
 
+<!-- 회원 상세정보 조회 -->
+<select id="MemberSelectById" resultType="Member">
+select * from ${tblMember}
+where ${colUserid} = #{userid}
+</select>
+
 <!-- 회원 리스트 조회 -->
 <select id="MemberSelectAll" resultType="Member">
-select * from ${tblMember}
+select * from ${tblMember} where ${colGrade} = 'guest'
 </select>
 
 <!-- 회원 정보 수정 -->
@@ -34,7 +40,7 @@ where ${colUserid} = #{userid}
 <update id="MemberGradeUpdate">
 update ${tblMember}
 set ${colGrade} = #{grade}
-where ${colUserid} = ${userid}
+where ${colUserid} = #{userid}
 </update>
 
 

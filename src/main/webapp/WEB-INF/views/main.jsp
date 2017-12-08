@@ -27,6 +27,7 @@
 			<ul class="nav navbar-nav pull-right">
 				<c:if test="${not empty member}">
 					<li><a>${member.nickname}님 </a></li>
+					<li><a href="member/memberlogout">로그아웃</a></li>
 					<li><a href="member/memberdetail?userid=${member.userid}">회원
 							정보</a></li>
 				</c:if>

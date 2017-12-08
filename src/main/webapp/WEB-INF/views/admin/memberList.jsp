@@ -42,10 +42,12 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
+			
 			<div class="container">
-				<table>
+				<h2 class="text-center">회원 리스트</h2>
+				<table class="table table-striped table-hover">
 					<thead>
-						<tr>
+						<tr class="warning">
 							<th>아이디</th>
 							<th>비밀번호</th>
 							<th>이메일</th>

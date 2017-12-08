@@ -29,4 +29,19 @@ public class AdminServiceImple implements AdminService {
 		return dao.memberList();
 	}
 
+	@Override
+	public Member memberDetail(String userid) {
+		return dao.memberDetail(userid);
+	}
+
+	@Override
+	public int memberUpdate(Member m) {
+		return dao.memberUpdate(m);
+	}
+
+	@Override
+	public int memberGradeUpdate(String userid, String grade) {
+		return dao.memberGradeUpdate(userid, grade);
+	}
+
 }

@@ -1,5 +1,6 @@
 package edu.spring.project.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,25 @@ public class AdminDaoImple implements AdminDao {
 	@Override
 	public List<Member> memberList() {
 		return session.selectList(NAMESPACE + ".MemberSelectAll");
+	}
+
+	@Override
+	public Member memberDetail(String userid) {
+		return session.selectOne(NAMESPACE + ".MemberSelectById", userid);
+	}
+
+	@Override
+	public int memberUpdate(Member m) {
+		
+		return session.update(NAMESPACE + ".DetailUpdate", m);
+	}
+
+	@Override
+	public int memberGradeUpdate(String userid, String grade) {
+		Map<String, String> args = new HashMap<>();
+		args.put("userid", userid);
+		args.put("grade", grade);
+		return session.update(NAMESPACE + ".MemberGradeUpdate", args);
 	}
 
 }
