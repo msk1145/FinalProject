@@ -65,7 +65,14 @@ public class MemberController {
 		}else {
 			model.addAttribute("bool", 2);
 		}
-		
 	}
+	
+	@RequestMapping(value="/memberdelete" , method=RequestMethod.GET)
+	public String memberdelete(String userid, Model model, HttpServletRequest request) {
+		service.memberdelete(userid);
+		request.getSession().removeAttribute("member");
+		return "redirect:/";
+	}
+	
 	
 }

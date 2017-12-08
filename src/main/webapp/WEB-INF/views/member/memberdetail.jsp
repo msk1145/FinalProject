@@ -20,6 +20,7 @@
 
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 </head>
 <body>
 <c:if test="${bool == 1}">
@@ -29,22 +30,16 @@ $(function(){
 });
 </script>
 </c:if>
-<c:if test="${bool == 0}">
-<script>
-$(function(){
-	alert('수정 실패');
-});
-</script>
-</c:if>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/project/">Home</a>
-			</div>
-			<ul class="nav navbar-nav pull-right">
-				<li class=""><a href="memberlogin">로그인</a></li>
-				<li class=""><a href="memberinsert">회원가입</a></li>
-			</ul>
+			<c:if test="${not empty member}">
+				<li><a>${member.nickname}님 </a></li>
+				<li><a href="member/memberdetail?userid=${member.userid}">회원 정보</a></li>
+			</c:if>
+			<c:if test="${empty member}">
+				<li><a id="btn-login">로그인</a></li>
+				<li><a id="btn-insert">회원가입</a></li>
+			</c:if>
 		</div>
 	</nav>
 	<div class="jumbotron text-center">
@@ -53,15 +48,15 @@ $(function(){
 	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=movie"
 					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=drama"
 					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=animation"
 					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=variety"
 					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href=""
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
@@ -79,8 +74,8 @@ $(function(){
 					<label for="nickname" class="control-label">닉네임</label><br/>
 					<input type="text" value="${member.nickname}" name="nickname" id="nickname" class="form-control" placeholder="NickName"><br/> <br/>
 					<button type="submit" class="btn btn-success">수정</button>
-					<button class="btn btn-danger" id="btn-delete">계정 삭제</button>
 				</form>
+				<button class="btn btn-danger" id="btn-delete">계정 삭제</button>
 			</div>
 		</div>
 	</div>
@@ -90,7 +85,7 @@ $(function(){
 	$('#btn-delete').click(function(){
 		var check = confirm("정말 삭제 하시겠습니까");
 		if(check){
-			location = '/memberdelete?userid='+ $('#userid').val();
+			location = '/project/member/memberdelete?userid='+ $('#userid').val();
 		}
 	});
 });

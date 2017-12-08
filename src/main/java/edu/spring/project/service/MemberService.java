@@ -19,4 +19,7 @@ public interface MemberService {
 	// 회원 정보 수정
 	Member updateDetail(Member m);
 	
+	// 회원 탈퇴
+	int memberdelete(String userid);
+	
 }

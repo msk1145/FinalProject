@@ -29,15 +29,15 @@
 	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=movie"
 					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=drama"
 					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=animation"
 					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=variety"
 					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href=""
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
