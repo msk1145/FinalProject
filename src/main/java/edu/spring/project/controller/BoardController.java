@@ -69,7 +69,7 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
-	public void boardinsert(MultipartFile uploadimage, MultipartFile uploadmovie, Model model) {
+	public void boardinsert(BoardContents category, MultipartFile uploadimage, MultipartFile uploadmovie, Model model) {
 		
 
 		String resultimage = saveImageFile(uploadimage);
