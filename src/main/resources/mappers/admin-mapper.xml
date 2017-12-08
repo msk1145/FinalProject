@@ -10,8 +10,6 @@ select * from ${tblMember}
 where ${colGrade} = 'admin'
 and ${colUserid} = #{userid}
 and ${colPassword} = #{password}
-
-
 </select>
 
 <!-- 회원 리스트 조회 -->
