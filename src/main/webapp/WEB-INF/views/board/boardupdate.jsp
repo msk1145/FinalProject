@@ -59,11 +59,11 @@
 		 	<form>
 				  <div class="form-group">
 				    <label for="title">제목</label>
-				    <input type="text" class="form-control" id="title" value="title">
+				    <input type="text" class="form-control" id="title" value="${boardContents.title}">
 				  </div>
 				  <div class="form-group">
 				    <label for="category">장르</label>
-				    <input type="text" class="form-control" id="category" value="category">
+				    <input type="text" class="form-control" id="category" value="${boardContents.category}">
 				  </div>
 				   <div class="form-group">
 				    <label for="userid">운영자</label>
@@ -71,11 +71,14 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="content">내용</label>
-				   <textarea rows="5" cols="200" class="form-control" id="content">내용들</textarea>
+				   <textarea rows="5" cols="200" class="form-control" id="content"
+				   		style="resize:none;">${boardContents.content}</textarea>
 				  </div>
 				  
-				  <button type="submit" class="btn btn-success">수정완료</button>
-				  <a class="btn btn-danger">삭제</a>
+				  <div class="form-group text-right">
+				  	<button type="submit" class="btn btn-success">수정완료</button>
+				  	<a class="btn btn-danger">삭제</a>
+				  </div>
 			</form>
 			<div style="border-bottom: 2px solid Gainsboro; padding: 10px;"></div>
 

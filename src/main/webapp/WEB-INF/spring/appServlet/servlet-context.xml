@@ -21,10 +21,21 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+
+
 	<context:annotation-config />
 	
 	
+	<!-- 브라우저가 multiport/form-data로 보내는 파일을 처리하기 위한
+	MultipartResolver 클래스를 bean으로 등록 -->
+	<beans:bean id="multipartResolver"
+		class = "org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</beans:bean>
 	
+	
+	
+	
+
 	<context:component-scan base-package="edu.spring.project">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
