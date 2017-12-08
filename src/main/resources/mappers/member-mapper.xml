@@ -29,4 +29,21 @@ set ${colPassword} = #{password}, ${colEmail} = #{email}, ${colNickname} = #{nic
 where ${colUserid} = #{userid} 
 </update>
 
+<delete id="memberdelete">
+delete from ${tblMember}
+where ${colUserid} = #{userid}
+</delete>
+
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+

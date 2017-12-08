@@ -36,15 +36,15 @@
 	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="board/boardList"
+				<li class="list-group-item"><a href="board/boardmain?category=movie"
 					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=drama"
 					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=animation"
 					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="board/boardmain?category=variety"
 					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href=""
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
@@ -54,18 +54,18 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr class="text-danger">
-							<th class="text-center col-md-1">메뉴1</th>
-							<th class="text-center col-md-5">메뉴2</th>
-							<th class="text-center col-md-3">메뉴3</th>
-							<th class="text-center col-md-3">메뉴4</th>
+							<th class="text-center col-md-1">글번호</th>
+							<th class="text-center col-md-5">제목</th>
+							<th class="text-center col-md-3">글쓴이</th>
+							<th class="text-center col-md-3">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="text-center text-info">
-							<td>값1</td>
-							<td>값2</td>
-							<td>값3</td>
-							<td>값4</td>
+							<td>bno</td>
+							<td>title</td>
+							<td>userid</td>
+							<td>count</td>
 						</tr>
 					</tbody>
 				</table>
@@ -75,18 +75,18 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr class="text-danger">
-							<th class="text-center col-md-1">메뉴1</th>
-							<th class="text-center col-md-5">메뉴2</th>
-							<th class="text-center col-md-3">메뉴3</th>
-							<th class="text-center col-md-3">메뉴4</th>
+							<th class="text-center col-md-1">글번호</th>
+							<th class="text-center col-md-5">제목</th>
+							<th class="text-center col-md-3">글쓴이</th>
+							<th class="text-center col-md-3">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="text-center text-info">
-							<td>값1</td>
-							<td>값2</td>
-							<td>값3</td>
-							<td>값4</td>
+							<td>bno</td>
+							<td>title</td>
+							<td>userid</td>
+							<td>count</td>
 						</tr>
 					</tbody>
 				</table>
@@ -98,18 +98,18 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr class="text-danger">
-							<th class="text-center col-md-1">메뉴1</th>
-							<th class="text-center col-md-5">메뉴2</th>
-							<th class="text-center col-md-3">메뉴3</th>
-							<th class="text-center col-md-3">메뉴4</th>
+							<th class="text-center col-md-1">글번호</th>
+							<th class="text-center col-md-5">제목</th>
+							<th class="text-center col-md-3">글쓴이</th>
+							<th class="text-center col-md-3">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="text-center text-info">
-							<td>값1</td>
-							<td>값2</td>
-							<td>값3</td>
-							<td>값4</td>
+							<td>bno</td>
+							<td>title</td>
+							<td>userid</td>
+							<td>count</td>
 						</tr>
 					</tbody>
 				</table>
@@ -119,18 +119,18 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr class="text-danger">
-							<th class="text-center col-md-1">메뉴1</th>
-							<th class="text-center col-md-5">메뉴2</th>
-							<th class="text-center col-md-3">메뉴3</th>
-							<th class="text-center col-md-3">메뉴4</th>
+							<th class="text-center col-md-1">글번호</th>
+							<th class="text-center col-md-5">제목</th>
+							<th class="text-center col-md-3">글쓴이</th>
+							<th class="text-center col-md-3">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="text-center text-info">
-							<td>값1</td>
-							<td>값2</td>
-							<td>값3</td>
-							<td>값4</td>
+							<td>bno</td>
+							<td>title</td>
+							<td>userid</td>
+							<td>count</td>
 						</tr>
 					</tbody>
 				</table>
@@ -142,18 +142,18 @@
 				<table class="table table-bordered table-hover table-condensed">
 					<thead>
 						<tr class="text-danger">
-							<th class="text-center col-md-1">메뉴1</th>
-							<th class="text-center col-md-5">메뉴2</th>
-							<th class="text-center col-md-3">메뉴3</th>
-							<th class="text-center col-md-3">메뉴4</th>
+							<th class="text-center col-md-1">글번호</th>
+							<th class="text-center col-md-5">제목</th>
+							<th class="text-center col-md-3">글쓴이</th>
+							<th class="text-center col-md-3">조회수</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="text-center text-info">
-							<td>값1</td>
-							<td>값2</td>
-							<td>값3</td>
-							<td>값4</td>
+							<td>fbno</td>
+							<td>ftitle</td>
+							<td>fuserid</td>
+							<td>fcount</td>
 						</tr>
 					</tbody>
 				</table>

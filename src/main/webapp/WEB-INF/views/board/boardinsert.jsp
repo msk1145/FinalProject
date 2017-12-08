@@ -20,7 +20,7 @@
 
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
+<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 <style>
 .box {
 	margin: 0 auto;
@@ -43,8 +43,14 @@
 				<a class="navbar-brand" href="#">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
-				<li class=""><a href="#">로그인</a></li>
-				<li class=""><a href="#">회원가입</a></li>
+				<c:if test="${not empty member}">
+				<li><a>${member.nickname}님 </a></li>
+				<li><a href="member/memberdetail?userid=${member.userid}">회원 정보</a></li>
+			</c:if>
+			<c:if test="${empty member}">
+				<li><a id="btn-login">로그인</a></li>
+				<li><a id="btn-insert">회원가입</a></li>
+			</c:if>
 			</ul>
 		</div>
 	</nav>
@@ -54,15 +60,15 @@
 	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="boardmain?category=movie"
 					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="boardmain?category=drama"
 					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="boardmain?category=animation"
 					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="boardmain?category=variety"
 					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href=""
 					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
 			</ul>
 		</div>
