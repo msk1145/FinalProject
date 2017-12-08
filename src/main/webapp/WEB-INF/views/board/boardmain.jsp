@@ -47,9 +47,12 @@
 		<div class="col-md-10">
 			<div class="container">
 				<div class="row">
-					<h3>Column 1</h3>
-					<p>123213</p>
+					<div class="col-md-4 text-center">
+						<a href="board/boarddetail"><img width="200" height="280" alt="이미지가 없음" src="<c:url value='/resources/images/1.jpg'/>"></a>
+						<h4 class="text-center">title</h4>
+					</div>
 				</div>
+				<br/><br/><br/>
 			</div>
 		</div>
 
