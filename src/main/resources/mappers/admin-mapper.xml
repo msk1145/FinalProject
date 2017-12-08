@@ -7,9 +7,11 @@
 <!-- 로그인 -->
 <select id="adminLogin" resultType="Member">
 select * from ${tblMember} 
-where ${colGrade} = admin 
-and ${colUserid} = #{userid} 
+where ${colGrade} = 'admin'
+and ${colUserid} = #{userid}
 and ${colPassword} = #{password}
+
+
 </select>
 
 <!-- 회원 리스트 조회 -->
@@ -36,6 +38,7 @@ update ${tblMember}
 set ${colGrade} = #{grade}
 where ${colUserid} = ${userid}
 </update>
+
 
 <!-- //////////////////////////////////// 밑으로 Board 영역 -->
 

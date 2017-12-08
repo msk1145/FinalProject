@@ -16,7 +16,8 @@ public class AdminDaoImple implements AdminDao {
 	
 	@Override
 	public Member login(Map<String, String> map) {
-		return session.selectOne(NAMESPACE+".adminLogin",map);
+
+		return session.selectOne(NAMESPACE+".adminLogin", map);
 	}
 
 }
