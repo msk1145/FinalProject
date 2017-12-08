@@ -22,4 +22,15 @@ public interface BoardContentsDao {
 	// 게시글 삭제
 	int delete(int bno);
 	
+	// Top Movie 가져오기
+	List<BoardContents> readTopMovie();
+	
+	// Top Drama 가져오기
+	List<BoardContents> readTopDrama();
+	
+	// Top Animation 가져오기
+	List<BoardContents> readTopAnimation();
+	
+	// Top Variety 가져오기
+	List<BoardContents> readTopVariety();
 }

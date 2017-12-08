@@ -47,4 +47,27 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		return 0;
 	}
 
+	@Override
+	public List<BoardContents> selectTopMovie() {
+		return boardConDao.readTopMovie();
+	}
+
+	@Override
+	public List<BoardContents> selectTopDrama() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BoardContents> selectTopAnimation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<BoardContents> selectTopVariety() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

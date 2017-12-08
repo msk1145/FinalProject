@@ -73,12 +73,14 @@
 						</tr>
 					</thead>
 					<tbody>
+						<c:forEach var="movie" items="${topMovie}">
 						<tr class="text-center text-info">
-							<td>bno</td>
-							<td>title</td>
-							<td>userid</td>
-							<td>count</td>
+							<td>${movie.bno}</td>
+							<td>${movie.title}</td>
+							<td>admin</td>
+							<td>${movie.count}</td>
 						</tr>
+						</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -148,6 +150,7 @@
 				</table>
 			</div>
 		</div>
+		
 		<div class="col-md-10">
 			<div class="col-md-6">
 				<h2 class="text-center">자유게시판</h2>

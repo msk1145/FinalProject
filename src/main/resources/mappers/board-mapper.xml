@@ -3,9 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.spring.project.mappers.BoardMapper">
+	<!-- 게시물 정보 -->
 	<select id="selectBybno" resultType="BoardContents">
 		select * from ${tblContents} where ${colBno} = #{bno}
 	</select>
+	
+	<!-- 조회수 TOP5 카테고리 게시물 가져오기 -->
+	<select id="selectTopMovie" resultType="BoardContents">
+		select rownum rn, a.*
+		from (
+   			select * 
+   			from ${tblContents} 
+   			where ${colCategory} = 'movie'
+   			order by count desc
+		) a
+		where rownum between 1 and 5
+	</select>
+	
+	
 </mapper>
 
 
