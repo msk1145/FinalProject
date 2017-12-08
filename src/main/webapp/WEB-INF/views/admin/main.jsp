@@ -30,7 +30,7 @@
 		</div>
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>Main</h2>
+		<h2>AdminMain</h2>
 	</div>
 	<div>
 		<div class="col-md-2">
@@ -39,16 +39,12 @@
 					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
+
 			</ul>
 		</div>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
+			
 		</div>
 
 
