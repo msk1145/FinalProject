@@ -39,6 +39,7 @@ set ${colGrade} = #{grade}
 where ${colUserid} = ${userid}
 </update>
 
+
 <!-- //////////////////////////////////// 밑으로 Board 영역 -->
 
 <!-- video 게시판 조회 -->
