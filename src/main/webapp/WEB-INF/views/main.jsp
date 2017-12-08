@@ -16,7 +16,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/project">Home</a>
+				<a class="navbar-brand" href="/project/">Home</a>
 			</div>
 			<ul class="nav navbar-nav pull-right">
 			<c:if test="${not empty member}">
