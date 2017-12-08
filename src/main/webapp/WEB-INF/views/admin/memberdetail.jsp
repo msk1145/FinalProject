@@ -55,8 +55,6 @@
 				<input type="submit" value="수정" />
 			</form>
 		</div>
-
-
 	</div>
 </body>
 </html>
