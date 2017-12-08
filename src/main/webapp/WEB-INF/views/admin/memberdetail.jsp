@@ -43,8 +43,17 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			aaa
+			<form action="memberdetail" method="post">
+				<input type="text" name="userid" value="${member.userid}"/>
+				<input type="text" name="password" value="${member.password}"/>
+				<input type="text" name="email" value="${member.email}"/>
+				<input type="text" name="nickname" value="${member.nickname}"/>
+				<select name="grade">
+					<option value="guest">회원</option>
+					<option value="admin">관리자</option>
+				</select>
+				<input type="submit" value="수정" />
+			</form>
 		</div>
 
 

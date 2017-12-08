@@ -27,8 +27,8 @@ import edu.spring.project.service.ReplyContentsService;
 public class BoardController {
 	public static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
-	private static final String UPLOAD_PATH_IMAGE = "C:\\Users\\user\\git\\FinalProject1\\src\\main\\webapp\\resources\\images";
-	private static final String UPLOAD_PATH_MOVIE = "C:\\Users\\user\\git\\FinalProject1\\src\\main\\webapp\\resources\\video";
+	private static final String UPLOAD_PATH_IMAGE = "C:\\";
+	private static final String UPLOAD_PATH_MOVIE = "C:\\";
 
 	@Autowired
 	BoardContentsService boardConService;
@@ -69,26 +69,24 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
-	public void boardinsert(MultipartFile uploadFile, Model model) {
-		logger.info("upload() POST 호출");
-		logger.info("파일이름: {}", uploadFile.getOriginalFilename());
-		logger.info("파일크기: {}", uploadFile.getSize());
+	public void boardinsert(MultipartFile uploadimage, MultipartFile uploadmovie, Model model) {
+		
 
-		String result = saveFile(uploadFile);
-		logger.info("result :" + result);
-		if (result != null) {
-			model.addAttribute("result", result);
+		String resultimage = saveImageFile(uploadimage);
+		String resultmovie = saveMovieFile(uploadmovie);
+		if (resultimage != null && resultmovie != null) {
+			model.addAttribute("resultimages", resultimage);
+			model.addAttribute("resultmovies", resultmovie);
 		} else {
 
 		}
 
 	}
 
-	// 파일 저장객체 생성
-	private String saveFile(MultipartFile file) {
-		UUID uuid = UUID.randomUUID();
-		logger.info(uuid + "");
-		String saveName = uuid + "_" + file.getOriginalFilename();
+	// 이미지 파일 저장객체 생성
+	private String saveImageFile(MultipartFile file) {
+		
+		String saveName = file.getOriginalFilename();
 
 		// 저장할 File 객체를 생성
 		File saveFile = new File(UPLOAD_PATH_IMAGE, saveName);
@@ -104,6 +102,28 @@ public class BoardController {
 
 		return saveName;
 	}
+	
+	// 영화파일 저장객체를 생성
+	private String saveMovieFile(MultipartFile file) {
+
+		String saveName = file.getOriginalFilename();
+
+		// 저장할 File 객체를 생성
+		File saveFile = new File(UPLOAD_PATH_MOVIE, saveName);
+
+		// 생성된 파일 객체를 저장
+		try {
+			FileCopyUtils.copy(file.getBytes(), saveFile);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+
+		return saveName;
+	}
+	
+	
 	
 	@RequestMapping(value="/boardmain",method=RequestMethod.GET)
 	public void boardmain(String category) {
