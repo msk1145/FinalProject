@@ -56,20 +56,17 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 
 	@Override
 	public List<BoardContents> readTopDrama() {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(NAMESPACE + ".selectTopDrama");
 	}
 
 	@Override
 	public List<BoardContents> readTopAnimation() {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(NAMESPACE +".selectTopAnimation");
 	}
 
 	@Override
 	public List<BoardContents> readTopVariety() {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectList(NAMESPACE + ".selectTopVariety");
 	}
 
 }

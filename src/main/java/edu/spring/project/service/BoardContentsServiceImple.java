@@ -54,20 +54,17 @@ public class BoardContentsServiceImple implements BoardContentsService {
 
 	@Override
 	public List<BoardContents> selectTopDrama() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardConDao.readTopDrama();
 	}
 
 	@Override
 	public List<BoardContents> selectTopAnimation() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardConDao.readTopAnimation();
 	}
 
 	@Override
 	public List<BoardContents> selectTopVariety() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardConDao.readTopVariety();
 	}
 
 }

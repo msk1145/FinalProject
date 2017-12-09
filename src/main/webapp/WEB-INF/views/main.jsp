@@ -42,154 +42,169 @@
 		<h2>Main</h2>
 	</div>
 	<div>
+		
 		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a
-					href="board/boardmain?category=movie"
-					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a
-					href="board/boardmain?category=drama"
-					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a
-					href="board/boardmain?category=animation"
-					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a
-					href="board/boardmain?category=variety"
-					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href=""
-					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
-			</ul>
-		</div>
-		<div class="col-md-10">
-			<div class="col-md-6">
-				<h2 class="text-center">영화</h2>
-				<table class="table table-bordered table-hover table-condensed">
-					<thead>
-						<tr class="text-danger">
-							<th class="text-center col-md-1">글번호</th>
-							<th class="text-center col-md-5">제목</th>
-							<th class="text-center col-md-3">글쓴이</th>
-							<th class="text-center col-md-3">조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach var="movie" items="${topMovie}">
-						<tr class="text-center text-info">
-							<td>${movie.bno}</td>
-							<td>${movie.title}</td>
-							<td>admin</td>
-							<td>${movie.count}</td>
-						</tr>
-						</c:forEach>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-md-6">
-				<h2 class="text-center">드라마</h2>
-				<table class="table table-bordered table-hover table-condensed">
-					<thead>
-						<tr class="text-danger">
-							<th class="text-center col-md-1">글번호</th>
-							<th class="text-center col-md-5">제목</th>
-							<th class="text-center col-md-3">글쓴이</th>
-							<th class="text-center col-md-3">조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="text-center text-info">
-							<td>bno</td>
-							<td>title</td>
-							<td>userid</td>
-							<td>count</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="col-md-10">
-			<div class="col-md-6">
-				<h2 class="text-center">애니메이션</h2>
-				<table class="table table-bordered table-hover table-condensed">
-					<thead>
-						<tr class="text-danger">
-							<th class="text-center col-md-1">글번호</th>
-							<th class="text-center col-md-5">제목</th>
-							<th class="text-center col-md-3">글쓴이</th>
-							<th class="text-center col-md-3">조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="text-center text-info">
-							<td>bno</td>
-							<td>title</td>
-							<td>userid</td>
-							<td>count</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-md-6">
-				<h2 class="text-center">예능</h2>
-				<table class="table table-bordered table-hover table-condensed">
-					<thead>
-						<tr class="text-danger">
-							<th class="text-center col-md-1">글번호</th>
-							<th class="text-center col-md-5">제목</th>
-							<th class="text-center col-md-3">글쓴이</th>
-							<th class="text-center col-md-3">조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="text-center text-info">
-							<td>bno</td>
-							<td>title</td>
-							<td>userid</td>
-							<td>count</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-md-12">
+				<ul class="list-group">
+					<li class="list-group-item"><a
+						href="board/boardmain?category=movie"
+						class="list-group-item list-group-item-action btn-info">영화</a></li>
+					<li class="list-group-item"><a
+						href="board/boardmain?category=drama"
+						class="list-group-item list-group-item-action btn-info">드라마</a></li>
+					<li class="list-group-item"><a
+						href="board/boardmain?category=animation"
+						class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
+					<li class="list-group-item"><a
+						href="board/boardmain?category=variety"
+						class="list-group-item list-group-item-action btn-info">예능</a></li>
+					<li class="list-group-item"><a href=""
+						class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
+				</ul>
 			</div>
 		</div>
 		
 		<div class="col-md-10">
-			<div class="col-md-6">
-				<h2 class="text-center">자유게시판</h2>
-				<table class="table table-bordered table-hover table-condensed">
-					<thead>
-						<tr class="text-danger">
-							<th class="text-center col-md-1">글번호</th>
-							<th class="text-center col-md-5">제목</th>
-							<th class="text-center col-md-3">글쓴이</th>
-							<th class="text-center col-md-3">조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr class="text-center text-info">
-							<td>fbno</td>
-							<td>ftitle</td>
-							<td>fuserid</td>
-							<td>fcount</td>
-						</tr>
-						<tr class="text-center text-info">
-							<td>fbno</td>
-							<td>ftitle</td>
-							<td>fuserid</td>
-							<td>fcount</td>
-						</tr>
-						<tr class="text-center text-info">
-							<td>fbno</td>
-							<td>ftitle</td>
-							<td>fuserid</td>
-							<td>fcount</td>
-						</tr>
-						<tr class="text-center text-info">
-							<td>fbno</td>
-							<td>ftitle</td>
-							<td>fuserid</td>
-							<td>fcount</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<h2 class="text-center">영화</h2>
+					<table class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr class="text-danger">
+								<th class="text-center col-md-1">글번호</th>
+								<th class="text-center col-md-5">제목</th>
+								<th class="text-center col-md-3">글쓴이</th>
+								<th class="text-center col-md-3">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="movie" items="${topMovie}">
+								<tr class="text-center text-info"
+								 onClick="location.href='http://www.daum.net/'"
+								 style="cursor: pointer;">
+									<td>${movie.bno}</td>
+									<td>${movie.title}</td>
+									<td>admin</td>
+									<td>${movie.count}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-6">
+					<h2 class="text-center">드라마</h2>
+					<table class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr class="text-danger">
+								<th class="text-center col-md-1">글번호</th>
+								<th class="text-center col-md-5">제목</th>
+								<th class="text-center col-md-3">글쓴이</th>
+								<th class="text-center col-md-3">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="drama" items="${topDrama}">
+								<tr class="text-center text-info">
+									<td>${drama.bno}</td>
+									<td>${drama.title}</td>
+									<td>admin</td>
+									<td>${drama.count}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<h2 class="text-center">애니메이션</h2>
+					<table class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr class="text-danger">
+								<th class="text-center col-md-1">글번호</th>
+								<th class="text-center col-md-5">제목</th>
+								<th class="text-center col-md-3">글쓴이</th>
+								<th class="text-center col-md-3">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="animation" items="${topAnimation}">
+								<tr class="text-center text-info">
+									<td>${animation.bno}</td>
+									<td>${animation.title}</td>
+									<td>admin</td>
+									<td>${animation.count}</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-6">
+					<h2 class="text-center">예능</h2>
+					<table class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr class="text-danger">
+								<th class="text-center col-md-1">글번호</th>
+								<th class="text-center col-md-5">제목</th>
+								<th class="text-center col-md-3">글쓴이</th>
+								<th class="text-center col-md-3">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="variety" items="${topVariety}">
+								<tr class="text-center text-info">
+									<td>${variety.bno}</td>
+									<td>${variety.title}</td>
+									<td>admin</td>
+									<td>${variety.count}</td> 
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		
+			<div class="col-md-12">
+				<div class="col-md-6">
+					<h2 class="text-center">자유게시판</h2>
+					<table class="table table-bordered table-hover table-condensed">
+						<thead>
+							<tr class="text-danger">
+								<th class="text-center col-md-1">글번호</th>
+								<th class="text-center col-md-5">제목</th>
+								<th class="text-center col-md-3">글쓴이</th>
+								<th class="text-center col-md-3">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center text-info">
+								<td>fbno</td>
+								<td>ftitle</td>
+								<td>fuserid</td>
+								<td>fcount</td>
+							</tr>
+							<tr class="text-center text-info">
+								<td>fbno</td>
+								<td>ftitle</td>
+								<td>fuserid</td>
+								<td>fcount</td>
+							</tr>
+							<tr class="text-center text-info">
+								<td>fbno</td>
+								<td>ftitle</td>
+								<td>fuserid</td>
+								<td>fcount</td>
+							</tr>
+							<tr class="text-center text-info">
+								<td>fbno</td>
+								<td>ftitle</td>
+								<td>fuserid</td>
+								<td>fcount</td>
+							</tr>
+						</tbody>
+					</table>
+					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</div>
 			</div>
 		</div>
 	</div>

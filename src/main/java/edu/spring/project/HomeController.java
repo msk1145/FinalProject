@@ -23,8 +23,14 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
-		List<BoardContents> list = boardConService.selectTopMovie();
-		model.addAttribute("topMovie", list);
+		List<BoardContents> movie = boardConService.selectTopMovie();
+		List<BoardContents> drama = boardConService.selectTopDrama();
+		List<BoardContents> animation = boardConService.selectTopAnimation();
+		List<BoardContents> variety = boardConService.selectTopVariety();
+		model.addAttribute("topMovie", movie);
+		model.addAttribute("topDrama", drama);
+		model.addAttribute("topAnimation", animation);
+		model.addAttribute("topVariety", variety);
 		return "main";
 	}
 	
