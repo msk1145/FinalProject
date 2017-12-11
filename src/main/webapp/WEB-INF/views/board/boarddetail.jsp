@@ -22,6 +22,7 @@
 <!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
+
 <style>
 .row{
 	margin: 10px;
@@ -32,7 +33,7 @@
 	border-bottom: 2px solid Gainsboro; 
 	background-color: #FFFFE9;
 }
-.reply{
+#replyList{
  border-bottom: 1px dotted Gainsboro;
  margin: 10px;"
 }
@@ -84,7 +85,7 @@
 						 	<div class="col-md-10">
 						 		${boardContents.title} | ${boardContents.category}
 						 	</div>
-						 	<div class="col-md-2 text-right">
+						 	<input id="bno" type="hidden" value="${boardContents.bno}"/>						 	<div class="col-md-2 text-right">
 						 		<a class="btn btn-primary">목록</a>
 						 	</div>
 						</div>
@@ -126,17 +127,22 @@
 				<div class="reply">
 					<div class="replyTop">
 						<div class="row text-danger">
-						 	<div class="col-md-12">
-						 		댓글목록, 갯수, 조회수
+						 	<div class="col-md-6">
+						 		댓글목록
 						 	</div>
+						 	<c:if test="${empty member}">
+							 	<div class="col-md-6 text-right">
+							 		<button class="btn btn-danger" id="reply-login">로그인</button>
+							 	</div>
+						 	</c:if>
 						</div>
 						
 						<div class="row" style="border-bottom: 1px dotted Gainsboro; font-size: 15px; background: #f2f2f2;">
 						 	<div class="col-md-12">
 						 		
-						 		<c:forEach var="replyContent" items="${replyConList}">
-						 		<div class="reply">
-							 		<span>
+						 		<%-- <c:forEach var="replyContent" items="${replyConList}"> --%>
+						 		<div id="reply">
+							 		<%-- <span>
 							 			${replyContent.userid}
 							 		</span>
 							 		
@@ -145,52 +151,42 @@
 							 				${regdate}
 							 		</span>
 							 		<br/>
-							 		<span class="replyList">
+							 		<span id="replyList">
 							 			${replyContent.content}
 							 		</span>
-							 		<br/>
+							 		<br/> --%>
 						 		</div>
-								</c:forEach>							 		
+								<%-- </c:forEach> --%>					 		
 						 	</div>
+						 	<c:if test="${not empty member}">
+							 	<div class="row">
+									<div class="col-md-11">
+										<div class="form-group">
+								   			<label for="replyContent">댓글내용</label>
+								   			<textarea rows="5" cols="100" class="form-control" name="replyContent"
+								   					 id="replyContent" 
+								   				style="resize:none;"></textarea>
+								   			<input type="hidden" id="loginId" value="${member.userid}" />
+								  		</div>
+							  		</div>
+									<div class="col-md-1">
+										<div class="form-group">
+								   			<label for="reply-register"></label>
+								   			<button
+											class="list-group-item list-group-item-action btn-info"
+											id="reply-register">댓글 등록</button>
+								  		</div>
+							  		</div>
+						  		</div>
+					  		</c:if>
 						</div>
-							<div class="row">
-								<div class="col-md-11">
-									<div class="form-group">
-							   			<label for="replyContent">댓글내용</label>
-							   			<textarea rows="5" cols="100" class="form-control" name="replyContent"
-							   					 id="replyContent" 
-							   				style="resize:none;"></textarea>
-							  		</div>
-						  		</div>
-								<div class="col-md-1">
-									<div class="form-group">
-							   			<label for="reply-register"></label>
-							   			<button
-										class="list-group-item list-group-item-action btn-info"
-										id="reply-register">댓글 등록</button>
-							  		</div>
-						  		</div>
-					  		</div>		  		
+							 		
 					</div>
 				</div>
 			</div>
 			
 		</div>
-	<script>
-	$(document).ready(function() {
-		var bno = '${boardContents.bno}';
-		console.log(bno);
-		
-		function getAllReplies() {
-			$.getJSON('project/replies/all' + bno,
-					function(data) {
-				
-			});
-		}
-		
-	});
-	</script>
-		
-		
+	
+		<script type="text/javascript" src="<c:url value='/resources/js/replyAjax.js'/>"></script>
 </body>
 </html>
