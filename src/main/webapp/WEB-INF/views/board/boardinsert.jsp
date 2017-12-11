@@ -84,12 +84,12 @@
 					<label for="title">게시판 선택</label>
 				</div>
 				<div class="col-md-11">
-					<select class="form-control" >
-						<option>영화</option>
-						<option>애니메이션</option>
-						<option>드라마</option>
-						<option>예능</option>
-						<option>자유게시판</option>
+					<select class="form-control" name="category" >
+						<option value="movie">영화</option>
+						<option value="animation">애니메이션</option>
+						<option value="drama">드라마</option>
+						<option value="variety">예능</option>
+						<option value="free">자유게시판</option>
 					</select>
 				</div>
 				<br/>
@@ -116,10 +116,13 @@
 				
 				
 				<div class="col-md-12">
-				<input class="pull-right" type="file" name="uploadimage" placeholder="이미지파일 선택" />
+				<span class="pull-right">이미지파일</span>
+				<input class="pull-right" type="file" name="imageFile" placeholder="이미지파일 선택"/>
 				</div>
+				
 				<div class="col-md-12">
-				<input class="pull-right" type="file" name="uploadmovie" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
+				<span class="pull-right">동영상파일</span>
+				<input class="pull-right" type="file" name="videoFile" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
 				</div>
 				
 				<br/><br/><br/>

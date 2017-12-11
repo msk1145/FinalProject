@@ -32,7 +32,7 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	@Override
 	public int insert(BoardContents b) {
 		// TODO Auto-generated method stub
-		return 0;
+		return boardConDao.insert(b);
 	}
 
 	@Override

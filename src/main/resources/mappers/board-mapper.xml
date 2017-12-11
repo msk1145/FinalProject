@@ -52,6 +52,12 @@
 		) a
 		where rownum between 1 and 5
 	</select>
+	
+	<insert id="insertContents">
+	insert into ${tblContents} (${colTitle}, ${colContent}, ${colRegdate}, ${colCategory}, ${colVideopath}, ${colImagepath})
+	values (#{title}, #{content}, sysdate, #{category}, #{videoPath}, #{imagePath})
+	
+	</insert>
 </mapper>
 
 

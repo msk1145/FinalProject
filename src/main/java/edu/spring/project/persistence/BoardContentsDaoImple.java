@@ -34,7 +34,7 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 	@Override
 	public int insert(BoardContents b) {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(NAMESPACE+".insertContents", b);
 	}
 
 	@Override
