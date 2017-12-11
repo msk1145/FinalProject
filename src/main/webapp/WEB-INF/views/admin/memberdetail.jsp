@@ -25,7 +25,10 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/admin/main">Home</a>
+			</div>
+			<div class="navbar-header pull-right">
+				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
 	</nav>
@@ -82,10 +85,11 @@
 						<input type="submit" class="btn btn-info" value="등급 수정" />
 					</div>
 				</form>
+					<div class="form-group">
+						<a href="memberdelete?userid=${member.userid}" class="btn btn-danger">삭제하기</a>
+					</div>
 			</div>
 		</div>
-
-
 	</div>
 	
 </body>

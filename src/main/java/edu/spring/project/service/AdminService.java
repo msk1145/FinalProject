@@ -16,4 +16,6 @@ public interface AdminService {
 	int memberUpdate(Member m);
 	// 회원 등급 업데이트
 	int memberGradeUpdate(String userid, String grade);
+	// 회원 삭제
+	int memberDelete(String userid);
 }

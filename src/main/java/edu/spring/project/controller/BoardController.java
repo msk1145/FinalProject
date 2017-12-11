@@ -1,7 +1,7 @@
 package edu.spring.project.controller;
 
 import java.util.List;
-
+import java.util.Map;
 import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.accept.ContentNegotiationStrategy;
@@ -29,8 +30,10 @@ import edu.spring.project.service.ReplyContentsService;
 public class BoardController {
 	public static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
+
 	private static final String UPLOAD_PATH_IMAGE = "C:\\Users\\scott\\git\\FinalProject\\src\\main\\webapp\\resources\\images";
 	private static final String UPLOAD_PATH_MOVIE = "C:\\Users\\scott\\git\\FinalProject\\src\\main\\webapp\\resources\\video";
+
 
 	@Autowired
 	BoardContentsService boardConService;
@@ -135,9 +138,10 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="/boardmain",method=RequestMethod.GET)
-	public void boardmain(String category) {
-		System.out.println(category);
-		
+	public void boardmain(String category, Model model) {
+		List<BoardContents> boardlist = boardConService.read(category);
+		System.out.println(boardlist.get(0).getImagePath());
+		model.addAttribute("board", boardlist);
 	}
 	
 }

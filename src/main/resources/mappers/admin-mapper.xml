@@ -20,7 +20,7 @@ where ${colUserid} = #{userid}
 
 <!-- 회원 리스트 조회 -->
 <select id="MemberSelectAll" resultType="Member">
-select * from ${tblMember} where ${colGrade} = 'guest'
+select * from ${tblMember}
 </select>
 
 <!-- 회원 정보 수정 -->

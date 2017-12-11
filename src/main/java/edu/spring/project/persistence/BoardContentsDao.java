@@ -8,7 +8,7 @@ import edu.spring.project.domain.BoardContents;
 public interface BoardContentsDao {
 	
 	// 게시글 전체 리스트 출력
-	List<BoardContents> read();
+	List<BoardContents> read(String category);
 	
 	// 한 게시글 출력
 	BoardContents read(int bno);

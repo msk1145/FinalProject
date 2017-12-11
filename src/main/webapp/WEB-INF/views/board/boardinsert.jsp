@@ -31,11 +31,6 @@
 
 
 </head>
-
-
-
-
-
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
@@ -114,7 +109,6 @@
 				</div>
 				<br />
 				
-				
 				<div class="col-md-12">
 				<span class="pull-right">이미지파일</span>
 				<input class="pull-right" type="file" name="imageFile" placeholder="이미지파일 선택"/>
@@ -124,16 +118,11 @@
 				<span class="pull-right">동영상파일</span>
 				<input class="pull-right" type="file" name="videoFile" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
 				</div>
-				
 				<br/><br/><br/>
 				<hr/>
-				
-				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
-				
+				<div><button type="submit" class="btn btn-default pull-right">등록</button></div>
 			</form>
-
 		</div>
-
 	</div>
 	
 	

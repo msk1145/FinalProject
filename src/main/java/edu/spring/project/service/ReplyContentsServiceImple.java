@@ -1,6 +1,7 @@
 package edu.spring.project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 	
 	@Autowired
 	private ReplyContentsDao replyConDao;
+	
 	
 	@Override
 	public List<ReplyContents> read(int bno) {
@@ -41,4 +43,5 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 		return 0;
 	}
 
+	
 }

@@ -32,6 +32,10 @@
 	border-bottom: 2px solid Gainsboro; 
 	background-color: #FFFFE9;
 }
+.reply{
+ border-bottom: 1px dotted Gainsboro;
+ margin: 10px;"
+}
 </style>
 </head>
 <body>
@@ -105,7 +109,7 @@
 					</div>
 					<div class="row" style="border-bottom: 2px solid Gainsboro;">
 					 	<div class="col-md-12">
-					 	<video src="../resources/video/sample.mp4" controls>이 브라우저에서는 실행 불가합니다.</video>
+					 	<video src="<c:url value='/resources/video/sample.mp4'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
 					 	<br/>
 					 		${boardContents.content}
 					 	</div>
@@ -127,39 +131,65 @@
 						 	</div>
 						</div>
 						
-						<div class="row" style="border-bottom: 1px dotted Gainsboro;">
+						<div class="row" style="border-bottom: 1px dotted Gainsboro; font-size: 15px; background: #f2f2f2;">
 						 	<div class="col-md-12">
+						 		
 						 		<c:forEach var="replyContent" items="${replyConList}">
-						 			${replyContent.content}
-						 		</c:forEach>
+						 		<div class="reply">
+							 		<span>
+							 			${replyContent.userid}
+							 		</span>
+							 		
+							 		<span style="color: gray; font-size: 10px; margin: 10px;">
+							 			<fmt:formatDate var="regdate" value="${replyContent.regdate}" pattern="yyyy.MM.dd. HH:mm"/>
+							 				${regdate}
+							 		</span>
+							 		<br/>
+							 		<span class="replyList">
+							 			${replyContent.content}
+							 		</span>
+							 		<br/>
+						 		</div>
+								</c:forEach>							 		
 						 	</div>
 						</div>
-						
-						<form class="form-group reply-insert">
 							<div class="row">
 								<div class="col-md-11">
 									<div class="form-group">
-							   			<label for="content">댓글내용</label>
-							   			<textarea rows="5" cols="100" class="form-control" id="content" 
-							   				style="resize:none;">내용들</textarea>
+							   			<label for="replyContent">댓글내용</label>
+							   			<textarea rows="5" cols="100" class="form-control" name="replyContent"
+							   					 id="replyContent" 
+							   				style="resize:none;"></textarea>
 							  		</div>
 						  		</div>
 								<div class="col-md-1">
 									<div class="form-group">
 							   			<label for="reply-register"></label>
-							   			<a href="#"
+							   			<button
 										class="list-group-item list-group-item-action btn-info"
-										id="reply-register">댓글 등록</a>
+										id="reply-register">댓글 등록</button>
 							  		</div>
 						  		</div>
 					  		</div>		  		
-			
-				  		</form>
 					</div>
 				</div>
 			</div>
 			
 		</div>
+	<script>
+	$(document).ready(function() {
+		var bno = '${boardContents.bno}';
+		console.log(bno);
+		
+		function getAllReplies() {
+			$.getJSON('project/replies/all' + bno,
+					function(data) {
+				
+			});
+		}
+		
+	});
+	</script>
 		
 		
 </body>

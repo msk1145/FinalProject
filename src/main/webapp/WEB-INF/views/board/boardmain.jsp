@@ -92,18 +92,18 @@
 		<div class="col-md-10">
 			<div class="container">
 				<div class="col-md-12 text-center">
-					<h3>${param.category}게시판입니당나귀</h3>
-				
+					<h3>게시판입니당</h3>
 				</div>
 				<br/><br/><br/><br/><br/><br/><br/>
 				<div class="row">
+				<c:forEach var="b" items="${board}">		
 					<div class="col-md-4 text-center poster_image">
-						<a href="boarddetail"><img width="200" height="280" alt="이미지가 없음" src="<c:url value='/resources/images/1.jpg'/>"></a>
-						<h4 class="text-center">title</h4>
-					</div> 
-				
-			
-				
+						<a href="boarddetail?bno=${b.bno}">
+						<img width="200" height="280" alt="이미지가 없음" src="<c:url value= '${b.imagePath}'/>"	/>
+						</a>
+						<h4 class="text-center">${b.title}</h4>
+					</div>
+				</c:forEach>
 				</div>
 				<br/><br/><br/>
 			

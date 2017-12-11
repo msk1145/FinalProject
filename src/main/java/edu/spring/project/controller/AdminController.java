@@ -27,11 +27,15 @@ public class AdminController {
 		
 	}
 	
+	
 	// 관리자 페이지 로그인
 	@RequestMapping(value = "/login",
 			method = RequestMethod.POST)
 	public String admin(String userid, String password) {
 		Member m = adminService.login(userid, password);
+		if(m == null) {
+			return "redirect:/admin/login";
+		}
 		return "redirect:/admin/main";
 	}
 	
@@ -79,7 +83,12 @@ public class AdminController {
 		return "redirect:main";
 	}
 	
-	
+	@RequestMapping(value = "/memberdelete", method = RequestMethod.GET)
+	public String memberDelete(String userid, Model model) {
+		int i = adminService.memberDelete(userid);
+		model.addAttribute("result",i);
+		return "redirect:/admin/memberList";
+	}
 	
 	
 	// 로그 아웃

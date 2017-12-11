@@ -19,9 +19,8 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	private BoardContentsDao boardConDao;
 	
 	@Override
-	public List<BoardContents> read() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardContents> read(String category) {
+		return boardConDao.read(category);
 	}
 
 	@Override

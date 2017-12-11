@@ -22,10 +22,18 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
+<c:if test="${result > 0 or not empty result}">
+<script>
+alert('회원 삭제 완료!');
+</script>
+</c:if>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/admin/main">Home</a>
+			</div>
+			<div class="navbar-header pull-right">
+				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
 	</nav>

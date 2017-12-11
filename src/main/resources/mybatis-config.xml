@@ -18,6 +18,7 @@
 		<property name="colCategory" value="category"/>
 		<property name="colVideopath" value="videoPath"/>
 		<property name="colImagepath" value="imagePath"/>
+
 	
 		<!-- 자유게시판 테이블 -->
 		<property name="tblFree" value="BOARD_FREE"/>

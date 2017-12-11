@@ -44,4 +44,9 @@ public class AdminServiceImple implements AdminService {
 		return dao.memberGradeUpdate(userid, grade);
 	}
 
+	@Override
+	public int memberDelete(String userid) {
+		return dao.memberDelete(userid);
+	}
+
 }
