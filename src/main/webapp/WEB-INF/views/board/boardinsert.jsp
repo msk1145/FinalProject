@@ -84,7 +84,13 @@
 					<label for="title">게시판 선택</label>
 				</div>
 				<div class="col-md-11">
-			
+					<select class="form-control" >
+						<option>영화</option>
+						<option>애니메이션</option>
+						<option>드라마</option>
+						<option>예능</option>
+						<option>자유게시판</option>
+					</select>
 				</div>
 				<br/>
 
