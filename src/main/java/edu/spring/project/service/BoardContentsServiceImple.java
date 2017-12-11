@@ -47,4 +47,24 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		return 0;
 	}
 
+	@Override
+	public List<BoardContents> selectTopMovie() {
+		return boardConDao.readTopMovie();
+	}
+
+	@Override
+	public List<BoardContents> selectTopDrama() {
+		return boardConDao.readTopDrama();
+	}
+
+	@Override
+	public List<BoardContents> selectTopAnimation() {
+		return boardConDao.readTopAnimation();
+	}
+
+	@Override
+	public List<BoardContents> selectTopVariety() {
+		return boardConDao.readTopVariety();
+	}
+
 }

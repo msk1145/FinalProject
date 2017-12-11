@@ -25,7 +25,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/admin/main">Home</a>
 			</div>
 		</div>
 	</nav>
@@ -43,18 +43,59 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<form action="memberdetail" method="post">
-				<input type="text" name="userid" value="${member.userid}"/>
-				<input type="text" name="password" value="${member.password}"/>
-				<input type="text" name="email" value="${member.email}"/>
-				<input type="text" name="nickname" value="${member.nickname}"/>
-				<select name="grade">
-					<option value="guest">회원</option>
-					<option value="admin">관리자</option>
-				</select>
-				<input type="submit" value="수정" />
-			</form>
+			<div class="container">
+				<form action="memberUpdate" method="post">
+					<div class="form-group">
+						<label for="userid">아이디</label>
+						<input type="text" class="form-control" name="userid" id="userid" value="${member.userid}"/>
+					</div>
+					<div class="form-group">
+						<label for="password">비밀번호</label>
+						<input type="text" class="form-control" name="password" id="password" value="${member.password}"/>
+					</div>
+					<div class="form-group">
+						<label for="email">이메일</label>
+						<input type="text" class="form-control" name="email" id="email" value="${member.email}"/>
+					</div>
+					<div class="form-group">
+						<label for="nickname">별명</label>
+						<input type="text" class="form-control" name="nickname" id="nickname" value="${member.nickname}"/>
+					</div>
+					
+					<div class="form-group">
+						<input type="submit" class="btn btn-success" value="정보수정" />
+					</div>
+					
+				</form>
+				<form action="memberGradeUpdate" method="post">
+					<div class="form-group">
+						<label for="grade">등급</label>
+						<select name="grade" class="form-control" id="grade">
+							<option value="guest">회원</option>
+							<option value="admin">관리자</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<input type="hidden" name="userid" value="${member.userid}" />
+					</div>
+					<div class="form-group">
+						<input type="submit" class="btn btn-info" value="등급 수정" />
+					</div>
+				</form>
+					<div class="form-group">
+						<a href="memberdelete?userid=${member.userid}" class="btn btn-danger">삭제하기</a>
+					</div>
+			</div>
 		</div>
 	</div>
+	
 </body>
 </html>
+
+
+
+
+
+
+
+

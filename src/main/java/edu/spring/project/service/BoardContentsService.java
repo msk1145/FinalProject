@@ -20,4 +20,16 @@ public interface BoardContentsService {
 
 	// 게시글 삭제
 	int delete(int bno);
+	
+	// Top Movie 가져오기
+	List<BoardContents> selectTopMovie();
+		
+	// Top Drama 가져오기
+	List<BoardContents> selectTopDrama();
+		
+	// Top Animation 가져오기
+	List<BoardContents> selectTopAnimation();
+		
+	// Top Variety 가져오기
+	List<BoardContents> selectTopVariety();
 }

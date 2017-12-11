@@ -25,6 +25,14 @@ public class MemberController {
 		}		
 	}
 	
+	// 로그아웃
+	@RequestMapping(value = "/memberlogout", method=RequestMethod.GET)
+	public String logout(HttpServletRequest request) {
+		request.getSession().invalidate();
+		return "redirect:/";
+	}
+	
+	// 로그인
 	@RequestMapping(value="/memberlogin-post", method=RequestMethod.POST)
 	public void login(String userid, String password,Model model) {
 		Member member = service.login(userid, password);

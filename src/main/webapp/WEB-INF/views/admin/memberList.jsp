@@ -22,10 +22,15 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
+<c:if test="${result > 0 or not empty result}">
+<script>
+alert('회원 삭제 완료!');
+</script>
+</c:if>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="/project/admin/main">Home</a>
 			</div>
 		</div>
 	</nav>
@@ -42,10 +47,12 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
+			
 			<div class="container">
-				<table>
+				<h2 class="text-center">회원 리스트</h2>
+				<table class="table table-striped table-hover">
 					<thead>
-						<tr>
+						<tr class="warning">
 							<th>아이디</th>
 							<th>비밀번호</th>
 							<th>이메일</th>

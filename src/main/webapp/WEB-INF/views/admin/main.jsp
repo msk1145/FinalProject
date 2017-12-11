@@ -25,9 +25,13 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="main">Home</a>
+			</div>
+			<div class="navbar-header pull-right">
+				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
+		
 	</nav>
 	<div class="jumbotron text-center">
 		<h2>AdminMain</h2>
