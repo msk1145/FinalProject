@@ -3,31 +3,34 @@ package edu.spring.project.persistence;
 import java.util.List;
 
 import edu.spring.project.domain.ReplyContents;
+import edu.spring.project.domain.ReplyFree;
 
-public class ReplyFreeDaoImple implements ReplyContentsDao {
+public class ReplyFreeDaoImple implements ReplyFreeDao {
 
 	@Override
-	public List<ReplyContents> read(int bno) {
+	public List<ReplyFree> read(int fbno) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public int insert(ReplyContents r) {
+	public int insert(ReplyFree r) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int update(ReplyContents r) {
+	public int update(ReplyFree r) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public int delete(int rno) {
+	public int delete(int frno) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+
 
 }

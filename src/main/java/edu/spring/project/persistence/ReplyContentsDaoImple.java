@@ -1,6 +1,7 @@
 package edu.spring.project.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -42,5 +43,7 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	
 
 }
