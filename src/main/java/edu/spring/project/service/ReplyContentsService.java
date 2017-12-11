@@ -1,10 +1,12 @@
 package edu.spring.project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.spring.project.domain.ReplyContents;
 
 public interface ReplyContentsService {
+
 	// 한 게시물에 전체 댓글
 	List<ReplyContents> read(int bno);
 
