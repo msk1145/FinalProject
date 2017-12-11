@@ -32,6 +32,9 @@ alert('회원 삭제 완료!');
 			<div class="navbar-header">
 				<a class="navbar-brand" href="/project/admin/main">Home</a>
 			</div>
+			<div class="navbar-header pull-right">
+				<a class="navbar-brand" href="logout">나가기</a>
+			</div>
 		</div>
 	</nav>
 	<div class="jumbotron text-center">

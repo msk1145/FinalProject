@@ -52,6 +52,11 @@
 		) a
 		where rownum between 1 and 5
 	</select>
+	
+	<select id="selectBoard" resultType="BoardContents">
+	select * from ${tblContents} 
+	where ${colCategory} = #{category}
+	</select>
 </mapper>
 
 

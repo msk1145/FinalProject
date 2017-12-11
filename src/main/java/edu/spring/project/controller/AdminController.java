@@ -33,6 +33,9 @@ public class AdminController {
 			method = RequestMethod.POST)
 	public String admin(String userid, String password) {
 		Member m = adminService.login(userid, password);
+		if(m == null) {
+			return "redirect:/admin/login";
+		}
 		return "redirect:/admin/main";
 	}
 	

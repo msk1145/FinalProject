@@ -16,6 +16,8 @@
 		<property name="colRegdate" value="regdate"/>
 		<property name="colCount" value="count"/>
 		<property name="colCategory" value="category"/>
+		<property name="colVideopath" value="videopath"/>
+		<property name="colImagePath" value="imagepath"/>
 	
 		<!-- 자유게시판 테이블 -->
 		<property name="tblFree" value="BOARD_FREE"/>
