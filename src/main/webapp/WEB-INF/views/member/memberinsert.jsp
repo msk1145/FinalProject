@@ -59,14 +59,19 @@
 						<input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 확인 입력..." required><br/><br/>
 					</div>
 					
-					<label class="control-label" id="email" for="inputSuccess1">이메일</label><br/>
+					<div class="form-group" id="emailSuccess">
+					<label class="control-label" for="email" >이메일</label><br/>
 					<input type="text" class="form-control" id="email"	name="email" placeholder="이메일 입력..." required><br/><br/>
+					</div>
 					
-					<label class="control-label" id="nickname" for="inputSuccess1">닉네임</label><br/>
+					<div class="form-group" id="nicknameSuccess">
+					<label class="control-label" for="nickname">닉네임</label><br/>
 					<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임 입력..." required><br/><br/>
+					</div>
+					
 					<input type="hidden" name="grade" value="guest"/>
 					<input type="hidden" name="url" value="${url}" />
-					<input type="submit" id="btnsubmit" value="회원 가입" class="btn btn-success"/>
+					<input type="submit" id="btnsubmit" value="회원 가입" class="btn btn-success" disabled/>
 				</form>
 			</div>
 		</div>

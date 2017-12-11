@@ -89,7 +89,7 @@
 
 
 				<div class="col-md-1">
-					<label for="content">본문</label></br>
+					<label for="content">본문</label><br/>
 				</div>
 				<div class="col-md-11">
 					<textarea style="resize: none;" rows="10" class="form-control"
@@ -102,20 +102,9 @@
 				<div class="col-md-12">
 				<input class="pull-right" type="file" name="uploadmovie" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
 				</div>
-				
 				<div><button type="submit" class="btn btn-default pull-right">Submit</button></div>
-				
 			</form>
-
-
-			
-	
-
 		</div>
-
-
-
-
 	</div>
 </body>
 </html>
