@@ -68,4 +68,10 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 		return session.selectList(NAMESPACE + ".selectTopVariety");
 	}
 
+	@Override
+	public int countupdate(int bno) {
+		return session.update(NAMESPACE+".updateCount", bno);
+		
+	}
+
 }

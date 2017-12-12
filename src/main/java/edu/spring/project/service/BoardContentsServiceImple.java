@@ -66,4 +66,10 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		return boardConDao.readTopVariety();
 	}
 
+	@Override
+	public int updatecount(int bno) {
+		
+		return boardConDao.countupdate(bno);
+	}
+
 }

@@ -105,7 +105,7 @@
 					</div>
 					<div class="row" style="border-bottom: 2px solid Gainsboro;">
 					 	<div class="col-md-12">
-					 	<video src="<c:url value='/resources/video/sample.mp4'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
+					 	<video src="<c:url value='${boardContents.videoPath}'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
 					 	<br/>
 					 		${boardContents.content}
 					 	</div>
