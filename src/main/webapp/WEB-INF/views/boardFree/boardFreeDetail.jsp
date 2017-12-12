@@ -57,16 +57,11 @@
 	
 		<div class="col-md-2">
 			<ul class="list-group">
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
+					<c:forEach var="m" items="${menu}">
+						<li class="list-group-item">
+						 <a href="${m.href}" class="list-group-item list-group-item-action btn-info">${m.menuname}</a>
+						</li>
+					</c:forEach>
 			</ul>
 		</div>
 		<div class="form-group">

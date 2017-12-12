@@ -56,7 +56,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 			<ul class="nav navbar-nav pull-right">
 				<c:if test="${not empty member}">
 				<li><a>${member.nickname}님 </a></li>
-				<li><a href="member/memberdetail?userid=${member.userid}">회원 정보</a></li>
+				<li><a href="/project/member/memberdetail?userid=${member.userid}">회원 정보</a></li>
 			</c:if>
 			<c:if test="${empty member}">
 				<li><a id="btn-login">로그인</a></li>
@@ -71,18 +71,13 @@ if (request.getProtocol().equals("HTTP/1.1"))
 	</div>
 	
 		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="boardmain?category=movie"
-					class="list-group-item list-group-item-action btn-info">영화</a></li>
-				<li class="list-group-item"><a href="boardmain?category=drama"
-					class="list-group-item list-group-item-action btn-info">드라마</a></li>
-				<li class="list-group-item"><a href="boardmain?category=animation"
-					class="list-group-item list-group-item-action btn-info">애니메이션</a></li>
-				<li class="list-group-item"><a href="boardmain?category=variety"
-					class="list-group-item list-group-item-action btn-info">예능</a></li>
-				<li class="list-group-item"><a href=""
-					class="list-group-item list-group-item-action btn-info">자유게시판</a></li>
-			</ul>
+				<ul class="list-group">
+					<c:forEach var="m" items="${menu}">
+						<li class="list-group-item">
+						 <a href="/project/board/boardmain?category=${m.href}" class="list-group-item list-group-item-action btn-info">${m.menuname}</a>
+						</li>
+					</c:forEach>
+				</ul>
 		</div>
 		<div class="form-group">
 			<div class="col-md-10">
@@ -118,7 +113,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 					</div>
 					<div class="row" style="border-bottom: 2px solid Gainsboro;">
 					 	<div class="col-md-12">
-					 	<video src="<c:url value='/resources/video/sample.mp4'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
+					 	<video src="<c:url value='${boardContents.videoPath}'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
 					 	<br/>
 					 		${boardContents.content}
 					 	</div>

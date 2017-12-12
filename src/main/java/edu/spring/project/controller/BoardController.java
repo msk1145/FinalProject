@@ -49,9 +49,10 @@ public class BoardController {
 	}
 
 	@RequestMapping(value = "/boarddetail", method = RequestMethod.GET)
-	public void detail(Model model) {
+	public void detail(BoardContents content, Model model) {
 		logger.info("BoardController::deail() 호출");
-		int bno = 3;
+		int bno = content.getBno();
+		boardConService.updatecount(bno);
 		BoardContents boardContents = boardConService.read(bno);
 		List<ReplyContents> list = replyConSevice.read(bno);
 		logger.info("list {}", list);
@@ -140,7 +141,6 @@ public class BoardController {
 	@RequestMapping(value="/boardmain",method=RequestMethod.GET)
 	public void boardmain(String category, Model model) {
 		List<BoardContents> boardlist = boardConService.read(category);
-		System.out.println(boardlist.get(0).getImagePath());
 		model.addAttribute("board", boardlist);
 	}
 	

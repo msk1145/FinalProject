@@ -55,6 +55,13 @@
 		<property name="colFUserid" value="fuserid"/>
 		<property name="colFRrno" value="frrno"/>
 		
+		<!-- 메뉴 테이블 -->
+		<property name="tblMenu" value="MENU"/>
+		<property name="colMnum" value="mnum"/>
+		<property name="colMenuname" value="menuname"/>
+		<property name="colHref" value="href"/>
+		<property name="colHideandshow" value="hideandshow"/>
+		
 	</properties>
 	
 	<typeAliases>

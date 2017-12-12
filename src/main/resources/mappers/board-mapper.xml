@@ -52,6 +52,7 @@
 		) a
 		where rownum between 1 and 5
 	</select>
+		
 	
 
 	<insert id="insertContents">
@@ -64,7 +65,13 @@
 	select * from ${tblContents} 
 	where ${colCategory} = #{category}
 	</select>
-
+	
+	
+	<update id="updateCount">
+	update ${tblContents}
+	set ${colCount} = ${colCount} + 1
+	where ${colBno} = #{bno}
+	</update>
 </mapper>
 
 
