@@ -22,32 +22,33 @@ function getAllReplies() {
 				var dateString = year + '.' + month + '.' 
 								+ day + ' ' + hour + ':' 
 								+ minute;
-				$('#replyList').append('<div class="eachReply"></div>');
-						
-				$('.eachReply')
+			
+//				$('#replyList').append('<div class="eachReply"></div>');
+				
+				$('#replyList')
 						.append('<span>' + this.userid + '</span>')
 						.append('<span style="color: gray; font-size: 10px; margin: 10px;">'
 									+ dateString + '</span>');
 						// 세션에 아이디가 없을 시에는 답글 달지 못하게
 						if (userid !== undefined) {
-							$('.eachReply').append('<a href="#" id="rReply" style="color: gray; font-size: 10px; margin: 10px;">답글</a>');
+							$('#replyList').append('<a href="#" id="rReply" style="color: gray; font-size: 10px; margin: 10px;">답글</a>');
 						}
 							// 세션의 아이디와  댓글아이디 비교
 							if(userid === this.userid) {
-								$('.eachReply')
+								$('#replyList')
 										.append('<button class="btn btn-danger pull-right" id="reply-delete">삭제</button>')
 										.append('<button class="btn btn-success pull-right" id="reply-update">수정</button>')
 										.append('<br/>')
 										.append('<input class="form-control" type="text" id="reply-text" value="' 
 				 								+ this.content + '" style="padding: 10px;"> <hr class="divLine"/>');
 							} else {
-								$('.eachReply')
+								$('#replyList')
 										.append('<input class="form-control" type="text" id="reply-text" value="' 
 												+ this.content + '" style="padding: 10px;" readonly> <hr class="divLine"/>');
 							}
-								$('.eachReply')
+								$('#replyList')
 										.append('<input type="hidden" id="reply-rno" value="' + this.rno + '" />');
-							
+								
 				});
 				
 				
