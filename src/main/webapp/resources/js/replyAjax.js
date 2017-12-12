@@ -23,6 +23,7 @@ function getAllReplies() {
 				$('#reply').append('<span>' + this.userid + '</span>')
 							.append('<span style="color: gray; font-size: 10px; margin: 10px;">'
 				 			+ dateString + '</span>')
+				 			.append('<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>')
 				 			.append('<br/>')
 				 			.append('<div id="replyList" style="padding: 10px;">' + this.content + '</div>');
 				});
