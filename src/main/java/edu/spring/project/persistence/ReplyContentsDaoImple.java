@@ -33,14 +33,12 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 
 	@Override
 	public int update(ReplyContents r) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update(NAMESPACE + ".updateReplyCon", r);
 	}
 
 	@Override
 	public int delete(int rno) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.delete(NAMESPACE + ".deleteReplyCon", rno);
 	}
 
 	

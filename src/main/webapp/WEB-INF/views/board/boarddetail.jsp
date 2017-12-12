@@ -2,6 +2,14 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%-- js파일 캐시 허용 거부 --%>
+<%   
+response.setHeader("Cache-Control","no-store");   
+response.setHeader("Pragma","no-cache");   
+response.setDateHeader("Expires",0);   
+if (request.getProtocol().equals("HTTP/1.1")) 
+        response.setHeader("Cache-Control", "no-cache"); 
+%>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,7 +41,7 @@
 	border-bottom: 2px solid Gainsboro; 
 	background-color: #FFFFE9;
 }
-#replyList{
+.divLine{
  border-bottom: 1px dotted Gainsboro;
  margin: 10px;"
 }
@@ -141,7 +149,7 @@
 						 	<div class="col-md-12">
 						 		
 						 		<%-- <c:forEach var="replyContent" items="${replyConList}"> --%>
-						 		<div id="reply">
+						 		<div id="replyList">
 							 		<%-- <span>
 							 			${replyContent.userid}
 							 		</span>
@@ -155,7 +163,7 @@
 							 			${replyContent.content}
 							 		</span>
 							 		<br/> --%>
-						 		</div>
+							 	</div>
 								<%-- </c:forEach> --%>					 		
 						 	</div>
 						 	<c:if test="${not empty member}">
