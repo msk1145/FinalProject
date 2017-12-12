@@ -80,7 +80,7 @@
 						<tbody>
 							<c:forEach var="movie" items="${topMovie}">
 								<tr class="text-center text-info"
-								 onClick="location.href='http://www.daum.net/'"
+								 onClick="location.href='http://www.opnaratv.com/'"
 								 style="cursor: pointer;">
 									<td>${movie.bno}</td>
 									<td>${movie.title}</td>
