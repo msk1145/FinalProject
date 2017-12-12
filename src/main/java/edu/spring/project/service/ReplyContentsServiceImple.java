@@ -27,8 +27,7 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 
 	@Override
 	public int insert(ReplyContents r) {
-		// TODO Auto-generated method stub
-		return 0;
+		return replyConDao.insert(r);
 	}
 
 	@Override

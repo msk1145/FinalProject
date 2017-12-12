@@ -28,8 +28,7 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 
 	@Override
 	public int insert(ReplyContents r) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(NAMESPACE + ".insertReplyCon", r);
 	}
 
 	@Override

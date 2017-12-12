@@ -8,4 +8,10 @@
 		select * from ${tblReplycontents} where ${colBno} = #{bno} order by rno desc
 	</select>
 	
+	<insert id="insertReplyCon">
+		insert into ${tblReplycontents} (${colBno}, ${colContent},
+		 ${colRegdate}, ${colUserid}, ${colRrno}) 
+		 values (#{bno}, #{content}, sysdate, #{userid}, 0)
+	</insert>
+	
 </mapper>

@@ -44,7 +44,7 @@
 		<property name="colContent" value="content"/>
 		<property name="colRegdate" value="regdate"/>
 		<property name="colUserid" value="userid"/>
-		<property name="colRrid" value="rrno"/>
+		<property name="colRrno" value="rrno"/>
 		
 		<!-- 자유게시판 댓글 테이블 -->
 		<property name="tblReplyfree" value="REPLY_FREE"/>
@@ -53,7 +53,7 @@
 		<property name="colFContent" value="fcontent"/>
 		<property name="colFRegdate" value="fregdate"/>
 		<property name="colFUserid" value="fuserid"/>
-		<property name="colFRrid" value="frrno"/>
+		<property name="colFRrno" value="frrno"/>
 		
 	</properties>
 	
