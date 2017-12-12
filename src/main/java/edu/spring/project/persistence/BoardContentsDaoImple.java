@@ -21,9 +21,8 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 	private SqlSession session;
 	
 	@Override
-	public List<BoardContents> read() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardContents> read(String category) {
+		return session.selectList(NAMESPACE+".selectBoard", category);
 	}
 
 	@Override
@@ -34,7 +33,7 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 	@Override
 	public int insert(BoardContents b) {
 		// TODO Auto-generated method stub
-		return 0;
+		return session.insert(NAMESPACE+".insertContents", b);
 	}
 
 	@Override

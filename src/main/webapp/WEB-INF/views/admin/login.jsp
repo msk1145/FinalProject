@@ -22,21 +22,19 @@
 </head>
 <body>
 	<h2 class="text-center">로그인</h2>
-				<div class="container form-group" >
-					<form action="login" method="post">
-						<label for ="userid"> 아이디 </label>
-						<input class="form-control" type="text" name="userid" id="userid" required />
-		   			 	<br/>
-		   			 	<label for = "password"> 비밀번호 </label>
-		   			 	<input class="form-control" type="password" name="password" id="password" required />
-		   			 	<input type="hidden" name="url" value="${url}" />
-		   				<br/>
-		   				<div class="col-md-1">
-		   					<input class="form-control btn btn-success" type="submit" value="로그인" />
-		   				</div>
-		   				<a class="btn btn-info" href="memberinsert?url=${url}">회원 가입</a>
-		   			</form> 			
-				</div>
-	
+		<div class="container form-group" >
+			<form action="login" method="post">
+				<label for ="userid"> 아이디 </label>
+				<input class="form-control" type="text" name="userid" id="userid" required />
+   			 	<br/>
+   			 	<label for = "password"> 비밀번호 </label>
+   			 	<input class="form-control" type="password" name="password" id="password" required />
+   			 	<input type="hidden" name="url" value="${url}" />
+   				<br/>
+   				<div class="col-md-1">
+   					<input class="form-control btn btn-success" type="submit" value="로그인" />
+   				</div>
+   			</form> 			
+		</div>
 </body>
 </html>

@@ -46,4 +46,9 @@ public class AdminDaoImple implements AdminDao {
 		return session.update(NAMESPACE + ".MemberGradeUpdate", args);
 	}
 
+	@Override
+	public int memberDelete(String userid) {
+		return session.delete(NAMESPACE+".MemberDelete", userid);
+	}
+
 }

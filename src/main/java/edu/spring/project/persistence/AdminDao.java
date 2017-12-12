@@ -17,4 +17,6 @@ public interface AdminDao {
 	int memberUpdate(Member m);
 	// 회원 등급 수정
 	int memberGradeUpdate(String userid, String grade);
+	// 회원 삭제
+	int memberDelete(String userid);
 }
