@@ -32,4 +32,7 @@ public interface BoardContentsService {
 		
 	// Top Variety 가져오기
 	List<BoardContents> selectTopVariety();
+	
+	// 조회수 올리기
+	int updatecount(int bno);
 }

@@ -33,4 +33,7 @@ public interface BoardContentsDao {
 	
 	// Top Variety 가져오기
 	List<BoardContents> readTopVariety();
+	
+	// 조회수 업데이트
+	int countupdate(int bno);
 }
