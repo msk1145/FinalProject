@@ -141,7 +141,6 @@ public class BoardController {
 	@RequestMapping(value="/boardmain",method=RequestMethod.GET)
 	public void boardmain(String category, Model model) {
 		List<BoardContents> boardlist = boardConService.read(category);
-		System.out.println(boardlist.get(0).getImagePath());
 		model.addAttribute("board", boardlist);
 	}
 	

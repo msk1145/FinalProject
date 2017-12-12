@@ -43,6 +43,7 @@
 	
 	<beans:bean id="logininterceptor" class="edu.spring.project.interceptor.LoginInterceptor" />
 	<beans:bean id="insertinterceptor" class="edu.spring.project.interceptor.InsertInterceptor" />
+	<beans:bean id="menuinterceptor" class="edu.spring.project.interceptor.MenuInterceptor" />
 	
 	<!-- 로그인 인터셉터 -->
 	<interceptors>
@@ -57,6 +58,22 @@
 		<interceptor>
 			<mapping path="/member/memberinsert-post" />
 			<beans:ref bean="insertinterceptor" />
+		</interceptor>
+	</interceptors>
+	
+	<!-- 메뉴 인터셉터 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/" />
+			<mapping path="/board/boarddetail" />
+			<mapping path="/board/boardinsert" />
+			<mapping path="/board/boardList" />
+			<mapping path="/board/boardmain" />
+			<mapping path="/board/boardupdate" />
+			<mapping path="/member/memberlogin" />
+			<mapping path="/member/memberinsert" />
+			<mapping path="/member/memberdetail" />
+			<beans:ref bean="menuinterceptor" />
 		</interceptor>
 	</interceptors>
 	

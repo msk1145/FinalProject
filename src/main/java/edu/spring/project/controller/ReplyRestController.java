@@ -31,14 +31,12 @@ public class ReplyRestController {
 		logger.info("readReply(bno: {})", bno);
 		
 		List<ReplyContents> list = replyConService.read(bno);
-		System.out.println(list);
 		ResponseEntity<List<ReplyContents>> entity = null;
 		if (list != null) {
 			entity = new ResponseEntity<List<ReplyContents>>(list, HttpStatus.OK);
 		} else {
 			entity = new ResponseEntity<List<ReplyContents>>(HttpStatus.BAD_REQUEST);
 		}
-		System.out.println(entity);
 		return entity;
 	}
 	
@@ -58,4 +56,44 @@ public class ReplyRestController {
 		
 	}
 	
+	@RequestMapping(value = "{rno}",
+			method = RequestMethod.PUT)
+	public ResponseEntity<String> updateReply(
+			@PathVariable int rno, @RequestBody ReplyContents r) {
+		logger.info("updateReply() 호출");
+		r.setRno(rno);
+		logger.info(r.getContent() + ",");
+		int result = replyConService.update(r);
+		
+		ResponseEntity<String> entity = null;
+		if (result == 1) {
+			entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	@RequestMapping(value = "{rno}",
+			method = RequestMethod.DELETE)
+	public ResponseEntity<String> deleteReply(@PathVariable int rno) {
+		logger.info("deleteReply() 호출");
+		
+		int result = replyConService.delete(rno);
+		ResponseEntity<String> entity = null;
+		if (result == 1) {
+			entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
 }
+
+
+
+
+
+
+

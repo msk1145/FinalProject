@@ -34,7 +34,7 @@
 		
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>AdminMain</h2>
+		<h2>관리자 페이지</h2>
 	</div>
 	<div>
 		<div class="col-md-2">
@@ -43,12 +43,15 @@
 					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-
+				<li class="list-group-item"><a href="#"
+					class="list-group-item list-group-item-action btn-info">게시물삭제</a></li>
+				<li class="list-group-item"><a href="menuList"
+					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
 			</ul>
 		</div>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
-			aaa
+			
 		</div>
 
 

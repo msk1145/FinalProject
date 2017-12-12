@@ -32,14 +32,12 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 
 	@Override
 	public int update(ReplyContents r) {
-		// TODO Auto-generated method stub
-		return 0;
+		return replyConDao.update(r);
 	}
 
 	@Override
 	public int delete(int rno) {
-		// TODO Auto-generated method stub
-		return 0;
+		return replyConDao.delete(rno);
 	}
 
 	

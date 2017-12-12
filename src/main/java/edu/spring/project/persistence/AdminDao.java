@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import edu.spring.project.domain.Member;
+import edu.spring.project.domain.Menu;
 
 public interface AdminDao {
 	
@@ -19,4 +20,12 @@ public interface AdminDao {
 	int memberGradeUpdate(String userid, String grade);
 	// 회원 삭제
 	int memberDelete(String userid);
+	// 메뉴 select
+	List<Menu> menuselect();
+	// 메뉴 detail select
+	Menu detailmenu(String mnum);
+	// 메뉴 update
+	int menuUpdate(Menu menu);
+	// 메뉴 insert
+	int menuInsert(Menu menu);
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import edu.spring.project.domain.Member;
+import edu.spring.project.domain.Menu;
 import edu.spring.project.service.AdminService;
 
 @Controller
@@ -100,5 +101,34 @@ public class AdminController {
 		return "redirect:../";
 	}
 	
+	// 전체 메뉴 select
+	@RequestMapping(value = "/menuList", method = RequestMethod.GET)
+	public void menuList(Model model) {
+		List<Menu> list = adminService.selectMenu();
+		model.addAttribute("menu",list);
+	}
+	
+	// 특정 메뉴 select
+	@RequestMapping(value = "/menuUpdate", method = RequestMethod.GET)
+	public void menuUpdate(String mnum , Model model) {
+		Menu list = adminService.detailMenu(mnum);
+		model.addAttribute("menu",list);
+	}
+	
+	// 메뉴 업데이트
+	@RequestMapping(value = "/menuUpdate", method = RequestMethod.POST)
+	public String menuUpdate(Menu menu , Model model) {
+		int i = adminService.updateMenu(menu);
+		return "redirect:/admin/menuList";
+	}
+	
+	@RequestMapping(value = "/menuInsert", method = RequestMethod.GET)
+	public void menuInsert() {}
+	
+	@RequestMapping(value = "/menuInsert", method = RequestMethod.POST)
+	public String menuInsert(Menu menu, Model model) {
+		int i = adminService.insertMenu(menu);
+		return "redirect:/admin/menuList";
+	}
 	
 }
