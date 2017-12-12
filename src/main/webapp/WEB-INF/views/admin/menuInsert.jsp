@@ -31,10 +31,10 @@
 				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
-		
+
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>관리자 페이지</h2>
+		<h2>AdminMain</h2>
 	</div>
 	<div>
 		<div class="col-md-2">
@@ -50,10 +50,28 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			
+			<div class="container">
+				<h2 class="text-center">새로운 메뉴 넣기</h2>			
+				<br/><br/>	
+					<form action="menuInsert" method="post" id="form">
+						<label>한글메뉴이름</label> 
+						<input type="text" class="form-control" name="menuname" required /> 
+						<br/><br/>
+						<label>영어메뉴이름</label>
+						<input type="text" id="href" name="href" required/>
+						<label>활성/비활성</label> 
+						<select	class="form-control" name="hideandshow">
+						<option value="show">활성</option>
+						<option value="hide">비활성</option>
+						</select>
+						<br/><br/>
+						<input type="submit" value="완료" class="btn btn-info"/>
+					</form>
+			</div>
 		</div>
+<script>
 
+</script>
 
 	</div>
 </body>

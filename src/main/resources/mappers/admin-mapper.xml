@@ -56,6 +56,37 @@ select * from ${tblContents}
 select * from ${tblFree}
 </select>
 
+
+<!-- //////////////////////////////////// menu 영역  -->
+<!-- 메뉴 조회 -->
+<select id="selectMenu" resultType="Menu">
+select * from ${tblMenu}
+</select>
+
+<select id="showMenu" resultType="Menu">
+select * from ${tblMenu} where ${colHideandshow} = 'show'
+</select>
+
+
+<!-- 상세 조회 -->
+<select id="detailMenu" resultType="Menu">
+select * from ${tblMenu} where ${colMnum} = #{mnum}
+</select>
+
+<!-- 메뉴 수정 -->
+<update id="updateMenu">
+update ${tblMenu}
+set ${colMenuname} = #{menuname}, ${colHideandshow} = #{hideandshow}
+where ${colMnum} = #{mnum}
+</update>
+
+<!-- 메뉴 넣기 -->
+<insert id="insertMenu">
+insert into ${tblMenu} (${colMenuname},${colHref}, ${colHideandshow})
+values(#{menuname},#{href},#{hideandshow})
+</insert>
+
+
 </mapper>
 
 

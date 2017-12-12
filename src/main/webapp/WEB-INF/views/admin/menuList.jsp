@@ -31,10 +31,10 @@
 				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
-		
+
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>관리자 페이지</h2>
+		<h2>AdminMain</h2>
 	</div>
 	<div>
 		<div class="col-md-2">
@@ -50,8 +50,30 @@
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			
+			<div class="container">
+				<h2 class="text-center">메뉴 리스트</h2>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr class="warning">
+							<th>메뉴 번호</th>
+							<th>메뉴 이름</th>
+							<th>활성/비활성</th>
+						</tr>
+					</thead>
+					<tbody>
+					<c:forEach var="m" items="${menu}">
+						<tr>
+							<td><a href="menuUpdate?mnum=${m.mnum}">${m.mnum}</a></td>
+							<td><a href="menuUpdate?mnum=${m.mnum}">${m.menuname}</a></td>
+							<td><a href="menuUpdate?mnum=${m.mnum}">${m.hideandshow}</a></td>
+						</tr>
+					</c:forEach>
+					</tbody>
+				</table>
+				
+				<a class="btn btn-info" href="menuInsert">새로운 메뉴 넣기</a>
+
+			</div>
 		</div>
 
 

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.spring.project.domain.Member;
+import edu.spring.project.domain.Menu;
 import edu.spring.project.persistence.AdminDao;
 
 @Service
@@ -47,6 +48,26 @@ public class AdminServiceImple implements AdminService {
 	@Override
 	public int memberDelete(String userid) {
 		return dao.memberDelete(userid);
+	}
+
+	@Override
+	public List<Menu> selectMenu() {
+		return dao.menuselect();
+	}
+
+	@Override
+	public Menu detailMenu(String mnum) {
+		return dao.detailmenu(mnum);
+	}
+
+	@Override
+	public int updateMenu(Menu menu) {
+		return dao.menuUpdate(menu);
+	}
+
+	@Override
+	public int insertMenu(Menu menu) {
+		return dao.menuInsert(menu);
 	}
 
 }

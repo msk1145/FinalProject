@@ -31,10 +31,10 @@
 				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
-		
+
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>관리자 페이지</h2>
+		<h2>AdminMain</h2>
 	</div>
 	<div>
 		<div class="col-md-2">
@@ -44,14 +44,32 @@
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
 				<li class="list-group-item"><a href="#"
-					class="list-group-item list-group-item-action btn-info">게시물삭제</a></li>
+					class="list-group-item list-group-item-action btn-info">게시물삭제</a></li>	
 				<li class="list-group-item"><a href="menuList"
 					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
 			</ul>
 		</div>
 		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			
+			<div class="container">
+				<h2 class="text-center">메뉴 상세</h2>			
+				<br/><br/>	
+					<form action="menuUpdate" method="post">
+						<label>메뉴번호</label> 
+						<input type="text" class="form-control" value="${menu.mnum}" name="mnum" readonly /> 
+						<br/><br/>
+						<label>메뉴이름</label> 
+						<input type="text" class="form-control" value="${menu.menuname}" name="menuname" required /> 
+						<br/><br/>
+						<input type="hidden" value="${menu.href}" name="href"/>
+						<label>활성/비활성</label> 
+						<select	class="form-control" name="hideandshow">
+						<option value="show">활성</option>
+						<option value="hide">비활성</option>
+						</select>
+						<br/><br/>
+						<input type="submit" value="수정" class="btn btn-success" />
+					</form>
+			</div>
 		</div>
 
 

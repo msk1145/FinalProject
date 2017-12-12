@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.spring.project.domain.Member;
+import edu.spring.project.domain.Menu;
 
 @Repository
 public class AdminDaoImple implements AdminDao {
@@ -49,6 +50,26 @@ public class AdminDaoImple implements AdminDao {
 	@Override
 	public int memberDelete(String userid) {
 		return session.delete(NAMESPACE+".MemberDelete", userid);
+	}
+
+	@Override
+	public List<Menu> menuselect() {
+		return session.selectList(NAMESPACE+".selectMenu");
+	}
+
+	@Override
+	public Menu detailmenu(String mnum) {
+		return session.selectOne(NAMESPACE+".detailMenu", mnum);
+	}
+
+	@Override
+	public int menuUpdate(Menu menu) {
+		return session.update(NAMESPACE+".updateMenu", menu);
+	}
+
+	@Override
+	public int menuInsert(Menu menu) {
+		return session.insert(NAMESPACE+".insertMenu", menu);
 	}
 
 }
