@@ -41,7 +41,7 @@
 			<ul class="list-group">
 				<li class="list-group-item"><a href="memberList"
 					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a href="#"
+				<li class="list-group-item"><a href="/project/board/boardinsert"
 					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">게시물삭제</a></li>

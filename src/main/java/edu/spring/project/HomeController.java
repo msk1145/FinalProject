@@ -27,6 +27,7 @@ public class HomeController {
 		List<BoardContents> drama = boardConService.selectTopDrama();
 		List<BoardContents> animation = boardConService.selectTopAnimation();
 		List<BoardContents> variety = boardConService.selectTopVariety();
+		
 		model.addAttribute("topMovie", movie);
 		model.addAttribute("topDrama", drama);
 		model.addAttribute("topAnimation", animation);
