@@ -24,6 +24,11 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 	public List<ReplyContents> read(int bno) {
 		return replyConDao.read(bno);
 	}
+	
+	@Override
+	public List<ReplyContents> readReReplies(int rrno) {
+		return replyConDao.readReReplies(rrno);
+	}
 
 	@Override
 	public int insert(ReplyContents r) {

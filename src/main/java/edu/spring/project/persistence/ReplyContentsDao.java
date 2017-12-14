@@ -10,6 +10,9 @@ public interface ReplyContentsDao {
 	// 한 게시물에 전체 댓글
 	List<ReplyContents> read(int bno);
 	
+	// 댓글의 댓글
+	List<ReplyContents> readReReplies(int rrno);
+	
 	// 댓글 입력
 	int insert(ReplyContents r);
 	

@@ -40,11 +40,30 @@ public class ReplyRestController {
 		return entity;
 	}
 	
+	@RequestMapping(value = "/rereplies/{rrno}",
+			method = RequestMethod.GET)
+	public ResponseEntity<List<ReplyContents>> readReReplies(@PathVariable int rrno) {
+		logger.info("readReReplies(rrno: {})", rrno);
+		
+		List<ReplyContents> list = replyConService.readReReplies(rrno);
+		logger.info("list::" + list);
+		ResponseEntity<List<ReplyContents>> entity = null;
+		if (list != null) {
+			entity = new ResponseEntity<List<ReplyContents>>(list, HttpStatus.OK);
+		} else {
+			entity = new ResponseEntity<List<ReplyContents>>(HttpStatus.BAD_REQUEST);
+		}
+		return entity;
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<String> createReply(@RequestBody ReplyContents r) {
 		logger.info("createReply() 호출");
 		
-		int result = replyConService.insert(r);
+		
+		int	result = replyConService.insert(r);
+		
 		
 		ResponseEntity<String> entity = null;
 		if (result == 1) {
