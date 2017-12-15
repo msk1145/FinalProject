@@ -75,11 +75,9 @@
 				</div>
 				<div class="col-md-11">
 					<select class="form-control" name="category" >
-						<option value="movie">영화</option>
-						<option value="animation">애니메이션</option>
-						<option value="drama">드라마</option>
-						<option value="variety">예능</option>
-						<option value="free">자유게시판</option>
+					<c:forEach var="m" items="${menu}">
+						<option value="${m.href}">${m.menuname}</option>
+					</c:forEach>
 					</select>
 				</div>
 				<br/>

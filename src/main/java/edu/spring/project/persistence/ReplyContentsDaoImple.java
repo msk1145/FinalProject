@@ -25,22 +25,34 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 	public List<ReplyContents> read(int bno) {
 		return session.selectList(NAMESPACE + ".selectReplyConBybno", bno);
 	}
+	
+	@Override
+	public List<ReplyContents> readReReplies(int rrno) {
+		
+		return session.selectList(NAMESPACE + ".selectReReplyConByRrno", rrno);
+	}
 
 	@Override
 	public int insert(ReplyContents r) {
-		return session.insert(NAMESPACE + ".insertReplyCon", r);
+		int result = 0;
+		if (r.getRrno() == 0) {
+			logger.info("rno == 0");
+			result = session.insert(NAMESPACE + ".insertReplyCon", r); 
+		} else {
+			logger.info("rno != 0");
+			result = session.insert(NAMESPACE + ".insertRReplyCon", r);
+		}
+		return result;
 	}
 
 	@Override
 	public int update(ReplyContents r) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update(NAMESPACE + ".updateReplyCon", r);
 	}
 
 	@Override
 	public int delete(int rno) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.delete(NAMESPACE + ".deleteReplyCon", rno);
 	}
 
 	

@@ -3,15 +3,49 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.spring.project.mappers.ReplyMapper">
-
+	
+	<!-- 전체 댓글 목록  -->
 	<select id="selectReplyConBybno" resultType="ReplyContents">
-		select * from ${tblReplycontents} where ${colBno} = #{bno} order by rno desc
+		select * from ${tblReplycontents} where ${colBno} = #{bno} and ${colRrno} = 0 order by rno desc
 	</select>
 	
+	<!-- 댓글의 댓글 목록 -->
+	<select id="selectReReplyConByRrno" resultType="ReplyContents">
+		select * from ${tblReplycontents} where ${colRrno} = #{rrno} order by rno desc
+	</select>
+	
+	<!-- 댓글 입력 -->
 	<insert id="insertReplyCon">
 		insert into ${tblReplycontents} (${colBno}, ${colContent},
 		 ${colRegdate}, ${colUserid}, ${colRrno}) 
 		 values (#{bno}, #{content}, sysdate, #{userid}, 0)
 	</insert>
+	
+	<!-- 대댓글 입력 -->
+	<insert id="insertRReplyCon">
+		insert into ${tblReplycontents} (${colBno}, ${colContent},
+		 ${colRegdate}, ${colUserid}, ${colRrno})
+ 		 values (#{bno}, #{content}, sysdate, #{userid}, #{rrno})
+	</insert>
+	
+	<!-- 댓글 수정 -->
+	<update id="updateReplyCon">
+		update ${tblReplycontents} 
+		set ${colContent} = #{content}, ${colRegdate} = sysdate
+		where ${colRno} = #{rno}
+	</update>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReplyCon">
+		delete from ${tblReplycontents}
+		where ${colRno} = #{rno}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
 	
 </mapper>

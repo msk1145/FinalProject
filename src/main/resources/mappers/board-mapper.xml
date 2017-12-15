@@ -72,6 +72,7 @@
 	set ${colCount} = ${colCount} + 1
 	where ${colBno} = #{bno}
 	</update>
+	
 </mapper>
 
 
