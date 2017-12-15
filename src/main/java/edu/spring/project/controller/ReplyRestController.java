@@ -95,9 +95,9 @@ public class ReplyRestController {
 	
 	@RequestMapping(value = "{rno}",
 			method = RequestMethod.DELETE)
-	public ResponseEntity<String> deleteReply(@PathVariable int rno) {
+	public ResponseEntity<String> deleteReply(@PathVariable int rno, int rrno) {
 		logger.info("deleteReply() 호출");
-		
+		logger.info("deleteReply::" + rrno);
 		int result = replyConService.delete(rno);
 		ResponseEntity<String> entity = null;
 		if (result == 1) {
