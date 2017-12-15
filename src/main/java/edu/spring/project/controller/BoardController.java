@@ -108,7 +108,6 @@ public class BoardController {
 		try {
 			FileCopyUtils.copy(file.getBytes(), saveFile);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
@@ -128,7 +127,6 @@ public class BoardController {
 		try {
 			FileCopyUtils.copy(file.getBytes(), saveFile);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
