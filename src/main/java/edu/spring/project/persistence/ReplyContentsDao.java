@@ -20,5 +20,5 @@ public interface ReplyContentsDao {
 	int update(ReplyContents r);
 	
 	// 댓글 삭제
-	int delete(int rno);
+	int delete(int rno, int rrno);
 }

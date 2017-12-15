@@ -95,12 +95,13 @@ public class ReplyRestController {
 	
 	@RequestMapping(value = "{rno}",
 			method = RequestMethod.DELETE)
-	public ResponseEntity<String> deleteReply(@PathVariable int rno, int rrno) {
+	public ResponseEntity<String> deleteReply(@PathVariable int rno, @RequestBody ReplyContents r) {
 		logger.info("deleteReply() 호출");
-		logger.info("deleteReply::" + rrno);
-		int result = replyConService.delete(rno);
+		logger.info("deleteReply::" + r.getRrno());
+		int rrno = r.getRrno();
+		int result = replyConService.delete(rno, rrno);
 		ResponseEntity<String> entity = null;
-		if (result == 1) {
+		if (result > 0) {
 			entity = new ResponseEntity<String>("success", HttpStatus.OK);
 		} else {
 			entity = new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);

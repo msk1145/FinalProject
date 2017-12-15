@@ -78,7 +78,8 @@ public class BoardController {
 	public String boardinsert(BoardContents content, MultipartFile imageFile, MultipartFile videoFile) {
 		String resultimage = saveImageFile(imageFile);
 		String resultmovie = saveMovieFile(videoFile);
-		
+		System.out.println(resultimage);
+		System.out.println(resultmovie);
 		String saveImagePath =   "/resources/images/" + resultimage;
 		String saveVideoPath = "/resources/video/" + resultmovie;
 		System.out.println(saveImagePath);

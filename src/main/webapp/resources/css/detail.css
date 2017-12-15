@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.row{
+	margin: 10px;
+	padding: 10px;
+	font-size: 20px;
+}
+.contentsTop{
+	border-bottom: 2px solid Gainsboro; 
+	background-color: #FFFFE9;
+}
+.divLine{
+ border-bottom: 1px dotted Gainsboro;
+ margin: 10px;"
+}
+video {
+display: inline-block;
+width: auto\9 !important; /* ie8 */ 
+width: auto !important;
+max-width: 100%; 
+height: auto !important; 
+}
+/* .video-container { 
+position: relative; 
+height: 0; 
+padding-top: 30px; 
+padding-bottom: 56.25%; 
+overflow: hidden; }  */
+/* .video-container iframe,.video-container object,.video-container embed { 
+position: absolute; 
+top: 0; 
+left: 0; 
+width: 100%; 
+height: 100%; 
+} */

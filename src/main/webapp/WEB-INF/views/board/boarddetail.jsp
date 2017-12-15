@@ -15,7 +15,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 <head>
 <meta charset=UTF-8>
 <title>detail</title>
-
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/detail.css'/>">
 <!-- 1. Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -31,21 +31,6 @@ if (request.getProtocol().equals("HTTP/1.1"))
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
-<style>
-.row{
-	margin: 10px;
-	padding: 10px;
-	font-size: 20px;
-}
-.contentsTop{
-	border-bottom: 2px solid Gainsboro; 
-	background-color: #FFFFE9;
-}
-.divLine{
- border-bottom: 1px dotted Gainsboro;
- margin: 10px;"
-}
-</style>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -89,19 +74,11 @@ if (request.getProtocol().equals("HTTP/1.1"))
 						 		${boardContents.title} | ${boardContents.category}
 						 	</div>
 						 	<input id="bno" type="hidden" value="${boardContents.bno}"/>						 	<div class="col-md-2 text-right">
-						 		<a class="btn btn-primary">목록</a>
+						 		<a href="./boardmain?category=movie" class="btn btn-primary">목록</a>
 						 	</div>
 						</div>
 					</div>
 					<div class="row">
-					 	<div class="col-md-6">
-					 		운영자
-					 	</div>
-					 	<div class="col-md-6 text-right">
-					 		현재 게시글 주소
-					 	</div>
-					</div>
-					<div class="row" style="border-bottom: 2px solid Gainsboro;">
 					 	<div class="col-md-6">
 					 		조회수: ${boardContents.count}
 					 	</div>
@@ -111,17 +88,19 @@ if (request.getProtocol().equals("HTTP/1.1"))
 					 		${regdate}
 					 	</div>
 					</div>
+					<br/><br/>
+				
 					<div class="row" style="border-bottom: 2px solid Gainsboro;">
 					 	<div class="col-md-12">
-					 	<video src="<c:url value='${boardContents.videoPath}'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
-					 	<br/>
-					 		${boardContents.content}
+					 	<video class="video-container" src="<c:url value='${boardContents.videoPath}'/>" controls>이 브라우저에서는 실행 불가합니다.</video>
+					 	<br/><br/> 
+					 		<p>${boardContents.content}</p>
 					 	</div>
 					</div>
 					
 					<div class="row text-right">
 						<div class="col-md-12">
-							<a class="btn btn-info">게시물 수정</a>
+							<a href="./boardupdate" class="btn btn-info">게시물 수정</a>
 						</div>
 					</div>
 		
@@ -191,5 +170,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 		</div>
 	
 		<script type="text/javascript" src="<c:url value='/resources/js/replyAjax.js'/>"></script>
+		
+		
 </body>
 </html>

@@ -287,6 +287,7 @@ function getAllReplies() {
 	$('#replyList').on('click', '.eachReply .reply-update', 
 			function() {
 				var rno = $(this).nextAll('#reply-rno').val();
+				var rrno = $(this).nextAll('#reply-rrno').val();
 				var content = $(this).nextAll('#reply-text').val();
 				console.log(rno);
 				console.log(content);
@@ -306,8 +307,13 @@ function getAllReplies() {
 						success: function(result) {
 							if (result === 'success') {
 								alert('댓글 수정 성공');
-								$('#replyList').empty();
-								getAllReplies();
+								if (rrno == 0) {
+									$('#replyList').empty();
+									getAllReplies();
+								} else {
+									$('#replyList').find('.on').trigger('click');
+									$('#replyList').find('.on').trigger('click');
+								}
 							} else {
 								alert('댓글 수정 실패');
 							}
@@ -324,9 +330,10 @@ function getAllReplies() {
 			function() {
 				var rno = $(this).nextAll('#reply-rno').val();
 				var rrno = $(this).nextAll('#reply-rrno').val();
-				var answer = confirm('정말 삭제하시겠습니까?');
 				console.log('rno:' + rno);
 				console.log('rrno:' + rrno);
+				var answer = confirm('정말 삭제하시겠습니까?');
+				
 				
 				if (answer) {
 					
@@ -343,8 +350,13 @@ function getAllReplies() {
 						success: function(result) {
 							if (result === 'success') {
 								alert('댓글 삭제 성공');
-								$('#replyList').empty();
-								getAllReplies();
+								if (rrno == 0) {
+									$('#replyList').empty();
+									getAllReplies();
+								} else {
+									$('#replyList').find('.on').trigger('click');
+									$('#replyList').find('.on').trigger('click');
+								}
 							} else {
 								alert('댓글 삭제 실패');
 							}
