@@ -3,6 +3,7 @@ package edu.spring.project.persistence;
 import java.util.List;
 
 import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 
 	
 public interface BoardContentsDao {
@@ -34,6 +35,8 @@ public interface BoardContentsDao {
 	// Top Variety 가져오기
 	List<BoardContents> readTopVariety();
 	
+	// TOP Freeboard 가져오기
+	List<BoardFree> readTopFree();
 	// 조회수 업데이트
 	int countupdate(int bno);
 }

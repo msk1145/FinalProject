@@ -8,6 +8,17 @@
 		select * from ${tblContents} where ${colBno} = #{bno}
 	</select>
 	
+	<!-- 조회수 TOP5 자유게시판 게시물 가져오기 -->
+	<select id="selectTopFreeboard" resultType="BoardFree">
+		select rownum rn, a.*
+		from (
+   			select * 
+   			from ${tblFree} 
+   			order by fcount desc
+		) a
+		where rownum between 1 and 5
+	</select>
+	
 	<!-- 조회수 TOP5 영화 게시물 가져오기 -->
 	<select id="selectTopMovie" resultType="BoardContents">
 		select rownum rn, a.*

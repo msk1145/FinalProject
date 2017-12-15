@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 import edu.spring.project.persistence.BoardContentsDao;
 
 @Service
@@ -67,9 +68,15 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	}
 
 	@Override
+	public List<BoardFree> selectTopFree() {
+		return boardConDao.readTopFree();
+	}
+	
+	@Override
 	public int updatecount(int bno) {
 		
 		return boardConDao.countupdate(bno);
 	}
+
 
 }

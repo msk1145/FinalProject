@@ -73,6 +73,7 @@
 			<mapping path="/member/memberlogin" />
 			<mapping path="/member/memberinsert" />
 			<mapping path="/member/memberdetail" />
+			<mapping path="/admin/boardinsert" />
 			<beans:ref bean="menuinterceptor" />
 		</interceptor>
 	</interceptors>

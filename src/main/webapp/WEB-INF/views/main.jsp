@@ -70,7 +70,7 @@
 						<tbody>
 							<c:forEach var="movie" items="${topMovie}">
 								<tr class="text-center text-info"
-								 onClick="location.href='http://www.opnaratv.com/'"
+								 onClick="location.href='http://localhost:8181/project/board/boarddetail?bno=${movie.bno}'"
 								 style="cursor: pointer;">
 									<td>${movie.bno}</td>
 									<td>${movie.title}</td>
@@ -94,7 +94,8 @@
 						</thead>
 						<tbody>
 							<c:forEach var="drama" items="${topDrama}">
-								<tr class="text-center text-info">
+								<tr class="text-center text-info" onclick="location.href='http://localhost:8181/project/board/boarddetail?bno=${drama.bno}'" 
+								style="cursor: pointer;">
 									<td>${drama.bno}</td>
 									<td>${drama.title}</td>
 									<td>admin</td>
@@ -119,7 +120,9 @@
 						</thead>
 						<tbody>
 							<c:forEach var="animation" items="${topAnimation}">
-								<tr class="text-center text-info">
+								<tr class="text-center text-info"
+											onClick="location.href='http://localhost:8181/project/board/boarddetail?bno=${animation.bno}'"
+								 style="cursor: pointer;">
 									<td>${animation.bno}</td>
 									<td>${animation.title}</td>
 									<td>admin</td>
@@ -142,7 +145,9 @@
 						</thead>
 						<tbody>
 							<c:forEach var="variety" items="${topVariety}">
-								<tr class="text-center text-info">
+								<tr class="text-center text-info" 
+								onClick="location.href='http://localhost:8181/project/board/boarddetail?bno=${variety.bno}'"
+								 style="cursor: pointer;">
 									<td>${variety.bno}</td>
 									<td>${variety.title}</td>
 									<td>admin</td>
@@ -167,30 +172,16 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr class="text-center text-info">
-								<td>fbno</td>
-								<td>ftitle</td>
-								<td>fuserid</td>
-								<td>fcount</td>
+							<c:forEach var="freeboard" items="${topfreeboard}">
+							<tr class="text-center text-info
+										onclick="location.href='http://localhost:8181/project/board/boarddetail?bno=${freeboard.fbno}'"
+										style="cursor: pointer;">
+								<td>${freeboard.fbno}</td>
+								<td>${freeboard.ftitle}</td>
+								<td>${freeboard.fuserid}</td>
+								<td>${freeboard.fcount}</td>
 							</tr>
-							<tr class="text-center text-info">
-								<td>fbno</td>
-								<td>ftitle</td>
-								<td>fuserid</td>
-								<td>fcount</td>
-							</tr>
-							<tr class="text-center text-info">
-								<td>fbno</td>
-								<td>ftitle</td>
-								<td>fuserid</td>
-								<td>fcount</td>
-							</tr>
-							<tr class="text-center text-info">
-								<td>fbno</td>
-								<td>ftitle</td>
-								<td>fuserid</td>
-								<td>fcount</td>
-							</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

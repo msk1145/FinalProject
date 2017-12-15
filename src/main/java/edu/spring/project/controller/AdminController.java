@@ -131,4 +131,6 @@ public class AdminController {
 		return "redirect:/admin/menuList";
 	}
 	
+	
+	
 }
