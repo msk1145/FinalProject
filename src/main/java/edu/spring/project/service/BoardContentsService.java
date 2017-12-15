@@ -3,6 +3,7 @@ package edu.spring.project.service;
 import java.util.List;
 
 import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 
 
 public interface BoardContentsService {
@@ -32,6 +33,9 @@ public interface BoardContentsService {
 		
 	// Top Variety 가져오기
 	List<BoardContents> selectTopVariety();
+	
+	// Top FreeBoard 가져오기
+	List<BoardFree> selectTopFree();
 	
 	// 조회수 올리기
 	int updatecount(int bno);

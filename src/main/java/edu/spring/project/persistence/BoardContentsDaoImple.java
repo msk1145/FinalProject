@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 
 @Repository
 public class BoardContentsDaoImple implements BoardContentsDao {
@@ -69,9 +70,16 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 	}
 
 	@Override
+	public List<BoardFree> readTopFree() {
+		return session.selectList(NAMESPACE + ".selectTopFreeboard");
+	}
+	
+	@Override
 	public int countupdate(int bno) {
 		return session.update(NAMESPACE+".updateCount", bno);
 		
 	}
+
+	
 
 }

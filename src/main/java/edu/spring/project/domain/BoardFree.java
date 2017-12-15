@@ -8,18 +8,20 @@ public class BoardFree {
 	private String ftitle;
 	private String fcontent;
 	private String fuserid;
-	private int count;
+	private int fcount;
 	private Date fregdate;
+	private String fimagepath;
 	
 	/* 생성자 */
 	public BoardFree() {}
-	public BoardFree(int fbno, String ftitle, String fcontent, String fuserid, int count, Date fregdate) {
+	public BoardFree(int fbno, String ftitle, String fcontent, String fuserid, int fcount, Date fregdate, String fimagepath) {
 		this.fbno = fbno;
 		this.ftitle = ftitle;
 		this.fcontent = fcontent;
 		this.fuserid = fuserid;
-		this.count = count;
+		this.fcount = fcount;
 		this.fregdate = fregdate;
+		this.fimagepath = fimagepath;
 	}
 	
 	/* getter , setter */
@@ -47,11 +49,12 @@ public class BoardFree {
 	public void setFuserid(String fuserid) {
 		this.fuserid = fuserid;
 	}
-	public int getCount() {
-		return count;
+	
+	public int getFcount() {
+		return fcount;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setFcount(int fcount) {
+		this.fcount = fcount;
 	}
 	public Date getFregdate() {
 		return fregdate;
@@ -59,5 +62,13 @@ public class BoardFree {
 	public void setFregdate(Date fregdate) {
 		this.fregdate = fregdate;
 	}
+	public String getFimagepath() {
+		return fimagepath;
+	}
+	public void setFimagepath(String fimagepath) {
+		this.fimagepath = fimagepath;
+	}
+	
+	
 	
 }

@@ -41,7 +41,7 @@
 			<ul class="list-group">
 				<li class="list-group-item"><a href="memberList"
 					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a href="/project/board/boardinsert"
+				<li class="list-group-item" id="boardinsertbtn"><a href=""
 					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
 				<li class="list-group-item"><a href="#"
 					class="list-group-item list-group-item-action btn-info">게시물삭제</a></li>
@@ -49,12 +49,31 @@
 					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
 			</ul>
 		</div>
+		<button id="boardinsertbtn">게시물등록</button>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
+			<div id="result">
+				
+			</div>
 			
 		</div>
 
 
 	</div>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#boardinsertbtn').click(function(){
+				alert('aaa');
+				//$('#result').load('/resources/text/test.txt');
+				$.ajax({
+					type: 'GET',
+					url: '/project/admin/boardinsert/' /* TODO */
+				});
+		});
+	});
+			
+	</script>
 </body>
 </html>
