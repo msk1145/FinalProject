@@ -60,11 +60,13 @@
 		        <choose>
 		        	<when test="searchType == 1">
 		        		${colTitle} like #{keyword}
+		        		and ${colCategory} = #{category}
 		        	</when>
 		        	<when test="searchType == 2">
 		        		${colTitle} like #{keyword}
 		        		or
 		        		${colContent} like #{keyword}
+		        		and ${colCategory} = #{category}
 		        	</when>
 		        </choose> 
 		        order by bno desc

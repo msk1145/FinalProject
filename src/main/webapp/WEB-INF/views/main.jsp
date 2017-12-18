@@ -11,15 +11,13 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<!-- 2. jQuery : Bootstrap JS 파일은 jQuery 라이브러리를 사용 -->
+<!-- jQuery 3.2.1 라이브러리 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 <!-- 3. Bootstrap JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!-- jQuery 3.2.1 라이브러리 사용 -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 </head>

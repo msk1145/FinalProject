@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 </head>
@@ -134,8 +133,8 @@
 						</thead>
 						<tbody>
 							<c:forEach var="freeboard" items="${topfreeboard}">
-							<tr class="text-center text-info
-										onclick="location.href='http://localhost:8181/project/board/boarddetail?bno=${freeboard.fbno}'"
+							<tr class="text-center text-info"
+										onClick="location.href='http://localhost:8181/project/board/boarddetail?bno=${freeboard.fbno}'"
 										style="cursor: pointer;">
 								<td>${freeboard.fbno}</td>
 								<td>${freeboard.ftitle}</td>

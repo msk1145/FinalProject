@@ -162,6 +162,7 @@ public class BoardController {
 		
 		List<BoardContents> boardlist = boardConService.readPaging(category, c);
 		model.addAttribute("board", boardlist);
+		model.addAttribute("category", category);
 
 //		List<BoardContents> boardlist = boardConService.read(category);
 //		model.addAttribute("board", boardlist);
@@ -191,6 +192,7 @@ public class BoardController {
 		model.addAttribute("board", boardlist);
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
+		model.addAttribute("category", category);
 	}
 	
 	

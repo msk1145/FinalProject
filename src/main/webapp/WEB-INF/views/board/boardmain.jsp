@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 <style>
@@ -97,7 +96,7 @@
 						<option value="2">제목 + 내용</option>
 					</select>
 					<input class="form-control" type="text" name="keyword" /> 
-					<input type="hidden" name="category" value="${board[0].category}" />
+					<input type="hidden" name="category" value="${category}" />
 					<input class="btn" type="submit" value="검색" />
 					</form>
 				</div>
