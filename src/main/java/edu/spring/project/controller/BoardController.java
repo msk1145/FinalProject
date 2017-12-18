@@ -20,6 +20,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import edu.spring.project.domain.BoardContents;
 import edu.spring.project.domain.ReplyContents;
+import edu.spring.project.pageutil.PageNumberMaker;
+import edu.spring.project.pageutil.PaginationCriteria;
 import edu.spring.project.persistence.BoardContentsDao;
 import edu.spring.project.service.BoardContentsService;
 import edu.spring.project.service.BoardFreeService;
@@ -139,10 +141,53 @@ public class BoardController {
 	
 	
 	@RequestMapping(value="/boardmain",method=RequestMethod.GET)
-	public void boardmain(String category, Model model) {
-		List<BoardContents> boardlist = boardConService.read(category);
+	public void boardmain(String category, Integer page, Integer perPage, Model model) {
+		logger.info("page {}, perPage {}", page, perPage);
+		PaginationCriteria c = null;
+		if(page != null && perPage != null) {
+			c = new PaginationCriteria(page, perPage);
+		} else {
+			c = new PaginationCriteria();
+		}
+		
+		PageNumberMaker maker = new PageNumberMaker();
+		maker.setCriteria(c);
+		int count = boardConService.totalCount(category);
+		maker.setTotalCount(count);
+		maker.setPageMakerData();
+		model.addAttribute("pageMaker", maker);
+		
+		List<BoardContents> boardlist = boardConService.readPaging(category, c);
 		model.addAttribute("board", boardlist);
 
+//		List<BoardContents> boardlist = boardConService.read(category);
+//		model.addAttribute("board", boardlist);
+	}
+	
+	@RequestMapping(value = "/boardsearch",
+			method = RequestMethod.GET)
+	public void boardsearch(String category, Integer page, Integer perPage,
+			Integer searchType, String keyword, Model model) {
+		logger.info("BoardController:: category" + category);
+		logger.info("BoardController:: keyword" + keyword);
+		PaginationCriteria c = null;
+		if (page != null || perPage != null) {
+			c = new PaginationCriteria(page, perPage);
+		} else {
+			c = new PaginationCriteria();
+		}
+		
+		PageNumberMaker maker = new PageNumberMaker();
+		maker.setCriteria(c);
+		int count = boardConService.searchedTotalCount(category, keyword, searchType);
+		maker.setTotalCount(count);
+		maker.setPageMakerData();
+		model.addAttribute("pageMaker", maker);
+		
+		List<BoardContents> boardlist = boardConService.readSearchedPaging(category, c, keyword, searchType);
+		model.addAttribute("board", boardlist);
+		model.addAttribute("searchType", searchType);
+		model.addAttribute("keyword", keyword);
 	}
 	
 	

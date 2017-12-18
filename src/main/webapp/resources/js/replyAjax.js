@@ -1,7 +1,6 @@
 $(document).ready(function() {
 var bno = $('#bno').val();
 var userid = $('#loginId').val();
-var replyToggle = true;
 console.log(userid);
 console.log(bno);
 
@@ -88,7 +87,7 @@ function getAllReplies() {
 											+ '<div class="rReplyArea" style="padding: 0px 50px 0px 50px">'
 											+ 	'<span>' + this.userid + '</span>'
 											+ 	'<span style="color: gray; font-size: 10px; margin: 10px;">' + dateString + '</span>'
-											+ 	'<a id="rReply" style="color: gray; font-size: 10px; margin: 10px; cursor: pointer;">답글</a>'
+//											+ 	'<a id="rReply" style="color: gray; font-size: 10px; margin: 10px; cursor: pointer;">답글</a>'
 											+ 	'<button class="btn btn-danger pull-right reply-delete">삭제</button>'
 											+ 	'<button class="btn btn-success pull-right reply-update">수정</button><br>'
 											+ 	'<input class="form-control" type="text" id="reply-text" value="' + this.content + '" style="padding: 10px;">'
@@ -125,15 +124,14 @@ function getAllReplies() {
 							$('#replyList .eachReply .rrReply').not(_rReply).removeClass('on');
 							
 							$('#replyList .eachReply .rrReply').html('답글');
-
+							$('#replyList .eachReply .rrReply').css('color', 'gray');
+							
 							if (!_rReply.hasClass('on')) {
 							//if (replyToggle) {
 								//_rReply.parent().find('.rReplyList').html(rReplyHTML);
 								_rReply.addClass('on');
 								_rReply.html('답글취소');
-								console.log('toggle' + replyToggle);
-								console.log('if true');
-								replyToggle = false;
+								_rReply.css('color', 'red');
 								
 							} else {
 								_rReply.removeClass('on');
@@ -142,9 +140,6 @@ function getAllReplies() {
 								//_rReply.parent().find('.rReplyList .row').hide();
 								_rReply.closest('.eachReply').find('.rReplyList').hide();
 								//_rReply.nextAll('.divLine').remove();
-								console.log('if else');
-								console.log('toggle(else)' + replyToggle);
-								replyToggle = true;
 							}
 							
 						});
@@ -211,32 +206,37 @@ function getAllReplies() {
 		var content = $(this).parent().parent().parent().find('.col-md-11 .form-group #rReplyContent').val();
 		console.log('rRcontent:' + content);
 		console.log('rrno:' + rrno);
-		var answer = confirm('댓글을 등록하시겠습니까?');
-		if (answer) {
-			$.ajax({
-				type: 'POST',
-				url: '../replies',
-				headers: {
-					'Content-Type': 'application/json',
-					'X-HTTP-Method-Override': 'POST'
-				},
-				data: JSON.stringify({
-					'bno': bno,
-					'content': content,
-					'userid': userid,
-					'rrno': rrno
-				}),
-				success: function(result) {
-					if (result) {
-						alert('대댓글 입력 성공');
-						$('#replyList').find('.on').trigger('click');
-						$('#replyList').find('.on').trigger('click');
-						$('#rReplyContent').val('');
-					} else {
-						alert('대댓글 입력 실패');
+		
+		if (typeof content == 'undefined' || content == null || content == '') {
+			alert('댓글을 입력하세요.');
+		} else {
+			var answer = confirm('댓글을 등록하시겠습니까?');
+			if (answer) {
+				$.ajax({
+					type: 'POST',
+					url: '../replies',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-HTTP-Method-Override': 'POST'
+					},
+					data: JSON.stringify({
+						'bno': bno,
+						'content': content,
+						'userid': userid,
+						'rrno': rrno
+					}),
+					success: function(result) {
+						if (result) {
+							alert('대댓글 입력 성공');
+							$('#replyList').find('.on').trigger('click');
+							$('#replyList').find('.on').trigger('click');
+							$('#rReplyContent').val('');
+						} else {
+							alert('대댓글 입력 실패');
+						}
 					}
-				}
-			});
+				});
+			}
 		}
 	}); // rReply-register(대댓글 입력)
 			
@@ -246,40 +246,44 @@ function getAllReplies() {
 		var content = $('#replyContent').val();
 		console.log(content);
 		console.log(userid);
-		var answer = confirm('댓글을 등록하시겠습니까?');
-		if (answer) { 
-			$.ajax({
-				type: 'POST',
-				url: '../replies',
-				headers: {
-					'Content-Type': 'application/json',
-					'X-HTTP-Method-Override': 'POST'
-				},
-				data: JSON.stringify({
-					'bno': bno,
-					'content': content,
-					'userid': userid
-				}),
-				success: function(result) {
-					if (result === 'success') {
-						alert('댓글 입력 성공');
-						$('#replyList').empty();
-						getAllReplies();
-						$('#replyContent').val('');
-						
-					} else {
-						alert('댓글 입력 실패');
-					}
-				},
-				// 에러메시지
-				 error:function(request,status,error){
-		             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		          }
-
-					
-			});
+		if (typeof content == 'undefined' || content == null || content == '') {
+			alert('댓글을 입력하세요.');
 		} else {
-			
+			var answer = confirm('댓글을 등록하시겠습니까?');
+			if (answer) { 
+				$.ajax({
+					type: 'POST',
+					url: '../replies',
+					headers: {
+						'Content-Type': 'application/json',
+						'X-HTTP-Method-Override': 'POST'
+					},
+					data: JSON.stringify({
+						'bno': bno,
+						'content': content,
+						'userid': userid
+					}),
+					success: function(result) {
+						if (result === 'success') {
+							alert('댓글 입력 성공');
+							$('#replyList').empty();
+							getAllReplies();
+							$('#replyContent').val('');
+							
+						} else {
+							alert('댓글 입력 실패');
+						}
+					},
+					// 에러메시지
+					 error:function(request,status,error){
+			             alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			          }
+	
+						
+				});
+			} else {
+				
+			}
 		}
 	}); // reply-register(댓글 입력)
 	

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import edu.spring.project.domain.BoardContents;
 import edu.spring.project.domain.BoardFree;
+import edu.spring.project.pageutil.PaginationCriteria;
 import edu.spring.project.persistence.BoardContentsDao;
 
 @Service
@@ -18,6 +19,27 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	
 	@Autowired
 	private BoardContentsDao boardConDao;
+	
+	@Override
+	public List<BoardContents> readPaging(String category, PaginationCriteria c) {
+		return boardConDao.readPaging(category, c);
+	}
+	
+	@Override
+	public int totalCount(String category) {
+		return boardConDao.totalCount(category);
+	}
+
+	@Override
+	public List<BoardContents> readSearchedPaging(String category, PaginationCriteria c, String keyword,
+			int searchType) {
+		return boardConDao.readSearchedPaging(category, c, keyword, searchType);
+	}
+
+	@Override
+	public int searchedTotalCount(String category, String keyword, int searchType) {
+		return boardConDao.searchedTotalCount(category, keyword, searchType);
+	}
 	
 	@Override
 	public List<BoardContents> read(String category) {
@@ -77,6 +99,8 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		
 		return boardConDao.countupdate(bno);
 	}
+
+	
 
 
 }

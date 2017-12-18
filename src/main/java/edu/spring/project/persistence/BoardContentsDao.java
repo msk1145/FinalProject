@@ -4,9 +4,22 @@ import java.util.List;
 
 import edu.spring.project.domain.BoardContents;
 import edu.spring.project.domain.BoardFree;
+import edu.spring.project.pageutil.PaginationCriteria;
 
 	
 public interface BoardContentsDao {
+	// 게시글 페이징
+	List<BoardContents> readPaging(String category, PaginationCriteria c);
+	
+	// 전체 게시글 갯수
+	int totalCount(String category);
+	
+	// 검색된 리스트 페이징
+	List<BoardContents> readSearchedPaging(String category, PaginationCriteria c,
+				String keyword, int searchType);
+
+	// 검색된 게시글 갯수
+	int searchedTotalCount(String category, String keyword, int searchType);
 	
 	// 게시글 전체 리스트 출력
 	List<BoardContents> read(String category);

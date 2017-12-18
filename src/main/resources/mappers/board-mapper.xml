@@ -3,9 +3,74 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.spring.project.mappers.BoardMapper">
+	<!-- 게시물 갯수 -->
+	<select id="totalCount" resultType="Integer">
+		select count(bno) cnt from ${tblContents} where ${colCategory} = #{category}
+	</select>
+	
+	<!-- 게시물 정보 pagination -->
+	<select id="selectBoardConPerPage" resultType="BoardContents">
+		select b.bno, b.title, b.content, b.regdate, b.count, b.category, b.videopath, b.imagepath
+		from (
+		    select rownum rn, a.*
+		    from (
+		        select * 
+		        from ${tblContents} 
+		        where ${colCategory} = #{category} 
+		        order by bno desc
+		    ) a
+		) b
+		where rn between #{start} and #{end}
+	</select>
+
 	<!-- 게시물 정보 -->
 	<select id="selectBybno" resultType="BoardContents">
 		select * from ${tblContents} where ${colBno} = #{bno}
+	</select>
+	
+	<!-- 검색된 게시물 갯수 -->
+	<select id="searchedTotalCount" resultType="Integer">
+		select count(bno) cnt from ${tblContents}
+		where
+		<choose>
+			<when test="searchType == 1">
+		    	${colTitle} like #{keyword}
+		    	and ${colCategory} = #{category}
+		    </when>
+		    <when test="searchType == 2">
+		    	${colTitle} like #{keyword}
+		    	or
+		    	${colContent} like #{keyword}
+		    	and
+		    	${colCategory} = #{category}
+		    </when>
+		</choose> 
+		
+	</select>
+	
+	<!-- 검색된 게시글 페이징 -->
+	<select id="selectSearchedBoardConPerPage" resultType="BoardContents">
+		select b.bno, b.title, b.content, b.regdate, b.count, b.category, b.videopath, b.imagepath
+		from (
+		    select rownum rn, a.*
+		    from (
+		        select * 
+		        from ${tblContents} 
+		        where
+		        <choose>
+		        	<when test="searchType == 1">
+		        		${colTitle} like #{keyword}
+		        	</when>
+		        	<when test="searchType == 2">
+		        		${colTitle} like #{keyword}
+		        		or
+		        		${colContent} like #{keyword}
+		        	</when>
+		        </choose> 
+		        order by bno desc
+		    ) a
+		) b
+		where rn between #{start} and #{end}
 	</select>
 	
 	<!-- 조회수 TOP5 자유게시판 게시물 가져오기 -->
@@ -83,6 +148,7 @@
 	set ${colCount} = ${colCount} + 1
 	where ${colBno} = #{bno}
 	</update>
+	
 	
 </mapper>
 
