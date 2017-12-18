@@ -72,7 +72,7 @@ public class BoardContents {
 	}
 
 	public void setVideoPath(String videoPath) {
-		this.videoPath = "/resources/images/"+videoPath;
+		this.videoPath = videoPath;
 	}
 
 	public String getImagePath() {
@@ -80,7 +80,7 @@ public class BoardContents {
 	}
 
 	public void setImagePath(String imagePath) {
-		this.imagePath = "/resources/images/"+imagePath;
+		this.imagePath = imagePath;
 	}
 	
 }

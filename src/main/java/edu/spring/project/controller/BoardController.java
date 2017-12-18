@@ -78,9 +78,12 @@ public class BoardController {
 
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
 	public String boardinsert(BoardContents content, MultipartFile imageFile, MultipartFile videoFile) {
-		String resultimage = saveImageFile(imageFile);
-		String resultmovie = saveMovieFile(videoFile);
+		String resultimage = "/resources/images/" + saveImageFile(imageFile);
+		String resultmovie = "/resources/video/" + saveMovieFile(videoFile);
 
+		System.out.println("resultimage=" + resultimage);
+		System.out.println("resultmovie=" + resultmovie);
+		
 		content.setImagePath(resultimage);
 		content.setVideoPath(resultmovie);
 		
