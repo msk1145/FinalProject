@@ -5,21 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-
 <!-- 1. Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-
-<!-- 2. jQuery : Bootstrap JS 파일은 jQuery 라이브러리를 사용 -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-<!-- 3. Bootstrap JavaScript -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- jQuery 3.2.1 라이브러리 사용 -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 </head>
@@ -27,24 +18,18 @@
 
 
 <body>
-<div class="col-md-12">
-<jsp:include page="header.jsp"></jsp:include>
-</div>
-
-
-<div class="col-md-2">
-<jsp:include page="menu.jsp"></jsp:include>
-</div>
-
-<div class="col-md-10">
-<jsp:include page="mainview.jsp"></jsp:include>
-</div>
-
-
-
-
-
-
+	<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="main">Home</a>
+		</div>
+		<div class="navbar-header pull-right">
+			<a class="navbar-brand" href="logout">나가기</a>
+		</div>
+	</div>
+	</nav>
+	<div class="jumbotron text-center">
+		<h2>관리자 페이지</h2>
+	</div>
 </body>
-
 </html>

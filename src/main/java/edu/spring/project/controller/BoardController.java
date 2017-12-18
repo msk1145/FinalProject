@@ -80,14 +80,13 @@ public class BoardController {
 	public String boardinsert(BoardContents content, MultipartFile imageFile, MultipartFile videoFile) {
 		String resultimage = saveImageFile(imageFile);
 		String resultmovie = saveMovieFile(videoFile);
-		System.out.println(resultimage);
-		System.out.println(resultmovie);
-		String saveImagePath =   "/resources/images/" + resultimage;
-		String saveVideoPath = "/resources/video/" + resultmovie;
-		System.out.println(saveImagePath);
-		System.out.println(saveVideoPath);
-		BoardContents boardcontent = new BoardContents(0, content.getTitle(), content.getContent(), null, 0, content.getCategory(),saveVideoPath , saveImagePath);
-		int result = boardConService.insert(boardcontent);
+
+		content.setImagePath(resultimage);
+		content.setVideoPath(resultmovie);
+		
+		int result = boardConService.insert(content);
+		
+	
 		System.out.println("삽입결과: " + result);
 		if(result == 1) {
 			return "redirect:/admin/main";
@@ -190,5 +189,8 @@ public class BoardController {
 		model.addAttribute("searchType", searchType);
 		model.addAttribute("keyword", keyword);
 	}
+	
+	
+	
 	
 }

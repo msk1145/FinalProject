@@ -6,7 +6,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 
-
 <!-- 1. Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -23,28 +22,20 @@
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 </head>
-
-
-
 <body>
+
 <div class="col-md-12">
 <jsp:include page="header.jsp"></jsp:include>
 </div>
 
 
 <div class="col-md-2">
-<jsp:include page="menu.jsp"></jsp:include>
+<jsp:include page="sidemenu.jsp"></jsp:include>
 </div>
 
 <div class="col-md-10">
-<jsp:include page="mainview.jsp"></jsp:include>
+<jsp:include page="adminmainview.jsp"></jsp:include>
 </div>
 
-
-
-
-
-
 </body>
-
 </html>
