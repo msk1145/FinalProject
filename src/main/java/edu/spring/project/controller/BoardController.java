@@ -78,12 +78,13 @@ public class BoardController {
 	public String boardinsert(BoardContents content, MultipartFile imageFile, MultipartFile videoFile) {
 		String resultimage = saveImageFile(imageFile);
 		String resultmovie = saveMovieFile(videoFile);
-		
+
 		content.setImagePath(resultimage);
 		content.setVideoPath(resultmovie);
 		
 		int result = boardConService.insert(content);
 		
+	
 		System.out.println("삽입결과: " + result);
 		if(result == 1) {
 			return "redirect:/admin/main";
