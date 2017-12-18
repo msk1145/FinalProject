@@ -142,6 +142,7 @@ public class BoardController {
 	public void boardmain(String category, Model model) {
 		List<BoardContents> boardlist = boardConService.read(category);
 		model.addAttribute("board", boardlist);
+
 	}
 	
 	
