@@ -79,12 +79,11 @@ public class BoardController {
 		String resultimage = saveImageFile(imageFile);
 		String resultmovie = saveMovieFile(videoFile);
 		
-		String saveImagePath =   "/resources/images/" + resultimage;
-		String saveVideoPath = "/resources/video/" + resultmovie;
-		System.out.println(saveImagePath);
-		System.out.println(saveVideoPath);
-		BoardContents boardcontent = new BoardContents(0, content.getTitle(), content.getContent(), null, 0, content.getCategory(),saveVideoPath , saveImagePath);
-		int result = boardConService.insert(boardcontent);
+		content.setImagePath(resultimage);
+		content.setVideoPath(resultmovie);
+		
+		int result = boardConService.insert(content);
+		
 		System.out.println("삽입결과: " + result);
 		if(result == 1) {
 			return "redirect:/admin/main";
@@ -143,5 +142,8 @@ public class BoardController {
 		List<BoardContents> boardlist = boardConService.read(category);
 		model.addAttribute("board", boardlist);
 	}
+	
+	
+	
 	
 }

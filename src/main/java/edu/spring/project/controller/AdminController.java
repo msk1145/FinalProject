@@ -41,7 +41,7 @@ public class AdminController {
 	}
 	
 	// 관리자 페이지 메인
-	@RequestMapping(value = "/main",
+	@RequestMapping(value = "/adminmaintest",
 			method = RequestMethod.GET)
 	public void adminMain() {
 		

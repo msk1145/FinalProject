@@ -62,18 +62,6 @@
 	</div>
 
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#boardinsertbtn').click(function(){
-				alert('aaa');
-				//$('#result').load('/resources/text/test.txt');
-				$.ajax({
-					type: 'GET',
-					url: '/project/admin/boardinsert/' /* TODO */
-				});
-		});
-	});
-			
-	</script>
+
 </body>
 </html>
