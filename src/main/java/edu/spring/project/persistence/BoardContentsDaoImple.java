@@ -1,6 +1,7 @@
 package edu.spring.project.persistence;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -9,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardContentsVO;
+import edu.spring.project.domain.Menu;
 
 @Repository
 public class BoardContentsDaoImple implements BoardContentsDao {
@@ -49,29 +52,21 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 	}
 
 	@Override
-	public List<BoardContents> readTopMovie() {
-		return session.selectList(NAMESPACE + ".selectTopMovie");
-	}
-
-	@Override
-	public List<BoardContents> readTopDrama() {
-		return session.selectList(NAMESPACE + ".selectTopDrama");
-	}
-
-	@Override
-	public List<BoardContents> readTopAnimation() {
-		return session.selectList(NAMESPACE +".selectTopAnimation");
-	}
-
-	@Override
-	public List<BoardContents> readTopVariety() {
-		return session.selectList(NAMESPACE + ".selectTopVariety");
-	}
-
-	@Override
 	public int countupdate(int bno) {
 		return session.update(NAMESPACE+".updateCount", bno);
 		
 	}
+
+	@Override
+	public List<Menu> selectMenu() {
+		return session.selectList(NAMESPACE+".selectMenu");
+	}
+
+	@Override
+	public List<BoardContentsVO> selectbyCategoryBoard(String href) {
+		return session.selectList(NAMESPACE+".selectbyCategoryBoard", href);
+	}
+
+	
 
 }

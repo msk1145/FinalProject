@@ -30,11 +30,6 @@ import edu.spring.project.service.ReplyContentsService;
 public class BoardController {
 	public static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 
-
-	private static final String UPLOAD_PATH_IMAGE = "C:\\Users\\scott\\git\\FinalProject\\src\\main\\webapp\\resources\\images";
-	private static final String UPLOAD_PATH_MOVIE = "C:\\Users\\scott\\git\\FinalProject\\src\\main\\webapp\\resources\\video";
-
-
 	@Autowired
 	BoardContentsService boardConService;
 	@Autowired
@@ -67,74 +62,6 @@ public class BoardController {
 		BoardContents boardContents = boardConService.read(bno);
 		model.addAttribute("boardContents", boardContents);
 	}
-
-	// Board Insert
-	@RequestMapping(value = "/boardinsert", method = RequestMethod.GET)
-	public void boardinsert() {
-
-	}
-
-	@RequestMapping(value = "/boardinsert", method = RequestMethod.POST)
-	public String boardinsert(BoardContents content, MultipartFile imageFile, MultipartFile videoFile) {
-		String resultimage = saveImageFile(imageFile);
-		String resultmovie = saveMovieFile(videoFile);
-		
-		String saveImagePath =   "/resources/images/" + resultimage;
-		String saveVideoPath = "/resources/video/" + resultmovie;
-		System.out.println(saveImagePath);
-		System.out.println(saveVideoPath);
-		BoardContents boardcontent = new BoardContents(0, content.getTitle(), content.getContent(), null, 0, content.getCategory(),saveVideoPath , saveImagePath);
-		int result = boardConService.insert(boardcontent);
-		System.out.println("삽입결과: " + result);
-		if(result == 1) {
-			return "redirect:/admin/main";
-		}	
-			return "redirect:/board/boardinsert";
-		
-		
-
-	}
-
-	// 이미지 파일 저장객체 생성
-	private String saveImageFile(MultipartFile file) {
-		
-		String saveName = file.getOriginalFilename();
-		
-
-		// 저장할 File 객체를 생성
-		File saveFile = new File(UPLOAD_PATH_IMAGE, saveName);
-
-		// 생성된 파일 객체를 저장
-		try {
-			FileCopyUtils.copy(file.getBytes(), saveFile);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-
-		return saveName;
-	}
-	
-	// 영화파일 저장객체를 생성
-	private String saveMovieFile(MultipartFile file) {
-
-		String saveName = file.getOriginalFilename();
-
-		// 저장할 File 객체를 생성
-		File saveFile = new File(UPLOAD_PATH_MOVIE, saveName);
-
-		// 생성된 파일 객체를 저장
-		try {
-			FileCopyUtils.copy(file.getBytes(), saveFile);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-
-		return saveName;
-	}
-	
-	
 	
 	@RequestMapping(value="/boardmain",method=RequestMethod.GET)
 	public void boardmain(String category, Model model) {

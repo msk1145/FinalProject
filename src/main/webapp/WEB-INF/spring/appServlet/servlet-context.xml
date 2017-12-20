@@ -66,13 +66,14 @@
 		<interceptor>
 			<mapping path="/" />
 			<mapping path="/board/boarddetail" />
-			<mapping path="/board/boardinsert" />
 			<mapping path="/board/boardList" />
 			<mapping path="/board/boardmain" />
 			<mapping path="/board/boardupdate" />
 			<mapping path="/member/memberlogin" />
 			<mapping path="/member/memberinsert" />
 			<mapping path="/member/memberdetail" />
+			<mapping path="/admin/boardinsert" />
+			<mapping path="/admin/boardList" />
 			<beans:ref bean="menuinterceptor" />
 		</interceptor>
 	</interceptors>

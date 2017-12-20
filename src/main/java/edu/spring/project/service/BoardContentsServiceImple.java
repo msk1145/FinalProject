@@ -1,6 +1,9 @@
 package edu.spring.project.service;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardContentsVO;
+import edu.spring.project.domain.Menu;
 import edu.spring.project.persistence.BoardContentsDao;
 
 @Service
@@ -47,29 +52,31 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	}
 
 	@Override
-	public List<BoardContents> selectTopMovie() {
-		return boardConDao.readTopMovie();
-	}
-
-	@Override
-	public List<BoardContents> selectTopDrama() {
-		return boardConDao.readTopDrama();
-	}
-
-	@Override
-	public List<BoardContents> selectTopAnimation() {
-		return boardConDao.readTopAnimation();
-	}
-
-	@Override
-	public List<BoardContents> selectTopVariety() {
-		return boardConDao.readTopVariety();
-	}
-
-	@Override
 	public int updatecount(int bno) {
 		
 		return boardConDao.countupdate(bno);
+	}
+
+	@Override
+	public List<List<BoardContentsVO>> selectmenu() {
+		List<Menu> list = boardConDao.selectMenu();
+		List<List<BoardContentsVO>> boardlist = new ArrayList<>();
+		for(Menu m : list) {
+			List<BoardContentsVO> li = boardConDao.selectbyCategoryBoard(m.getHref());
+			if(li.size() == 0) {
+				BoardContentsVO vo = new BoardContentsVO();
+				vo.setMenuname("123");
+				vo.setTitle("등록된 영상이 없음");
+				li.add(vo);
+			}
+			boardlist.add(li);
+		}
+		/*for (List<BoardContentsVO> l : boardlist) {
+			for (BoardContentsVO vo : l) {
+				
+			}
+		}*/
+		return boardlist;
 	}
 
 }

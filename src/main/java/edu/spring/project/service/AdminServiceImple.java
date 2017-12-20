@@ -1,5 +1,8 @@
 package edu.spring.project.service;
 
+import static org.hamcrest.CoreMatchers.instanceOf;
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,6 +10,8 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 import edu.spring.project.domain.Member;
 import edu.spring.project.domain.Menu;
 import edu.spring.project.persistence.AdminDao;
@@ -68,6 +73,32 @@ public class AdminServiceImple implements AdminService {
 	@Override
 	public int insertMenu(Menu menu) {
 		return dao.menuInsert(menu);
+	}
+
+	@Override
+	public List<BoardContents> selectBoard() {
+		return dao.selectBoard();
+	}
+
+	@Override
+	public List<Object> selectByConCategory(String category) {
+		List<Object> list = null;
+		if(category.equals("free")) {
+			list = dao.BoardFreeSelectAll();
+		}else {
+			list = dao.selectByConCategory(category);
+		}
+		
+		return list;
+	}
+
+	@Override
+	public Object boardDetail(int bno, String category) {
+		if(category.equals("free")) {
+			return dao.boardFreeDetail(bno);
+		}else {
+			return dao.boardConDetail(bno);
+		}
 	}
 
 }

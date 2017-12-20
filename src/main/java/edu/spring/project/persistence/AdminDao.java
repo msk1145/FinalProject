@@ -3,6 +3,8 @@ package edu.spring.project.persistence;
 import java.util.List;
 import java.util.Map;
 
+import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 import edu.spring.project.domain.Member;
 import edu.spring.project.domain.Menu;
 
@@ -28,4 +30,20 @@ public interface AdminDao {
 	int menuUpdate(Menu menu);
 	// 메뉴 insert
 	int menuInsert(Menu menu);
+
+	// 게시글 삭제를 위한 select
+	List<BoardContents> selectBoard();
+	
+	// 게시글 수정,삭제를 위한 category 별 출력
+	List<Object> selectByConCategory(String category);
+	
+	// 게시글 수정,삭제를 위한 BoardFree 출력	
+	List<Object> BoardFreeSelectAll();
+	
+	// 게시글 수정, 삭제를 위한 특정 boardContents 출력
+	Object boardConDetail(int bno);
+	
+	// 게시글 수정, 삭제를 위한 특정 boardFreetents 출력
+	Object boardFreeDetail(int fbno);
+	
 }

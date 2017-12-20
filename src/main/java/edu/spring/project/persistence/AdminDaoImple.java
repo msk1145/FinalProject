@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 import edu.spring.project.domain.Member;
 import edu.spring.project.domain.Menu;
 
@@ -70,6 +72,33 @@ public class AdminDaoImple implements AdminDao {
 	@Override
 	public int menuInsert(Menu menu) {
 		return session.insert(NAMESPACE+".insertMenu", menu);
+	}
+
+	@Override
+	public List<BoardContents> selectBoard() {
+		return session.selectList(NAMESPACE+".BoardContentsSelectAll2");
+	}
+
+	// Contents 일 경우
+	@Override
+	public List<Object> selectByConCategory(String category) {
+		return session.selectList(NAMESPACE+".selectByConCategory",category);
+	}
+
+	// Free일 경우
+	@Override
+	public List<Object> BoardFreeSelectAll() {
+		return session.selectList(NAMESPACE+".BoardFreeSelectAll");
+	}
+
+	@Override
+	public Object boardConDetail(int bno) {
+		return session.selectOne(NAMESPACE+".boardConDetail", bno);
+	}
+
+	@Override
+	public Object boardFreeDetail(int fbno) {
+		return session.selectOne(NAMESPACE+".boardFreeDetail", fbno);
 	}
 
 }

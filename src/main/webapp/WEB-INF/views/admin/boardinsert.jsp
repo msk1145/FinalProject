@@ -34,19 +34,14 @@
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/project/">Home</a>
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="main">Home</a>
+				</div>
+				<div class="navbar-header pull-right">
+					<a class="navbar-brand" href="logout">나가기</a>
+				</div>
 			</div>
-			<ul class="nav navbar-nav pull-right">
-				<c:if test="${not empty member}">
-				<li><a>${member.nickname}님 </a></li>
-				<li><a href="/project/member/memberdetail?userid=${member.userid}">회원 정보</a></li>
-			</c:if>
-			<c:if test="${empty member}">
-				<li><a id="btn-login">로그인</a></li>
-				<li><a id="btn-insert">회원가입</a></li>
-			</c:if>
-			</ul>
 		</div>
 	</nav>
 	<div class="jumbotron text-center">
@@ -55,11 +50,14 @@
 	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
-					<c:forEach var="m" items="${menu}">
-						<li class="list-group-item">
-						 <a href="/project/board/boardmain?category=${m.href}" class="list-group-item list-group-item-action btn-info">${m.menuname}</a>
-						</li>
-					</c:forEach>
+				<li class="list-group-item"><a href="memberList"
+					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
+				<li class="list-group-item"><a href="/project/admin/boardinsert"
+					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
+				<li class="list-group-item"><a href="boardList"
+					class="list-group-item list-group-item-action btn-info">게시물 수정/삭제</a></li>
+				<li class="list-group-item"><a href="menuList"
+					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
 			</ul>
 		</div>
 		<div class="col-md-10">
@@ -74,52 +72,55 @@
 					<label for="title">게시판 선택</label>
 				</div>
 				<div class="col-md-11">
-					<select class="form-control" name="category" >
-					<c:forEach var="m" items="${menu}">
-						<option value="${m.href}">${m.menuname}</option>
-					</c:forEach>
+					<select class="form-control" name="category">
+						<c:forEach var="m" items="${menu}">
+							<option value="${m.href}">${m.menuname}</option>
+						</c:forEach>
 					</select>
 				</div>
-				<br/>
-
+				<br />
 
 				<div class="col-md-1">
 					<label for="title">제 목</label>
 				</div>
 				<div class="col-md-11">
-					<input class="form-control" type="text" name="title" id="title" required /> 
+					<input class="form-control" type="text" name="title" id="title"
+						required />
 				</div>
-				<br/>
+				<br />
 
 
 				<div class="col-md-1">
-					<label for="content">본문</label><br/>
+					<label for="content">본문</label><br />
 				</div>
 				<div class="col-md-11">
 					<textarea style="resize: none;" rows="10" class="form-control"
-						name="content" id="content" required ></textarea>
-					
+						name="content" id="content" required></textarea>
+
 				</div>
 				<br />
-				
+
 				<div class="col-md-12">
-				<span class="pull-right">이미지파일</span>
-				<input class="pull-right" type="file" name="imageFile" placeholder="이미지파일 선택"/>
+					<span class="pull-right">이미지파일</span> <input class="pull-right"
+						type="file" name="imageFile" placeholder="이미지파일 선택" />
 				</div>
-				
+
 				<div class="col-md-12">
-				<span class="pull-right">동영상파일</span>
-				<input class="pull-right" type="file" name="videoFile" placeholder="동영상파일 선택" value="파일선택하라고시발놈아"/>
+					<span class="pull-right">동영상파일</span> <input class="pull-right"
+						type="file" name="videoFile" placeholder="동영상파일 선택"
+						value="파일선택하라고시발놈아" />
 				</div>
-				<br/><br/><br/>
-				<hr/>
-				<div><button type="submit" class="btn btn-default pull-right">등록</button></div>
+				<br /> <br /> <br />
+				<hr />
+				<div>
+					<button type="submit" class="btn btn-default pull-right">등록</button>
+				</div>
 			</form>
 		</div>
 	</div>
-	
-	
-	
+
+
+
 
 
 </body>

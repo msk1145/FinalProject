@@ -2,6 +2,8 @@ package edu.spring.project.service;
 
 import java.util.List;
 
+import edu.spring.project.domain.BoardContents;
+import edu.spring.project.domain.BoardFree;
 import edu.spring.project.domain.Member;
 import edu.spring.project.domain.Menu;
 
@@ -28,4 +30,14 @@ public interface AdminService {
 	int updateMenu(Menu menu);
 	// 메뉴 insert
 	int insertMenu(Menu menu);
+
+	// 게시물 삭제,수정를 위한 게시물 select
+	List<BoardContents> selectBoard();
+	
+	// 게시글 삭제,수정를 위한 category 별 출력
+	List<Object> selectByConCategory(String category);
+	
+	// 게시글 수정, 삭제를 위한 특정 boardContents, boardContents 출력
+	Object boardDetail(int bno,String category);
+
 }

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,25 +23,20 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<c:if test="${result > 0 or not empty result}">
-<script>
-alert('회원 삭제 완료!');
-</script>
-</c:if>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="/project/admin/main">Home</a>
+				<a class="navbar-brand" href="main">Home</a>
 			</div>
 			<div class="navbar-header pull-right">
 				<a class="navbar-brand" href="logout">나가기</a>
 			</div>
 		</div>
+
 	</nav>
 	<div class="jumbotron text-center">
-		<h2>AdminMain</h2>
+		<h2>관리자 페이지</h2>
 	</div>
-	<div>
 		<div class="col-md-2">
 			<ul class="list-group">
 				<li class="list-group-item"><a href="memberList"
@@ -54,35 +50,51 @@ alert('회원 삭제 완료!');
 			</ul>
 		</div>
 		<div class="col-md-10">
-			
-			<div class="container">
-				<h2 class="text-center">회원 리스트</h2>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr class="warning">
-							<th>아이디</th>
-							<th>비밀번호</th>
-							<th>이메일</th>
-							<th>닉네임</th>
-							<th>등급</th>
-						</tr>
-					</thead>
-					<tbody>
-					<c:forEach var="m" items="${member}">
-						<tr>
-							<td><a href="memberdetail?userid=${m.userid}">${m.userid}</a></td>
-							<td>${m.password}</td>
-							<td>${m.email}</td>
-							<td>${m.nickname}</td>
-							<td>${m.grade}</td>
-						</tr>
-					</c:forEach>
-					</tbody>
-				</table>
-			</div>
+			<!-- 여기가 컨텐츠 영역 -->
+			<form class="form-vertical" action="boardConDetail" method="post"
+				enctype="multipart/form-data">
+				<div class="box">
+					<h3 class="text-center">게시글 수정 및 삭제</h3>
+				</div>
+				
+				<div class="col-md-11">
+					<select class="form-control" name="category">
+						<c:forEach var="m" items="${menu}">
+							<option value="${m.href}">${m.menuname}</option>
+						</c:forEach>
+					</select>
+				</div>
+				
+				<br />
+				<div class="col-md-1">
+					<br/>
+					<label for="title">제 목</label>
+				</div>
+				<br/>
+				
+				<div class="col-md-11">
+					<input class="form-control" type="text" name="title" id="title" value="${board.title}"
+						required />
+				</div>
+				<br />
+				
+				
+				<div class="col-md-1">
+					<br/><br />
+					<label for="content">본문</label><br />
+				</div>
+				<br/>
+				<div class="col-md-11">
+					<br/>
+					<textarea style="resize: none;" rows="20" class="form-control"
+						name="content" id="content" required>${board.content}</textarea>
+				</div>
+				<br /><br /><br />
+				<hr />
+				<div>
+					<button type="submit" class="btn btn-info pull-right">수정</button>
+				</div>
+			</form>
 		</div>
-
-
-	</div>
 </body>
 </html>
