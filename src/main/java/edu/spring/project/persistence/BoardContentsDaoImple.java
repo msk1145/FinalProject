@@ -107,10 +107,12 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 		return session.selectList(NAMESPACE+".selectMenu");
 	}
 
+
 	@Override
 	public List<BoardContentsVO> selectbyCategoryBoard(String href) {
 		return session.selectList(NAMESPACE+".selectbyCategoryBoard", href);
 	}
+
 
 
 }

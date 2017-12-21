@@ -4,9 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="edu.spring.project.mappers.ReplyMapper">
 	
-	<!-- 전체 댓글 목록  -->
+	<!-- 게시글 댓글 목록  -->
 	<select id="selectReplyConBybno" resultType="ReplyContents">
 		select * from ${tblReplycontents} where ${colBno} = #{bno} and ${colRrno} = 0 order by rno desc
+	</select>
+	
+	<!-- 한게시글 전체 댓글 갯수 -->
+	<select id="selectReplyCountBybno" resultType="Integer">
+		select count(*) from ${tblReplycontents} where ${colBno} = #{bno}
 	</select>
 	
 	<!-- 댓글의 댓글 목록 -->

@@ -132,14 +132,14 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="freeboard" items="${topfreeboard}">
+							<c:forEach var="free" items="${topfreeboard}">
 							<tr class="text-center text-info"
 										onClick="location.href='http://localhost:8181/project/board/boarddetail?bno=${freeboard.fbno}'"
 										style="cursor: pointer;">
-								<td>${freeboard.fbno}</td>
-								<td>${freeboard.ftitle}</td>
-								<td>${freeboard.fuserid}</td>
-								<td>${freeboard.fcount}</td>
+								<td>${free.fbno}</td>
+								<td>${free.ftitle}</td>
+								<td>${free.fuserid}</td>
+								<td>${free.fcount}</td>
 							</tr>
 							</c:forEach>
 						</tbody>

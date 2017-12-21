@@ -45,6 +45,7 @@
 </div>
 <div>
 
+
 	<div class="col-md-2">
 		<div class="col-md-12">
 			<ul class="list-group">
@@ -95,8 +96,12 @@
 			</div>
 		</c:forEach>
 	</div>
+
 </div>
 
+<div class="col-md-12">
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+</div>
 
 </body>
 

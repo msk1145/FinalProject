@@ -35,6 +35,14 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 		return session.selectList(NAMESPACE + ".selectReReplyConByRrno", rrno);
 	}
 	
+	// 댓글 갯수
+	@Override
+	public int totalCountBybno(int bno) {
+		
+		return session.selectOne(NAMESPACE + ".selectReplyCountBybno", bno);
+	}
+
+	
 	// 댓글 추가
 	@Override
 	public int insert(ReplyContents r) {
@@ -64,6 +72,7 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 		return session.delete(NAMESPACE + ".deleteReplyCon", args);
 	}
 
+	
 	
 
 }

@@ -51,10 +51,11 @@ public class BoardController {
 		int bno = content.getBno();
 		boardConService.updatecount(bno);
 		BoardContents boardContents = boardConService.read(bno);
-		List<ReplyContents> list = replyConSevice.read(bno);
-		logger.info("list {}", list);
+		int replyCount = replyConSevice.totalCountBybno(bno);
+		
 		model.addAttribute("boardContents", boardContents);
-		model.addAttribute("replyConList", list);
+		model.addAttribute("replyCount", replyCount);
+		
 	}
 
 	@RequestMapping(value = "/boardupdate", method = RequestMethod.GET)
