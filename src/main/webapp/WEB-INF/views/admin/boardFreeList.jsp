@@ -23,36 +23,15 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="main">Home</a>
-			</div>
-			<div class="navbar-header pull-right">
-				<a class="navbar-brand" href="logout">나가기</a>
-			</div>
-		</div>
-
-	</nav>
-	<div class="jumbotron text-center">
-		<h2>관리자 페이지</h2>
+	<div class="col-md-12">
+		<jsp:include page="top.jsp"></jsp:include>
 	</div>
+
+	<div class="col-md-2">
+		<jsp:include page="side.jsp"></jsp:include>
+	</div>
+
 	<div>
-		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="memberList"
-					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a
-					href="/project/admin/boardinsert"
-					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-				<li class="list-group-item"><a href="boardList"
-					class="list-group-item list-group-item-action btn-info">게시물
-						수정/삭제</a></li>
-				<li class="list-group-item"><a href="menuList"
-					class="list-group-item list-group-item-action btn-info">메뉴 카테고리
-						추가</a></li>
-			</ul>
-		</div>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
 			<form action="boardList" method="post" id="submit">
@@ -80,9 +59,9 @@
 				</thead>
 				<tbody>
 					<c:forEach var="b" items="${board}">
-						<tr class="text-center text-info" 
-						onClick="location.href='/project/admin/boardDetail?bno=${b.fbno}&category=free'" 
-						style="cursor:pointer;" >
+						<tr class="text-center text-info"
+							onClick="location.href='/project/admin/boardDetail?bno=${b.fbno}&category=free'"
+							style="cursor: pointer;">
 							<td>${b.fbno}</td>
 							<td>${b.ftitle}</td>
 							<td><fmt:formatDate value="${b.fregdate}"
@@ -128,44 +107,46 @@
 		</form>
 	</div>
 
-	<script>
-	$(function() {
-		$('#pagination li a').click(function(event) {
-			// a태그 동작 정지
-			event.preventDefault();	
+	<div class="col-md-12">
+		<jsp:include page="bottom.jsp"></jsp:include>
+	</div>
 
-			// 이동할 페이지
-			var target = $(this).attr('href');
-			
-			if($('#select').val() == null || $('#select').val() == ""){
-				// category 값 추가
-				$('#cate').val($('#select').val());
-				// 서브밋할 폼의 값을 바꿔줌.
-				$('#page').val(target);
-				// 서브밋
-				$('#pageForm').submit();	
-			}else{
-				// category 값 추가
-				$('#cate2').val($('#select').val());
-				// 서브밋할 폼의 값을 바꿔줌.
-				$('#page2').val(target);
-				// 서브밋
-				$('#pageForm2').submit();	
+	<script>
+		$(function() {
+			$('#pagination li a').click(function(event) {
+				// a태그 동작 정지
+				event.preventDefault();
+
+				// 이동할 페이지
+				var target = $(this).attr('href');
+
+				if ($('#select').val() == null || $('#select').val() == "") {
+					// category 값 추가
+					$('#cate').val($('#select').val());
+					// 서브밋할 폼의 값을 바꿔줌.
+					$('#page').val(target);
+					// 서브밋
+					$('#pageForm').submit();
+				} else {
+					// category 값 추가
+					$('#cate2').val($('#select').val());
+					// 서브밋할 폼의 값을 바꿔줌.
+					$('#page2').val(target);
+					// 서브밋
+					$('#pageForm2').submit();
+				}
+
+			});
+		});
+
+		$('#select').change(function() {
+			if ($('select').val() == "") {
+				location.href = "/project/admin/boardList";
+			} else {
+				$('#submit').submit();
 			}
-			
-			
 
 		});
-	});
-
-	$('#select').change(function() {
-		if($('select').val() == ""){
-			location.href = "/project/admin/boardList";
-		}else{
-			$('#submit').submit();	
-		}
-		
-	});
-</script>
+	</script>
 </body>
 </html>

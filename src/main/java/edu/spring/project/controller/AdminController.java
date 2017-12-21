@@ -33,7 +33,7 @@ public class AdminController {
 
 	private static final String UPLOAD_PATH_IMAGE = "C:\\Users\\scott\\git\\FinalProject\\src\\main\\webapp\\resources\\images";
 	private static final String UPLOAD_PATH_MOVIE = "C:\\Users\\scott\\git\\FinalProject\\src\\main\\webapp\\resources\\video";
-
+	
 	// 관리자 페이지
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void admin() {
@@ -42,12 +42,15 @@ public class AdminController {
 
 	// 관리자 페이지 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String admin(String userid, String password) {
+	public String admin(String userid, String password, HttpServletRequest request) {
 		Member m = adminService.login(userid, password);
 		if (m == null) {
 			return "redirect:/admin/login";
+		}else {
+			request.getSession().setAttribute("admin", m.getUserid());
+			return "admin/adminmaintest";
 		}
-		return "admin/main";
+		
 	}
 
 	// 관리자 페이지 메인
@@ -95,8 +98,7 @@ public class AdminController {
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpServletRequest request) {
 		request.getSession().invalidate();
-
-		return "redirect:../";
+		return "redirect:/";
 	}
 
 	// 전체 메뉴 select

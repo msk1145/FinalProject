@@ -32,7 +32,11 @@ $(function(){
 </c:if>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
-			<c:if test="${not empty member}">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/project/">Home</a>
+			</div>
+			<ul class="nav navbar-nav pull-right">
+				<c:if test="${not empty member}">
 				<li><a>${member.nickname}님 </a></li>
 				<li><a href="/project/member/memberdetail?userid=${member.userid}">회원 정보</a></li>
 			</c:if>
@@ -40,6 +44,7 @@ $(function(){
 				<li><a id="btn-login">로그인</a></li>
 				<li><a id="btn-insert">회원가입</a></li>
 			</c:if>
+			</ul>
 		</div>
 	</nav>
 	<div class="jumbotron text-center">
@@ -69,6 +74,7 @@ $(function(){
 					<label for="nickname" class="control-label">닉네임</label><br/>
 					<input type="text" value="${member.nickname}" name="nickname" id="nickname" class="form-control" placeholder="NickName"><br/> <br/>
 					<button type="submit" class="btn btn-success">수정</button>
+					<br/><br/>
 				</form>
 				<button class="btn btn-danger" id="btn-delete">계정 삭제</button>
 			</div>

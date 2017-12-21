@@ -25,16 +25,20 @@
 <body>
 
 <div class="col-md-12">
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="top.jsp"></jsp:include>
 </div>
 
 
 <div class="col-md-2">
-<jsp:include page="sidemenu.jsp"></jsp:include>
+<jsp:include page="side.jsp"></jsp:include>
 </div>
 
 <div class="col-md-10">
-<jsp:include page="adminmainview.jsp"></jsp:include>
+<h1>본문</h1>
+</div>
+
+<div class="col-md-12">
+<jsp:include page="bottom.jsp"></jsp:include>
 </div>
 
 </body>
