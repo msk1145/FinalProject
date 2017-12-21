@@ -36,6 +36,8 @@ public interface BoardContentsService {
 	// 게시글 삭제
 	int delete(int bno);
 	
+	
+	
 	// Top Movie 가져오기
 	List<BoardContents> selectTopMovie();
 		

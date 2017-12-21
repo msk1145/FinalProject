@@ -1,6 +1,8 @@
 $(document).ready(function() {
 var bno = $('#bno').val();
 var userid = $('#loginId').val();
+var loginUserGrade = $('#loginUserGrade').val();
+console.log(loginUserGrade);
 console.log(userid);
 console.log(bno);
 
@@ -36,7 +38,7 @@ function getAllReplies() {
 								.append('<a id="rReply" class="rrReply" style="color: gray; font-size: 10px; margin: 10px; cursor: pointer;">답글</a>');
 						}
 							// 세션의 아이디와  댓글아이디 비교
-							if(userid === this.userid) {
+							if(userid === this.userid || loginUserGrade === 'admin') {
 								$('#replyList div:nth-child(' + (index+1) + ')')
 										.append('<button class="btn btn-danger pull-right reply-delete">삭제</button>')
 										.append('<button class="btn btn-success pull-right reply-update">수정</button>')
@@ -88,16 +90,21 @@ function getAllReplies() {
 											+ 	'<span>' + this.userid + '</span>'
 											+ 	'<span style="color: gray; font-size: 10px; margin: 10px;">' + dateString + '</span>'
 //											+ 	'<a id="rReply" style="color: gray; font-size: 10px; margin: 10px; cursor: pointer;">답글</a>'
-											+ 	'<button class="btn btn-danger pull-right reply-delete">삭제</button>'
-											+ 	'<button class="btn btn-success pull-right reply-update">수정</button><br>'
-											+ 	'<input class="form-control" type="text" id="reply-text" value="' + this.content + '" style="padding: 10px;">'
-											+ 	'<input type="hidden" id="reply-rno" value="' + this.rno + '"/>'
+											
+											if(userid === this.userid || loginUserGrade === 'admin'){
+												rReplyHTML += '<button class="btn btn-danger pull-right reply-delete">삭제</button>'
+															+ '<button class="btn btn-success pull-right reply-update">수정</button><br>'
+															+ '<input class="form-control" type="text" id="reply-text" value="' + this.content + '" style="padding: 10px;">';
+											} else {
+												rReplyHTML += 	'<input class="form-control" type="text" id="reply-text" value="' + this.content + '" style="padding: 10px;" readonly>'
+											}
+								rReplyHTML += 	'<input type="hidden" id="reply-rno" value="' + this.rno + '"/>'
 											+	'<input type="hidden" id="reply-rrno" value="' + this.rrno + '"/>'
 											+ '</div>'
 											+ '</div>';
 								
 							});
-							rReplyHTML += '<div class="row">'
+							rReplyHTML += '<div class="row" style="padding: 0px 50px 0px 50px">'
 								+ 	'<div class="col-md-11">'
 								+ 	'<div class="form-group">'
 								+ '<label for="rReplyContent">댓글내용</label>'
@@ -105,6 +112,7 @@ function getAllReplies() {
 						   					+ 'id="rReplyContent"'
 						   				+ 'style="resize:none;"></textarea>'
 						   			+ '<input type="hidden" id="loginId" value="${member.userid}" />'
+						   			+ '<input type="hidden" id="loginUserGrade" value="${member.grade}" />'
 						  		+ '</div>'
 					  		+ '</div>'
 							+ '<div class="col-md-1">'

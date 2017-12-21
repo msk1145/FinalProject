@@ -75,6 +75,7 @@
 		where rn between #{start} and #{end}
 	</select>
 	
+	
 	<!-- 조회수 TOP5 자유게시판 게시물 가져오기 -->
 	<select id="selectTopFreeboard" resultType="BoardFree">
 		select rownum rn, a.*
@@ -150,6 +151,7 @@
 	set ${colCount} = ${colCount} + 1
 	where ${colBno} = #{bno}
 	</update>
+	
 	
 	
 </mapper>

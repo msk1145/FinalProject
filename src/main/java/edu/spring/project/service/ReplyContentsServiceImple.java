@@ -29,6 +29,11 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 	public List<ReplyContents> readReReplies(int rrno) {
 		return replyConDao.readReReplies(rrno);
 	}
+	
+	@Override
+	public int totalCountBybno(int bno) {
+		return replyConDao.totalCountBybno(bno);
+	}
 
 	@Override
 	public int insert(ReplyContents r) {
@@ -44,6 +49,8 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 	public int delete(int rno, int rrno) {
 		return replyConDao.delete(rno, rrno);
 	}
+
+	
 
 	
 }

@@ -7,48 +7,12 @@
 <head>
 <meta charset=UTF-8>
 <title>main</title>
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/poster.css'/>" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
-<style>
-.poster_image  img {
-    -webkit-transform:scale(1);
-    -moz-transform:scale(1);
-    -ms-transform:scale(1); 
-    -o-transform:scale(1);  
-    transform:scale(1);
-    -webkit-transition:.3s;
-    -moz-transition:.3s;
-    -ms-transition:.3s;
-    -o-transition:.3s;
-    transition:.3s;
-    border-radius: 8px;
-    
-}
-.poster_image:hover img {
-    -webkit-transform:scale(1.3);
-    -moz-transform:scale(1.3);
-    -ms-transform:scale(1.3);   
-    -o-transform:scale(1.3);
-    transform:scale(1.3);
-}
-.potser-image.polaroid {
-  width: 80%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  margin-bottom: 25px;
-}
-
-.poster-image.container {
-  text-align: center;
-  padding: 10px 20px;
-}
-
-
-
-</style>
 
 </head>
 <body>
@@ -109,6 +73,11 @@
 								<img width="200" height="280" alt="이미지가 없음" src="<c:url value= '${b.imagePath}'/>"	/>
 								</a>
 								<h4 class="text-center">${b.title}</h4>
+								<div class="poster_content">
+									<span class="outline">줄거리</span><br/>
+									<div>${b.content}</div> <br/>
+									<a class="detail_poster" href="boarddetail?bno=${b.bno}">상세보기</a>
+								</div>
 							</div>
 						</c:forEach>
 					</c:if>
@@ -126,7 +95,7 @@
 						<c:forEach var="num" 
 								begin="${pageMaker.startPage}"
 								end="${pageMaker.endPage}">
-							<li><a href="${num}">${num}</a></li>
+							<li class="${num}"><a href="${num}">${num}</a></li>
 						</c:forEach>	
 				
 						<c:if test="${pageMaker.next}">
@@ -153,6 +122,9 @@
 	
 	<script>
 		$(document).ready(function() {
+			var currentPage = '${pageMaker.criteria.page}';
+			$('.pagination').find('.' + currentPage).addClass('active');
+			
 			$('.pagination li a').click(function() {
 				event.preventDefault();
 				

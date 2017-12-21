@@ -100,6 +100,7 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		return boardConDao.countupdate(bno);
 	}
 
+
 	
 
 

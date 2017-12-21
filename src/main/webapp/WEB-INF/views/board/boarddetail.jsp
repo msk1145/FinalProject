@@ -65,7 +65,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 				</ul>
 		</div>
 		<div class="form-group">
-			<div class="col-md-10">
+			<div class="col-md-10 contentsArea">
 				<!-- 여기가 컨텐츠 영역 -->
 				<div class="contents">
 					<div class="contentsTop">
@@ -110,7 +110,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 					<div class="replyTop">
 						<div class="row text-danger">
 						 	<div class="col-md-6">
-						 		댓글목록
+						 		댓글 [${replyCount}]
 						 	</div>
 						 	<c:if test="${empty member}">
 							 	<div class="col-md-6 text-right">
@@ -119,26 +119,10 @@ if (request.getProtocol().equals("HTTP/1.1"))
 						 	</c:if>
 						</div>
 						
-						<div class="row" style="border-bottom: 1px dotted Gainsboro; font-size: 15px; background: #f2f2f2;">
+						<div class="row" style="border-bottom: 1px dotted Gainsboro; font-size: 15px; background: #f2f2f2; border-radius: 10px;">
 						 	<div class="col-md-12">
-						 		
-						 		<%-- <c:forEach var="replyContent" items="${replyConList}"> --%>
 						 		<div id="replyList">
-							 		<%-- <span>
-							 			${replyContent.userid}
-							 		</span>
-							 		
-							 		<span style="color: gray; font-size: 10px; margin: 10px;">
-							 			<fmt:formatDate var="regdate" value="${replyContent.regdate}" pattern="yyyy.MM.dd. HH:mm"/>
-							 				${regdate}
-							 		</span>
-							 		<br/>
-							 		<span id="replyList">
-							 			${replyContent.content}
-							 		</span>
-							 		<br/> --%>
 							 	</div>
-								<%-- </c:forEach> --%>					 		
 						 	</div>
 						 	<c:if test="${not empty member}">
 							 	<div class="row">
@@ -149,6 +133,7 @@ if (request.getProtocol().equals("HTTP/1.1"))
 								   					 id="replyContent" 
 								   				style="resize:none;"></textarea>
 								   			<input type="hidden" id="loginId" value="${member.userid}" />
+								   			<input type="hidden" id="loginUserGrade" value="${member.grade}" />
 								  		</div>
 							  		</div>
 									<div class="col-md-1">
@@ -170,6 +155,10 @@ if (request.getProtocol().equals("HTTP/1.1"))
 		</div>
 	
 		<script type="text/javascript" src="<c:url value='/resources/js/replyAjax.js'/>"></script>
+		
+		<div class="col-md-12" style="padding:0px;">
+			<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
+		</div>
 		
 		
 </body>
