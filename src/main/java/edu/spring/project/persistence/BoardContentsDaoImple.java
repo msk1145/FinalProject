@@ -11,8 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.spring.project.domain.BoardContents;
-import edu.spring.project.domain.BoardFree;
+
+import edu.spring.project.domain.BoardContentsVO;
+import edu.spring.project.domain.Menu;
+
 import edu.spring.project.pageutil.PaginationCriteria;
+
 
 @Repository
 public class BoardContentsDaoImple implements BoardContentsDao {
@@ -91,31 +95,6 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public List<BoardContents> readTopMovie() {
-		return session.selectList(NAMESPACE + ".selectTopMovie");
-	}
-
-	@Override
-	public List<BoardContents> readTopDrama() {
-		return session.selectList(NAMESPACE + ".selectTopDrama");
-	}
-
-	@Override
-	public List<BoardContents> readTopAnimation() {
-		return session.selectList(NAMESPACE +".selectTopAnimation");
-	}
-
-	@Override
-	public List<BoardContents> readTopVariety() {
-		return session.selectList(NAMESPACE + ".selectTopVariety");
-	}
-
-	@Override
-	public List<BoardFree> readTopFree() {
-		return session.selectList(NAMESPACE + ".selectTopFreeboard");
-	}
 	
 	@Override
 	public int countupdate(int bno) {
@@ -123,11 +102,17 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 		
 	}
 
+	@Override
+	public List<Menu> selectMenu() {
+		return session.selectList(NAMESPACE+".selectMenu");
+	}
 
 
+	@Override
+	public List<BoardContentsVO> selectbyCategoryBoard(String href) {
+		return session.selectList(NAMESPACE+".selectbyCategoryBoard", href);
+	}
 
-	
-	
-	
+
 
 }

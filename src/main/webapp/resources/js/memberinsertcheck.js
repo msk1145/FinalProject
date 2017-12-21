@@ -19,7 +19,7 @@ $(function(){
 						$('#idSuccess').prop('class','form-group has-success');
 					}
 				}
-			})
+			});
 		}
 	});
 	

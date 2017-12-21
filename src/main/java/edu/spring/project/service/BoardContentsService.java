@@ -1,10 +1,15 @@
 package edu.spring.project.service;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.spring.project.domain.BoardContents;
+
+import edu.spring.project.domain.BoardContentsVO;
+
 import edu.spring.project.domain.BoardFree;
 import edu.spring.project.pageutil.PaginationCriteria;
+
 
 
 public interface BoardContentsService {
@@ -36,23 +41,8 @@ public interface BoardContentsService {
 	// 게시글 삭제
 	int delete(int bno);
 	
-	
-	
-	// Top Movie 가져오기
-	List<BoardContents> selectTopMovie();
-		
-	// Top Drama 가져오기
-	List<BoardContents> selectTopDrama();
-		
-	// Top Animation 가져오기
-	List<BoardContents> selectTopAnimation();
-		
-	// Top Variety 가져오기
-	List<BoardContents> selectTopVariety();
-	
-	// Top FreeBoard 가져오기
-	List<BoardFree> selectTopFree();
-	
 	// 조회수 올리기
 	int updatecount(int bno);
+
+	List<List<BoardContentsVO>> selectmenu();
 }

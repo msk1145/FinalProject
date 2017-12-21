@@ -5,7 +5,8 @@
 <mapper namespace="edu.spring.project.mappers.BoardMapper">
 	<!-- 게시물 갯수 -->
 	<select id="totalCount" resultType="Integer">
-		select count(bno) cnt from ${tblContents} where ${colCategory} = #{category}
+		select count(bno) cnt from
+		${tblContents} where ${colCategory} = #{category}
 	</select>
 	
 	<!-- 게시물 정보 pagination -->

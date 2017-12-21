@@ -6,7 +6,7 @@ public class PaginationCriteria {
 	
 	public PaginationCriteria() {
 		this.page = 1;
-		this.numsPerPage = 6;
+		this.numsPerPage = 10;
 	}
 
 	public PaginationCriteria(int page, int numsPerPage) {

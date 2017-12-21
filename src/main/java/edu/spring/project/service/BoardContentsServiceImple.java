@@ -1,5 +1,6 @@
 package edu.spring.project.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -8,8 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.spring.project.domain.BoardContents;
-import edu.spring.project.domain.BoardFree;
+
+import edu.spring.project.domain.BoardContentsVO;
+import edu.spring.project.domain.Menu;
+
 import edu.spring.project.pageutil.PaginationCriteria;
+
 import edu.spring.project.persistence.BoardContentsDao;
 
 @Service
@@ -68,31 +73,6 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
-	@Override
-	public List<BoardContents> selectTopMovie() {
-		return boardConDao.readTopMovie();
-	}
-
-	@Override
-	public List<BoardContents> selectTopDrama() {
-		return boardConDao.readTopDrama();
-	}
-
-	@Override
-	public List<BoardContents> selectTopAnimation() {
-		return boardConDao.readTopAnimation();
-	}
-
-	@Override
-	public List<BoardContents> selectTopVariety() {
-		return boardConDao.readTopVariety();
-	}
-
-	@Override
-	public List<BoardFree> selectTopFree() {
-		return boardConDao.readTopFree();
-	}
 	
 	@Override
 	public int updatecount(int bno) {
@@ -101,7 +81,20 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	}
 
 
-	
-
+	@Override
+	public List<List<BoardContentsVO>> selectmenu() {
+		List<Menu> list = boardConDao.selectMenu();
+		List<List<BoardContentsVO>> boardlist = new ArrayList<>();
+		for(Menu m : list) {
+			List<BoardContentsVO> li = boardConDao.selectbyCategoryBoard(m.getHref());
+			if(li.size() == 0) {
+				BoardContentsVO vo = new BoardContentsVO();
+				vo.setTitle("등록된 게시글이 없음");
+				li.add(vo);
+			}
+			boardlist.add(li);
+		}
+		return boardlist;
+	}
 
 }
