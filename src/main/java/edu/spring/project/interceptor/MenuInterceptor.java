@@ -20,7 +20,7 @@ public class MenuInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		List<Menu> menulist = session.selectList("edu.spring.project.mappers.AdminMapper.showMenu");
-		request.getSession().setAttribute("menu", menulist);
+		request.setAttribute("menu", menulist);
 		
 		super.postHandle(request, response, handler, modelAndView);
 	}

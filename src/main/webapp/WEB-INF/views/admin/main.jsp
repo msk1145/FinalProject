@@ -22,43 +22,23 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="main">Home</a>
-			</div>
-			<div class="navbar-header pull-right">
-				<a class="navbar-brand" href="logout">나가기</a>
-			</div>
-		</div>
-		
-	</nav>
-	<div class="jumbotron text-center">
-		<h2>관리자 페이지</h2>
+	<div class="col-md-12">
+		<jsp:include page="top.jsp"></jsp:include>
 	</div>
-	<div>
-		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="memberList"
-					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a href="/project/admin/boardinsert"
-					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-				<li class="list-group-item"><a href="boardList"
-					class="list-group-item list-group-item-action btn-info">게시물 수정/삭제</a></li>
-				<li class="list-group-item"><a href="menuList"
-					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
-			</ul>
-		</div>
-		<button id="boardinsertbtn">게시물등록</button>
-		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			<div id="result">
-				
-			</div>
-			
-		</div>
 
 
+
+	<div class="col-md-2">
+		<jsp:include page="side.jsp"></jsp:include>
+	</div>
+
+	<div class="col-md-10">
+		<!-- 여기가 컨텐츠 영역 -->
+		본문
+	</div>
+
+	<div class="col-md-12">
+		<jsp:include page="bottom.jsp"></jsp:include>
 	</div>
 
 

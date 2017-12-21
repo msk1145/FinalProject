@@ -22,52 +22,30 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<c:if test="${result > 0 or not empty result}">
-<script>
-alert('회원 삭제 완료!');
-</script>
-</c:if>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/project/admin/main">Home</a>
-			</div>
-			<div class="navbar-header pull-right">
-				<a class="navbar-brand" href="logout">나가기</a>
-			</div>
-		</div>
-	</nav>
-	<div class="jumbotron text-center">
-		<h2>AdminMain</h2>
+	<div class="col-md-12">
+		<jsp:include page="top.jsp"></jsp:include>
 	</div>
-	<div>
-		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="memberList"
-					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a href="/project/admin/boardinsert"
-					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-				<li class="list-group-item"><a href="boardList"
-					class="list-group-item list-group-item-action btn-info">게시물 수정/삭제</a></li>
-				<li class="list-group-item"><a href="menuList"
-					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
-			</ul>
-		</div>
-		<div class="col-md-10">
-			
-			<div class="container">
-				<h2 class="text-center">회원 리스트</h2>
-				<table class="table table-striped table-hover">
-					<thead>
-						<tr class="warning">
-							<th>아이디</th>
-							<th>비밀번호</th>
-							<th>이메일</th>
-							<th>닉네임</th>
-							<th>등급</th>
-						</tr>
-					</thead>
-					<tbody>
+
+
+	<div class="col-md-2">
+		<jsp:include page="side.jsp"></jsp:include>
+	</div>
+	
+	<div class="col-md-10">
+
+		<div class="container">
+			<h2 class="text-center">회원 리스트</h2>
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr class="warning">
+						<th>아이디</th>
+						<th>비밀번호</th>
+						<th>이메일</th>
+						<th>닉네임</th>
+						<th>등급</th>
+					</tr>
+				</thead>
+				<tbody>
 					<c:forEach var="m" items="${member}">
 						<tr>
 							<td><a href="memberdetail?userid=${m.userid}">${m.userid}</a></td>
@@ -77,12 +55,13 @@ alert('회원 삭제 완료!');
 							<td>${m.grade}</td>
 						</tr>
 					</c:forEach>
-					</tbody>
-				</table>
-			</div>
+				</tbody>
+			</table>
 		</div>
+	</div>
 
-
+	<div class="col-md-12">
+		<jsp:include page="bottom.jsp"></jsp:include>
 	</div>
 </body>
 </html>

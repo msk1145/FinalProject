@@ -31,10 +31,6 @@
 	<beans:bean id="multipartResolver"
 		class = "org.springframework.web.multipart.commons.CommonsMultipartResolver">
 	</beans:bean>
-	
-	
-	
-	
 
 	<context:component-scan base-package="edu.spring.project">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
@@ -44,6 +40,8 @@
 	<beans:bean id="logininterceptor" class="edu.spring.project.interceptor.LoginInterceptor" />
 	<beans:bean id="insertinterceptor" class="edu.spring.project.interceptor.InsertInterceptor" />
 	<beans:bean id="menuinterceptor" class="edu.spring.project.interceptor.MenuInterceptor" />
+	<beans:bean id="admininterceptor" class="edu.spring.project.interceptor.AdminInterceptor" />
+	
 	
 	<!-- 로그인 인터셉터 -->
 	<interceptors>
@@ -64,17 +62,19 @@
 	<!-- 메뉴 인터셉터 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/" />
-			<mapping path="/board/boarddetail" />
-			<mapping path="/board/boardList" />
-			<mapping path="/board/boardmain" />
-			<mapping path="/board/boardupdate" />
-			<mapping path="/member/memberlogin" />
-			<mapping path="/member/memberinsert" />
-			<mapping path="/member/memberdetail" />
-			<mapping path="/admin/boardinsert" />
-			<mapping path="/admin/boardList" />
+			<mapping path="/"/>
+			<mapping path="/board/*"/>
+			<exclude-mapping path="/admin/*"/>
 			<beans:ref bean="menuinterceptor" />
+		</interceptor>
+	</interceptors>
+	
+	<!-- Admin 인터셉터 -->
+	<interceptors>
+		<interceptor>
+			<mapping path="/admin/*"/>
+			<exclude-mapping path="/admin/login"/>
+			<beans:ref bean="admininterceptor" />
 		</interceptor>
 	</interceptors>
 	

@@ -23,34 +23,14 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="main">Home</a>
-			</div>
-			<div class="navbar-header pull-right">
-				<a class="navbar-brand" href="logout">나가기</a>
-			</div>
-		</div>
+	<div class="col-md-12">
+		<jsp:include page="top.jsp"></jsp:include>
+	</div>
 
-	</nav>
-	<div class="jumbotron text-center">
-		<h2>관리자 페이지</h2>
-	</div>
 	<div class="col-md-2">
-		<ul class="list-group">
-			<li class="list-group-item"><a href="memberList"
-				class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-			<li class="list-group-item"><a href="/project/admin/boardinsert"
-				class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-			<li class="list-group-item"><a href="boardList"
-				class="list-group-item list-group-item-action btn-info">게시물
-					수정/삭제</a></li>
-			<li class="list-group-item"><a href="menuList"
-				class="list-group-item list-group-item-action btn-info">메뉴 카테고리
-					추가</a></li>
-		</ul>
+		<jsp:include page="side.jsp"></jsp:include>
 	</div>
+
 	<div class="col-md-10">
 		<!-- 여기가 컨텐츠 영역 -->
 		<form class="form-vertical" action="boardConUpdate" method="post"
@@ -58,8 +38,9 @@
 			<div class="box">
 				<h3 class="text-center">게시글 수정 및 삭제</h3>
 			</div>
-			<input type="hidden" name="bno" value="${board.bno}" />
-			<label for="title">카테 고리</label> <select class="form-control" name="category">
+			<input type="hidden" name="bno" value="${board.bno}" /> <label
+				for="title">카테 고리</label> <select class="form-control"
+				name="category">
 				<c:forEach var="c" items="${menu}">
 					<c:if test="${selectCategory eq c.href}">
 						<option id="selectvalue" value="${c.href}" selected>${c.menuname}</option>
@@ -77,13 +58,15 @@
 			<label for="content">본문</label><br />
 			<textarea style="resize: none;" rows="20" class="form-control"
 				name="content" id="content" required>${board.content}</textarea>
-			<br/>
-			<br/>
-			
-			<a class="btn btn-danger pull-right" href="boardConDelete?fbno=${board.bno}" >삭제</a> 
-			<button type="submit" class="btn btn-info pull-right">수정</button> 
+			<br /> <br /> <a class="btn btn-danger pull-right"
+				href="boardConDelete?fbno=${board.bno}">삭제</a>
+			<button type="submit" class="btn btn-info pull-right">수정</button>
 
 		</form>
+	</div>
+
+	<div class="col-md-12">
+		<jsp:include page="bottom.jsp"></jsp:include>
 	</div>
 </body>
 </html>
