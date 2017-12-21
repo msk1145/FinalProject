@@ -104,15 +104,13 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 
 	@Override
 	public List<Menu> selectMenu() {
-		return session.selectList(NAMESPACE+".selectMenu");
+		return session.selectList(NAMESPACE +".selectMenu");
 	}
 
 
 	@Override
 	public List<BoardContentsVO> selectbyCategoryBoard(String href) {
-		System.out.println("");
 		return session.selectList(NAMESPACE+".selectbyCategoryBoard", href);
-	
 	}
 
 
