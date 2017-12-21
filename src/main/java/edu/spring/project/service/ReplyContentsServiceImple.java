@@ -41,8 +41,8 @@ public class ReplyContentsServiceImple implements ReplyContentsService {
 	}
 
 	@Override
-	public int delete(int rno) {
-		return replyConDao.delete(rno);
+	public int delete(int rno, int rrno) {
+		return replyConDao.delete(rno, rrno);
 	}
 
 	

@@ -49,12 +49,19 @@
 					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
 			</ul>
 		</div>
+		<button id="boardinsertbtn">게시물등록</button>
 		<div class="col-md-10">
 			<!-- 여기가 컨텐츠 영역 -->
+			<div id="result">
+				
+			</div>
 			
 		</div>
 
 
 	</div>
+
+
+
 </body>
 </html>

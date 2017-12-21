@@ -1,9 +1,7 @@
 package edu.spring.project.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,8 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.spring.project.domain.BoardContents;
+
 import edu.spring.project.domain.BoardContentsVO;
 import edu.spring.project.domain.Menu;
+
+import edu.spring.project.pageutil.PaginationCriteria;
+
 import edu.spring.project.persistence.BoardContentsDao;
 
 @Service
@@ -22,6 +24,27 @@ public class BoardContentsServiceImple implements BoardContentsService {
 	
 	@Autowired
 	private BoardContentsDao boardConDao;
+	
+	@Override
+	public List<BoardContents> readPaging(String category, PaginationCriteria c) {
+		return boardConDao.readPaging(category, c);
+	}
+	
+	@Override
+	public int totalCount(String category) {
+		return boardConDao.totalCount(category);
+	}
+
+	@Override
+	public List<BoardContents> readSearchedPaging(String category, PaginationCriteria c, String keyword,
+			int searchType) {
+		return boardConDao.readSearchedPaging(category, c, keyword, searchType);
+	}
+
+	@Override
+	public int searchedTotalCount(String category, String keyword, int searchType) {
+		return boardConDao.searchedTotalCount(category, keyword, searchType);
+	}
 	
 	@Override
 	public List<BoardContents> read(String category) {
@@ -50,12 +73,13 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	@Override
 	public int updatecount(int bno) {
 		
 		return boardConDao.countupdate(bno);
 	}
+
 
 	@Override
 	public List<List<BoardContentsVO>> selectmenu() {
@@ -65,17 +89,11 @@ public class BoardContentsServiceImple implements BoardContentsService {
 			List<BoardContentsVO> li = boardConDao.selectbyCategoryBoard(m.getHref());
 			if(li.size() == 0) {
 				BoardContentsVO vo = new BoardContentsVO();
-				vo.setMenuname("123");
-				vo.setTitle("등록된 영상이 없음");
+				vo.setTitle("등록된 게시글이 없음");
 				li.add(vo);
 			}
 			boardlist.add(li);
 		}
-		/*for (List<BoardContentsVO> l : boardlist) {
-			for (BoardContentsVO vo : l) {
-				
-			}
-		}*/
 		return boardlist;
 	}
 

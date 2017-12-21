@@ -1,5 +1,6 @@
 package edu.spring.project.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,8 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import edu.spring.project.domain.BoardContents;
+
 import edu.spring.project.domain.BoardContentsVO;
 import edu.spring.project.domain.Menu;
+
+import edu.spring.project.pageutil.PaginationCriteria;
+
 
 @Repository
 public class BoardContentsDaoImple implements BoardContentsDao {
@@ -22,6 +27,46 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 	
 	@Autowired
 	private SqlSession session;
+	
+
+	@Override
+	public List<BoardContents> readSearchedPaging(String category, PaginationCriteria c, String keyword,
+			int searchType) {
+		Map<String, Object> args = new HashMap<>();
+		args.put("category", category);
+		args.put("searchType", searchType);
+		args.put("keyword", "%" + keyword + "%");
+		args.put("start", c.getStart());
+		args.put("end", c.getEnd());
+		return session.selectList(NAMESPACE +".selectSearchedBoardConPerPage", args);
+	}
+
+
+	@Override
+	public int searchedTotalCount(String category, String keyword, int searchType) {
+		Map<String, Object> args = new HashMap<>();
+		args.put("category", category);
+		args.put("keyword", keyword);
+		args.put("searchType", searchType);
+		return session.selectOne(NAMESPACE + ".searchedTotalCount", args);
+	}
+
+	
+	@Override
+	public List<BoardContents> readPaging(String category, PaginationCriteria c) {
+		Map<String, Object> args = new HashMap<>();
+		args.put("category", category);
+		args.put("start", c.getStart());
+		args.put("end", c.getEnd());
+		return session.selectList(NAMESPACE + ".selectBoardConPerPage", args);
+	}
+	
+	@Override
+	public int totalCount(String category) {
+		
+		return session.selectOne(NAMESPACE + ".totalCount", category);
+	}
+
 	
 	@Override
 	public List<BoardContents> read(String category) {
@@ -50,7 +95,7 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
+	
 	@Override
 	public int countupdate(int bno) {
 		return session.update(NAMESPACE+".updateCount", bno);
@@ -67,6 +112,5 @@ public class BoardContentsDaoImple implements BoardContentsDao {
 		return session.selectList(NAMESPACE+".selectbyCategoryBoard", href);
 	}
 
-	
 
 }

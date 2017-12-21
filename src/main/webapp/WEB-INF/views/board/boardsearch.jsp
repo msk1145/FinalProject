@@ -95,7 +95,7 @@
 						<option value="1" selected>제목</option>
 						<option value="2">제목 + 내용</option>
 					</select>
-					<input class="form-control" type="text" name="keyword" /> 
+					<input class="form-control" type="text" name="keyword" />
 					<input type="hidden" name="category" value="${category}" />
 					<input class="btn" type="submit" value="검색" />
 					</form>
@@ -134,10 +134,12 @@
 						</c:if>
 					</ul>
 					
-					<form id="pageForm" action="boardmain" method="get" >
+					<form id="pageForm" action="boardsearch" method="get" >
 						<input type="hidden" id="page" name="page" value="${pageMaker.criteria.page}" />
 						<input type="hidden" id="perPage" name="perPage" value="${pageMaker.criteria.numsPerPage}" />
 						<input type="hidden" id="category" name="category" value="${board[0].category}" />
+						<input type="hidden" id="searchType" name="searchType" value="${searchType}" />
+						<input type="hidden" id="keyword" name="keyword" value="${keyword}" />
 					</form>
 				</div>
 				<br/><br/><br/>

@@ -14,6 +14,7 @@ import edu.spring.project.domain.BoardContents;
 import edu.spring.project.domain.BoardFree;
 import edu.spring.project.domain.Member;
 import edu.spring.project.domain.Menu;
+import edu.spring.project.pageutil.PaginationCriteria;
 import edu.spring.project.persistence.AdminDao;
 
 @Service
@@ -76,17 +77,23 @@ public class AdminServiceImple implements AdminService {
 	}
 
 	@Override
-	public List<BoardContents> selectBoard() {
-		return dao.selectBoard();
+	public List<BoardContents> selectBoard(PaginationCriteria c) {
+		Map<String,Integer> map = new HashMap<>();
+		
+		
+		return dao.selectBoard(c);
 	}
 
 	@Override
-	public List<Object> selectByConCategory(String category) {
+	public List<Object> selectByConCategory(String category, PaginationCriteria c) {
 		List<Object> list = null;
 		if(category.equals("free")) {
-			list = dao.BoardFreeSelectAll();
+			list = dao.BoardFreeSelectAll(c);
 		}else {
-			list = dao.selectByConCategory(category);
+			Map<String,Object> map = new HashMap<>();
+			map.put("category", category);
+			map.put("obj", c);
+			list = dao.selectByConCategory(map);
 		}
 		
 		return list;
@@ -95,10 +102,47 @@ public class AdminServiceImple implements AdminService {
 	@Override
 	public Object boardDetail(int bno, String category) {
 		if(category.equals("free")) {
-			return dao.boardFreeDetail(bno);
+			int fbno = bno;
+			System.out.println(fbno);
+			return dao.boardFreeDetail(fbno);
 		}else {
 			return dao.boardConDetail(bno);
 		}
+	}
+
+	@Override
+	public int boardConDelete(int bno) {
+		return dao.boardConDelete(bno);
+	}
+
+	@Override
+	public int getTotalCount() {
+		return dao.getTotalCount();
+	}
+
+	@Override
+	public int getFreeTotalCount() {
+		return dao.getFreeTotalCount();
+	}
+
+	@Override
+	public int getConTotalCount(String category) {
+		return dao.getConTotalCount(category);
+	}
+
+	@Override
+	public int boardFreeDelete(int fbno) {
+		return dao.boardFreeDelete(fbno);
+	}
+
+	@Override
+	public int boardConUpdate(BoardContents b) {
+		return dao.boardConUpdate(b);
+	}
+
+	@Override
+	public int boardFreeUpdate(BoardFree b) {
+		return dao.boardFreeUpdate(b);
 	}
 
 }

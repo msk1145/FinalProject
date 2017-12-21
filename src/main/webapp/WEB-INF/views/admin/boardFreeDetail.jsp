@@ -37,23 +37,39 @@
 	<div class="jumbotron text-center">
 		<h2>관리자 페이지</h2>
 	</div>
-		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="memberList"
-					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a href="/project/admin/boardinsert"
-					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-				<li class="list-group-item"><a href="boardList"
-					class="list-group-item list-group-item-action btn-info">게시물 수정/삭제</a></li>
-				<li class="list-group-item"><a href="menuList"
-					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
-			</ul>
-		</div>
-		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			<form>
-				
-			</form>
-		</div>
+	<div class="col-md-2">
+		<ul class="list-group">
+			<li class="list-group-item"><a href="memberList"
+				class="list-group-item list-group-item-action btn-info">회원관리</a></li>
+			<li class="list-group-item"><a href="/project/admin/boardinsert"
+				class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
+			<li class="list-group-item"><a href="boardList"
+				class="list-group-item list-group-item-action btn-info">게시물
+					수정/삭제</a></li>
+			<li class="list-group-item"><a href="menuList"
+				class="list-group-item list-group-item-action btn-info">메뉴 카테고리
+					추가</a></li>
+		</ul>
+	</div>
+	<div class="col-md-10">
+		<!-- 여기가 컨텐츠 영역 -->
+		<form class="form-vertical" action="boardFreeUpdate" method="post"
+			enctype="multipart/form-data">
+			<div class="box">
+				<h3 class="text-center">게시글 수정 및 삭제</h3>
+			</div>
+			<input type="hidden" name="fbno" value="${board.fbno}" /> 
+			<label for="title">제 목</label> 
+			<input class="form-control" type="text"	name="ftitle" id="title" value="${board.ftitle}" required /> 
+			<label for="content">본문</label><br />
+			<textarea style="resize: none;" rows="20" class="form-control"
+				name="fcontent" id="content" required>${board.fcontent}</textarea>
+			<br /> <br />
+			<a class="btn btn-danger pull-right" href="boardFreeDelete?fbno=${board.fbno}">삭제</a>
+			<button type="submit" class="btn btn-info pull-right">수정</button>
+
+		</form>
+
+	</div>
 </body>
 </html>

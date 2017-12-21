@@ -67,8 +67,7 @@
 						</c:if>
 					</c:forEach>
 
-				</select>
-				<br/><br/>
+				</select> <br /> <br />
 			</form>
 			<table class="table table-striped table-hover">
 				<thead>
@@ -77,20 +76,18 @@
 						<th>제목</th>
 						<th>작성날짜</th>
 						<th>조회수</th>
-						<th>카테고리</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="b" items="${board}">
-						<tr class="text-center text-info"
-							onClick="location.href='/project/admin/boardDetail?bno=${b.bno}&category=${b.category}'"
-							style="cursor:pointer;">
-							<td>${b.bno}</td>
-							<td>${b.title}</td>
-							<td><fmt:formatDate value="${b.regdate}"
+						<tr class="text-center text-info" 
+						onClick="location.href='/project/admin/boardDetail?bno=${b.fbno}&category=free'" 
+						style="cursor:pointer;" >
+							<td>${b.fbno}</td>
+							<td>${b.ftitle}</td>
+							<td><fmt:formatDate value="${b.fregdate}"
 									pattern="yyyy년 MM월 dd일 kk시 mm분 ss초" /></td>
-							<td>${b.count}</td>
-							<td>${b.category}</td>
+							<td>${b.fcount}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -114,25 +111,26 @@
 			</c:if>
 		</ul>
 
-		<form id="pageForm" action="boardList" method="get" >
+		<form id="pageForm" action="boardList" method="get">
 			<input type="hidden" name="page" id="page"
 				value="${pageMaker.criteria.page}" /> <input type="hidden"
 				name="perPage" id="perPage"
-				value="${pageMaker.criteria.numsPerPage}" />
-			<input type="hidden" name="category" id="cate" value="" />
+				value="${pageMaker.criteria.numsPerPage}" /> <input type="hidden"
+				name="category" id="cate" value="" />
 		</form>
-		
-		<form id="pageForm2" action="boardList" method="post" >
-			<input type="hidden" name="page" id="page2"	value="${pageMaker.criteria.page}" /> 
-				<input type="hidden" name="perPage" id="perPage2" value="${pageMaker.criteria.numsPerPage}" />
-			<input type="hidden" name="category" id="cate2" value="" />
+
+		<form id="pageForm2" action="boardList" method="post">
+			<input type="hidden" name="page" id="page2"
+				value="${pageMaker.criteria.page}" /> <input type="hidden"
+				name="perPage" id="perPage2"
+				value="${pageMaker.criteria.numsPerPage}" /> <input type="hidden"
+				name="category" id="cate2" value="" />
 		</form>
 	</div>
-	
-<script>
+
+	<script>
 	$(function() {
 		$('#pagination li a').click(function(event) {
-
 			// a태그 동작 정지
 			event.preventDefault();	
 

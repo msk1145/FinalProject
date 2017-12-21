@@ -52,27 +52,96 @@ select * from ${tblContents}
 </select>
 
 <select id="BoardContentsSelectAll2" resultType="BoardContents">
-select * from ${tblContents}
-order by ${colCount} desc
+select b.bno, b.title, b.regdate, b.count, b.category
+from (
+    select rownum rn, a.*
+    from (
+        select * from ${tblContents}
+        order by ${colCount} desc
+    )a
+) b
+where rn between #{start} and #{end}
 </select>
 
 <!-- 자유 게시판 조회 -->
-<select id="BoardFreeSelectAll" resultType="BoardContents">
-select * from ${tblFree}
+<select id="BoardFreeSelectAll" resultType="BoardFree">
+select b.fbno, b.ftitle, b.fregdate, b.fcount
+from (
+    select rownum rn, a.*
+    from (
+        select * from ${tblFree}
+        order by ${colFcount} desc
+    )a
+) b
+where rn between #{start} and #{end}
 </select>
 
 <!-- 게시글 수정/삭제를 위한 카테고리별 게시판 조회 -->
 <select id="selectByConCategory" resultType="BoardContents">
-select * from ${tblContents} where ${colCategory} = #{category}
+select b.bno, b.title, b.regdate, b.count, b.category
+from (
+    select rownum rn, a.*
+    from (
+        select * from ${tblContents}
+        where ${colCategory} = #{category}
+        order by ${colCount} desc
+    )a
+) b
+where rn between #{obj.start} and #{obj.end}
 </select>
 
+<!-- Contents 한개 조회 -->
 <select id="boardConDetail" resultType="BoardContents">
 select * from ${tblContents} where ${colBno} = #{bno}
 </select>
 
-<select id="boardFreeDetail" resultType="BoardContents">
+<!-- Free 한개 조회 -->
+<select id="boardFreeDetail" resultType="BoardFree">
 select * from ${tblFree} where ${colFbno} = #{fbno}
 </select>
+
+<!-- Con 게시물 삭제 -->
+<delete id="boardConDelete">
+delete from ${tblContents}
+where ${colBno} = #{bno}
+</delete>
+
+<!-- Free 게시물 삭제 -->
+<delete id="boardFreeDelete">
+delete from ${tblFree}
+where ${colFbno} = #{fbno}
+</delete>
+
+<!-- 게시글 수정  Free -->
+<update id="boardFreeUpdate">
+update ${tblFree}
+set ${colFtitle} = #{ftitle} , ${colFcontent} = #{fcontent}
+where ${colFbno} = #{fbno}
+</update>
+
+<!-- 게시글 수정  Con -->
+<update id="boardConUpdate">
+update ${tblContents}
+set ${colCategory} = ${category} , ${colTitle} = #{title}, ${colContent} = #{content}
+where ${colBno} = #{bno}
+</update>
+
+
+
+<select id="totalCount" resultType="Integer" >
+	select count(${colBno}) cnt from ${tblContents}
+</select>
+
+
+<select id="FreeTotalCount" resultType="Integer">
+select count(${colFbno}) cnt from ${tblFree}
+</select>
+
+<select id="ConTotalCount" resultType="Integer">
+select count(${colBno}) cnt from ${tblContents}
+where ${colCategory} = #{category}
+</select>
+
 
 <!-- //////////////////////////////////// menu 영역  -->
 
@@ -103,6 +172,7 @@ where ${colMnum} = #{mnum}
 insert into ${tblMenu} (${colMenuname},${colHref}, ${colHideandshow})
 values(#{menuname},#{href},#{hideandshow})
 </insert>
+
 
 
 </mapper>

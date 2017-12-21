@@ -1,5 +1,6 @@
 package edu.spring.project.persistence;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -21,17 +22,20 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 	private SqlSession session;
 	
 	
+	// 댓글목록 
 	@Override
 	public List<ReplyContents> read(int bno) {
 		return session.selectList(NAMESPACE + ".selectReplyConBybno", bno);
 	}
 	
+	// 대댓글 목록
 	@Override
 	public List<ReplyContents> readReReplies(int rrno) {
 		
 		return session.selectList(NAMESPACE + ".selectReReplyConByRrno", rrno);
 	}
-
+	
+	// 댓글 추가
 	@Override
 	public int insert(ReplyContents r) {
 		int result = 0;
@@ -45,14 +49,19 @@ public class ReplyContentsDaoImple implements ReplyContentsDao {
 		return result;
 	}
 
+	// 댓글 수정
 	@Override
 	public int update(ReplyContents r) {
 		return session.update(NAMESPACE + ".updateReplyCon", r);
 	}
 
+	// 댓글 삭제
 	@Override
-	public int delete(int rno) {
-		return session.delete(NAMESPACE + ".deleteReplyCon", rno);
+	public int delete(int rno, int rrno) {
+		Map<String, Integer> args = new HashMap<>();
+		args.put("rno", rno);
+		args.put("rrno", rrno);
+		return session.delete(NAMESPACE + ".deleteReplyCon", args);
 	}
 
 	

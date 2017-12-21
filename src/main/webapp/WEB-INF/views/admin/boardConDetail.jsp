@@ -37,64 +37,53 @@
 	<div class="jumbotron text-center">
 		<h2>관리자 페이지</h2>
 	</div>
-		<div class="col-md-2">
-			<ul class="list-group">
-				<li class="list-group-item"><a href="memberList"
-					class="list-group-item list-group-item-action btn-info">회원관리</a></li>
-				<li class="list-group-item"><a href="/project/admin/boardinsert"
-					class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
-				<li class="list-group-item"><a href="boardList"
-					class="list-group-item list-group-item-action btn-info">게시물 수정/삭제</a></li>
-				<li class="list-group-item"><a href="menuList"
-					class="list-group-item list-group-item-action btn-info">메뉴 카테고리 추가</a></li>			
-			</ul>
-		</div>
-		<div class="col-md-10">
-			<!-- 여기가 컨텐츠 영역 -->
-			<form class="form-vertical" action="boardConDetail" method="post"
-				enctype="multipart/form-data">
-				<div class="box">
-					<h3 class="text-center">게시글 수정 및 삭제</h3>
-				</div>
-				
-				<div class="col-md-11">
-					<select class="form-control" name="category">
-						<c:forEach var="m" items="${menu}">
-							<option value="${m.href}">${m.menuname}</option>
-						</c:forEach>
-					</select>
-				</div>
-				
-				<br />
-				<div class="col-md-1">
-					<br/>
-					<label for="title">제 목</label>
-				</div>
-				<br/>
-				
-				<div class="col-md-11">
-					<input class="form-control" type="text" name="title" id="title" value="${board.title}"
-						required />
-				</div>
-				<br />
-				
-				
-				<div class="col-md-1">
-					<br/><br />
-					<label for="content">본문</label><br />
-				</div>
-				<br/>
-				<div class="col-md-11">
-					<br/>
-					<textarea style="resize: none;" rows="20" class="form-control"
-						name="content" id="content" required>${board.content}</textarea>
-				</div>
-				<br /><br /><br />
-				<hr />
-				<div>
-					<button type="submit" class="btn btn-info pull-right">수정</button>
-				</div>
-			</form>
-		</div>
+	<div class="col-md-2">
+		<ul class="list-group">
+			<li class="list-group-item"><a href="memberList"
+				class="list-group-item list-group-item-action btn-info">회원관리</a></li>
+			<li class="list-group-item"><a href="/project/admin/boardinsert"
+				class="list-group-item list-group-item-action btn-info">게시물등록</a></li>
+			<li class="list-group-item"><a href="boardList"
+				class="list-group-item list-group-item-action btn-info">게시물
+					수정/삭제</a></li>
+			<li class="list-group-item"><a href="menuList"
+				class="list-group-item list-group-item-action btn-info">메뉴 카테고리
+					추가</a></li>
+		</ul>
+	</div>
+	<div class="col-md-10">
+		<!-- 여기가 컨텐츠 영역 -->
+		<form class="form-vertical" action="boardConUpdate" method="post"
+			enctype="multipart/form-data">
+			<div class="box">
+				<h3 class="text-center">게시글 수정 및 삭제</h3>
+			</div>
+			<input type="hidden" name="bno" value="${board.bno}" />
+			<label for="title">카테 고리</label> <select class="form-control" name="category">
+				<c:forEach var="c" items="${menu}">
+					<c:if test="${selectCategory eq c.href}">
+						<option id="selectvalue" value="${c.href}" selected>${c.menuname}</option>
+					</c:if>
+					<c:if test="${selectCategory ne c.href}">
+						<option id="selectvalue" value="${c.href}">${c.menuname}</option>
+					</c:if>
+				</c:forEach>
+			</select> <label for="title">제 목</label> <input class="form-control"
+				type="text" name="title" id="title" value="${board.title}" required />
+
+
+
+
+			<label for="content">본문</label><br />
+			<textarea style="resize: none;" rows="20" class="form-control"
+				name="content" id="content" required>${board.content}</textarea>
+			<br/>
+			<br/>
+			
+			<a class="btn btn-danger pull-right" href="boardConDelete?fbno=${board.bno}" >삭제</a> 
+			<button type="submit" class="btn btn-info pull-right">수정</button> 
+
+		</form>
+	</div>
 </body>
 </html>

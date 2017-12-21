@@ -17,18 +17,6 @@ public class BoardContents {
 	/* 생성자 */
 	public BoardContents(){}
 	
-	public BoardContents(int bno, String title, String content, Date regdate, int count, String category,
-			String videoPath, String imagePath) {
-		this.bno = bno;
-		this.title = title;
-		this.content = content;
-		this.regdate = regdate;
-		this.count = count;
-		this.category = category;
-		this.videoPath = videoPath;
-		this.imagePath = imagePath;
-	}
-
 
 
 	public int getBno() {
