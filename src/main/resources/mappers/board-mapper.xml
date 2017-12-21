@@ -8,153 +8,132 @@
 		select count(bno) cnt from
 		${tblContents} where ${colCategory} = #{category}
 	</select>
-	
+
 	<!-- 게시물 정보 pagination -->
 	<select id="selectBoardConPerPage" resultType="BoardContents">
-		select b.bno, b.title, b.content, b.regdate, b.count, b.category, b.videopath, b.imagepath
+		select b.bno,
+		b.title, b.content, b.regdate, b.count, b.category, b.videopath,
+		b.imagepath
 		from (
-		    select rownum rn, a.*
-		    from (
-		        select * 
-		        from ${tblContents} 
-		        where ${colCategory} = #{category} 
-		        order by bno desc
-		    ) a
-		) b
+		select rownum rn, a.*
+		from (
+		select *
+		from
+		${tblContents}
+		where ${colCategory} = #{category}
+		order by bno desc
+		) a
+		)
+		b
 		where rn between #{start} and #{end}
 	</select>
 
 	<!-- 게시물 정보 -->
 	<select id="selectBybno" resultType="BoardContents">
-		select * from ${tblContents} where ${colBno} = #{bno}
+		select * from ${tblContents}
+		where ${colBno} = #{bno}
 	</select>
-	
+
 	<!-- 검색된 게시물 갯수 -->
 	<select id="searchedTotalCount" resultType="Integer">
 		select count(bno) cnt from ${tblContents}
 		where
 		<choose>
 			<when test="searchType == 1">
-		    	${colTitle} like #{keyword}
-		    	and ${colCategory} = #{category}
-		    </when>
-		    <when test="searchType == 2">
-		    	${colTitle} like #{keyword}
-		    	or
-		    	${colContent} like #{keyword}
-		    	and
-		    	${colCategory} = #{category}
-		    </when>
-		</choose> 
-		
+				${colTitle} like #{keyword}
+				and ${colCategory} =
+				#{category}
+			</when>
+			<when test="searchType == 2">
+				${colTitle} like #{keyword}
+				or
+				${colContent} like
+				#{keyword}
+				and
+				${colCategory} = #{category}
+			</when>
+		</choose>
+
 	</select>
-	
+
 	<!-- 검색된 게시글 페이징 -->
 	<select id="selectSearchedBoardConPerPage" resultType="BoardContents">
-		select b.bno, b.title, b.content, b.regdate, b.count, b.category, b.videopath, b.imagepath
+		select b.bno, b.title, b.content, b.regdate, b.count, b.category,
+		b.videopath, b.imagepath
 		from (
-		    select rownum rn, a.*
-		    from (
-		        select * 
-		        from ${tblContents} 
-		        where
-		        <choose>
-		        	<when test="searchType == 1">
-		        		${colTitle} like #{keyword}
-		        		and ${colCategory} = #{category}
-		        	</when>
-		        	<when test="searchType == 2">
-		        		${colTitle} like #{keyword}
-		        		or
-		        		${colContent} like #{keyword}
-		        		and ${colCategory} = #{category}
-		        	</when>
-		        </choose> 
-		        order by bno desc
-		    ) a
+		select rownum rn, a.*
+		from (
+		select *
+		from
+		${tblContents}
+		where
+		<choose>
+			<when test="searchType == 1">
+				${colTitle} like #{keyword}
+				and ${colCategory} =
+				#{category}
+			</when>
+			<when test="searchType == 2">
+				${colTitle} like #{keyword}
+				or
+				${colContent} like
+				#{keyword}
+				and ${colCategory} = #{category}
+			</when>
+		</choose>
+		order by bno desc
+		) a
 		) b
 		where rn between #{start} and #{end}
 	</select>
-	
-	
-	<!-- 조회수 TOP5 자유게시판 게시물 가져오기 -->
-	<select id="selectTopFreeboard" resultType="BoardFree">
-		select rownum rn, a.*
+
+
+	<select id="selectMenu" resultType="Menu">
+		select * from ${tblMenu}
+		where ${colHideandshow} = 'show'
+	</select>
+
+	<select id="selectbyCategoryBoard" resultType="BoardContentsVO">
+		select a.Bno,
+		a.Title, a.Count, b.Menuname , b.Href
 		from (
-   			select * 
-   			from ${tblFree} 
-   			order by fcount desc
-		) a
+		select *
+		from ${tblContents}
+		where ${colCategory} = #{category}
+		order by ${colCount} desc
+		) a join ${tblMenu} b
+		on a.category = b.href
 		where rownum between 1 and 5
 	</select>
-	
-	<!-- 조회수 TOP5 영화 게시물 가져오기 -->
-	<select id="selectTopMovie" resultType="BoardContents">
-		select rownum rn, a.*
-		from (
-   			select * 
-   			from ${tblContents} 
-   			where ${colCategory} = 'movie'
-   			order by count desc
-		) a
-		where rownum between 1 and 5
-	</select>
-	<!-- 조회수 TOP5 드라마 게시물 가져오기 -->
-	<select id="selectTopDrama" resultType="BoardContents">
-		select rownum rn, a.*
-		from (
-   			select * 
-   			from ${tblContents} 
-   			where ${colCategory} = 'drama'
-   			order by count desc
-		) a
-		where rownum between 1 and 5
-	</select>
-	<!-- 조회수 TOP5 애니메이션 게시물 가져오기 -->
-	<select id="selectTopAnimation" resultType="BoardContents">
-		select rownum rn, a.*
-		from (
-   			select * 
-   			from ${tblContents} 
-   			where ${colCategory} = 'animation'
-   			order by count desc
-		) a
-		where rownum between 1 and 5
-	</select>
-	<!-- 조회수 TOP5 예능 게시물 가져오기 -->
-	<select id="selectTopVariety" resultType="BoardContents">
-		select rownum rn, a.*
-		from (
-   			select * 
-   			from ${tblContents} 
-   			where ${colCategory} = 'variety'
-   			order by count desc
-		) a
-		where rownum between 1 and 5
-	</select>
-		
-	
+
+
 
 	<insert id="insertContents">
-	insert into ${tblContents} (${colTitle}, ${colContent}, ${colRegdate}, ${colCategory}, ${colVideopath}, ${colImagepath})
-	values (#{title}, #{content}, sysdate, #{category}, #{videoPath}, #{imagePath})
-	
+		insert into ${tblContents} (${colTitle},
+		${colContent}, ${colRegdate},
+		${colCategory}, ${colVideopath},
+		${colImagepath})
+		values (#{title}, #{content}, sysdate, #{category},
+		#{videoPath},
+		#{imagePath})
+
 	</insert>
-	
+
 	<select id="selectBoard" resultType="BoardContents">
-	select * from ${tblContents} 
-	where ${colCategory} = #{category}
+		select * from ${tblContents}
+		where ${colCategory} = #{category}
 	</select>
-	
-	
+
+
 	<update id="updateCount">
-	update ${tblContents}
-	set ${colCount} = ${colCount} + 1
-	where ${colBno} = #{bno}
+		update ${tblContents}
+		set ${colCount} = ${colCount} +
+		1
+		where ${colBno} = #{bno}
 	</update>
-	
-	
-	
+
+
+
 </mapper>
 
 
