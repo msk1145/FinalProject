@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -89,15 +90,17 @@ public class MemberController {
 		System.out.println("memverfindid get 호출");
 	}
 	
-	@RequestMapping(value="/memberfindid" , method=RequestMethod.POST)
+	@RequestMapping(value="/memberfindinfo" , method=RequestMethod.POST)
 	public String memberfindid(Member m, RedirectAttributes redirectAttr) {
 		System.out.println("memberfindid post 호출");
 		String nickname = m.getNickname();
 		String email = m.getEmail();
+		String userid = m.getUserid();
 		System.out.println("별명: " + nickname);
 		System.out.println("이메일: " + email);
+		System.out.println("아이디: " + userid);
 
-		Member member = service.findId(m);
+		Member member = service.findInfo(m);
 		redirectAttr.addFlashAttribute("member", member);
 		return "redirect:/member/memberfindid-result";
 	}
@@ -113,5 +116,24 @@ public class MemberController {
 		System.out.println("memberfindid-result 호출");
 	}
 	
+	@RequestMapping(value="/memberfindpw-result", method=RequestMethod.GET)
+	public void memberfindpw_result() {
+		System.out.println("memberfindpw-result 호출");
+	}
+	
+	//TODO: 이메일로 임시비밀번호 보내기
+	@RequestMapping(value="/sendTempPwMail", method=RequestMethod.GET)
+	public String sendTempPwMail(HttpServletRequest request, 
+			ModelMap mo) {
+		System.out.println("sendTempPwMail() 호출");
+		String host = "stmp.gmail.com";
+		
+		final String username = "willkoreans";
+		final String password = "willkoreans@@";
+		int port = 465;
+		
+		
+		return "";
+	}
 	
 }

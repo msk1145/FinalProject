@@ -29,23 +29,23 @@
 		<h2 class="text-center">아이디 찾기</h2>
 		<div class="container">
 			<!-- 여기가 컨텐츠 영역 -->
-			<form method="post" action="memberfindid" id="findIdForm">
+			<form method="post" action="memberfindinfo" id="findIdForm">
 				<div class="form-group" id="nicknameSuccess">
 					<label class="control-label" for="nickname">별명</label><br/>
 					<input type="text" class="form-control" id="nickname" name="nickname" placeholder="별명을 입력하세요.." required><br/><br/>
 				</div>
 				
 				<div class="form-group" id="emailSuccess">
-				<label class="control-label" for="email" >이메일</label><br/>
+					<label class="control-label" for="email" >이메일</label><br/>
 				<input type="email" class="form-control" id="email"	name="email" placeholder="이메일 입력하세요.." required>
 				</div>
 				
 				<div id="authNumberSuccess">
-				<button type="button" class="btn btn-info" id="getAuthNumber">인증번호 받기</button><br/><br/>
+					<button type="button" class="btn btn-info" id="getAuthNumber">인증번호 받기</button><br/><br/>
 				</div>
 				
 				<div class="form-group">
-				<input type="text" class="form-control" id="authNumber" placeholder="인증번호를 입력하세요.." readonly>
+					<input type="number" class="form-control" id="authNumber" placeholder="인증번호를 입력하세요.." readonly>
 				</div>
 				
 				<input type="hidden" id="sendedAuthNumber" />

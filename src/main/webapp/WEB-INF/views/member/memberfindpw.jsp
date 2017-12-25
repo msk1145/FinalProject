@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="<c:url value='/resources/js/memberFindPw.js'/>"></script>
 </head>
 <body>
 	<nav class="navbar navbar-inverse">
@@ -29,32 +29,27 @@
 		<h2 class="text-center">비밀번호 찾기</h2>
 		<div class="container">
 			<!-- 여기가 컨텐츠 영역 -->
-			<form method="post" action="memberinsert-post">
+			<form method="post" action="memberfindinfo" id="findPwForm">
 				<div class="form-group" id="idSuccess">
-					<label class="control-label" id="userid" for="inputSuccess1">아이디</label><br/>
-					<input type="text" class="form-control" id="idCheck" name="userid" placeholder="아이디 입력..." required><br/><br/>
-				</div>
-				
-				<div class="form-group" id="pwSuccess">
-					<label class="control-label" for="password">비밀번호</label><br/>
-					<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호 입력..." required><br/><br/>
-					<label class="control-label" for="passwordCheck">비밀번호확인</label><br/>
-					<input type="password" class="form-control" id="passwordCheck" placeholder="비밀번호 확인 입력..." required><br/><br/>
+					<label class="control-label" for="userid">가입하신 아이디</label><br/>
+					<input type="text" class="form-control" id="userid" name="userid" placeholder="아이디를 입력하세요.." required><br/><br/>
 				</div>
 				
 				<div class="form-group" id="emailSuccess">
-				<label class="control-label" for="email" >이메일</label><br/>
-				<input type="text" class="form-control" id="email"	name="email" placeholder="이메일 입력..." required><br/><br/>
+					<label class="control-label" for="email" >이메일</label><br/>
+				<input type="email" class="form-control" id="email"	name="email" placeholder="이메일 입력하세요.." required>
 				</div>
 				
-				<div class="form-group" id="nicknameSuccess">
-				<label class="control-label" for="nickname">닉네임</label><br/>
-				<input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임 입력..." required><br/><br/>
+				<div id="authNumberSuccess">
+					<button type="button" class="btn btn-info" id="getAuthNumber">인증번호 받기</button><br/><br/>
 				</div>
 				
-				<input type="hidden" name="grade" value="guest"/>
-				<input type="hidden" name="url" value="${url}" />
-				<input type="submit" id="btnsubmit" value="회원 가입" class="btn btn-success" disabled/>
+				<div class="form-group">
+					<input type="number" class="form-control" id="authNumber" placeholder="인증번호를 입력하세요.." readonly>
+				</div>
+				
+				<input type="hidden" id="sendedAuthNumber" />
+				<button type="button" class="btn btn-success" id="searchPw">비밀번호 찾기</button>
 			</form>
 		</div>
 	</div>

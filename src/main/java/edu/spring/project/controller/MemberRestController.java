@@ -18,10 +18,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import edu.spring.project.domain.Member;
 import edu.spring.project.service.MemberService;
@@ -39,12 +36,13 @@ public class MemberRestController {
 		return bool;
 	}
 	
-	@RequestMapping(value="/findId", method=RequestMethod.POST)
-	public ResponseEntity<String> findId(@RequestBody Member m) {
+	@RequestMapping(value="/findInfo", method=RequestMethod.POST)
+	public ResponseEntity<String> findInfo(@RequestBody Member m) {
+		System.out.println("MemberRestController::findInfo 호출");
 		System.out.println("이메일:" + m.getEmail());
+		System.out.println("아이디:" + m.getUserid());
 		System.out.println("별명:" + m.getNickname());
-		Member member = service.findId(m);
-		System.out.println("MemberRestController::findId 호출");
+		Member member = service.findInfo(m);
 		System.out.println("member:" + member);
 		
 		ResponseEntity<String> entity = null;
@@ -56,9 +54,9 @@ public class MemberRestController {
 		return entity;
 	}
 	
-	@RequestMapping(value = "/mailSend",
+	@RequestMapping(value = "/authNumberSend",
 			method = RequestMethod.POST)
-	public int mailSender(HttpServletRequest request,
+	public int authNumberSend(HttpServletRequest request,
 			ModelMap mo, @RequestBody String email)
 			throws AddressException, MessagingException {
 		System.out.println("메일발송 테스트");

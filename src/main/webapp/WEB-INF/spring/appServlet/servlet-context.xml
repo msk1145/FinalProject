@@ -41,7 +41,7 @@
 	<beans:bean id="insertinterceptor" class="edu.spring.project.interceptor.InsertInterceptor" />
 	<beans:bean id="menuinterceptor" class="edu.spring.project.interceptor.MenuInterceptor" />
 	<beans:bean id="admininterceptor" class="edu.spring.project.interceptor.AdminInterceptor" />
-	
+	<beans:bean id="findidpwinterceptor" class="edu.spring.project.interceptor.FindIdPwInterceptor" />
 	
 	<!-- 로그인 인터셉터 -->
 	<interceptors>
@@ -78,6 +78,11 @@
 		</interceptor>
 	</interceptors>
 	
-	
+	<interceptors>
+		<interceptor>
+			<mapping path="/member/memberfindinfo"/>
+			<beans:ref bean="findidpwinterceptor"/>
+		</interceptor>
+	</interceptors>
 	
 </beans:beans>

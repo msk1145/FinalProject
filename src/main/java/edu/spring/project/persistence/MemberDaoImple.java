@@ -50,11 +50,26 @@ public class MemberDaoImple implements MemberDao {
 	}
 
 	@Override
-	public Member findId(Member m) {
+	public Member findInfo(Member m) {
 		Map<String, String> args = new HashMap<>();
-		args.put("nickname", m.getNickname());
+		if (m.getNickname() != null) {
+			System.out.println("아이디찾기로 들옴");
+			args.put("nickname", m.getNickname());
+		} else {
+			System.out.println("비밀번호찾기로 들옴");
+			args.put("userid", m.getUserid());
+		}
 		args.put("email", m.getEmail());
-		return session.selectOne(NAMESPACE + ".memberFindId", args);
+
+		return session.selectOne(NAMESPACE + ".memberFindInfo", args);
+	}
+
+	@Override
+	public int setTempPw(Member m) {
+		Map<String, String> args = new HashMap<>();
+		args.put("userid", m.getUserid());
+		args.put("password", m.getPassword());
+		return session.update(NAMESPACE + ".setTempPw", args);
 	}
 
 }

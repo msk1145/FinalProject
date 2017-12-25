@@ -7,7 +7,7 @@ $(document).ready(function() {
 		console.log('이메일:' + email);
 	$.ajax({
 			type: 'POST',
-			url: '/project/member/findId',
+			url: '/project/member/findInfo',
 			headers: {
 				'Content-Type': 'application/json',
 				'X-HTTP-Method-Override': 'POST'
@@ -19,9 +19,10 @@ $(document).ready(function() {
 			success: function(result) {
 				if (result === 'success') {
 					alert('일치하는 아이디 있음');
+					$('#authNumber').attr('readonly', false);
 					$.ajax({
 						type: 'POST',
-						url: '/project/member/mailSend',
+						url: '/project/member/authNumberSend',
 						headers: {
 							'Content-Type': 'application/json',
 							'X-HTTP-Method-Override': 'POST'
@@ -29,7 +30,6 @@ $(document).ready(function() {
 						data: email,
 						success: function(result) {
 							alert('메일보내기 성공!');
-							$('#authNumber').attr('readonly', false);
 							$('#sendedAuthNumber').val(result);
 						}
 					});
