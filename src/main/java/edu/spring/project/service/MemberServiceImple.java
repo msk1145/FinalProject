@@ -66,4 +66,9 @@ public class MemberServiceImple implements MemberService {
 		return dao.memberdelete(userid);
 	}
 
+	@Override
+	public Member findId(Member m) {
+		return dao.findId(m);
+	}
+
 }

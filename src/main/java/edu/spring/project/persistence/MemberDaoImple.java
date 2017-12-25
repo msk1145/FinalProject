@@ -1,5 +1,6 @@
 package edu.spring.project.persistence;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -46,6 +47,14 @@ public class MemberDaoImple implements MemberDao {
 	@Override
 	public int memberdelete(String userid) {
 		return session.delete(NAMESPACE+".memberdelete", userid);
+	}
+
+	@Override
+	public Member findId(Member m) {
+		Map<String, String> args = new HashMap<>();
+		args.put("nickname", m.getNickname());
+		args.put("email", m.getEmail());
+		return session.selectOne(NAMESPACE + ".memberFindId", args);
 	}
 
 }

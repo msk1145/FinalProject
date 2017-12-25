@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.spring.project.domain.Member;
 import edu.spring.project.service.MemberService;
@@ -80,6 +81,36 @@ public class MemberController {
 		service.memberdelete(userid);
 		request.getSession().removeAttribute("member");
 		return "redirect:/";
+	}
+	
+
+	@RequestMapping(value="/memberfindid" , method=RequestMethod.GET)
+	public void memberfindid() {
+		System.out.println("memverfindid get 호출");
+	}
+	
+	@RequestMapping(value="/memberfindid" , method=RequestMethod.POST)
+	public String memberfindid(Member m, RedirectAttributes redirectAttr) {
+		System.out.println("memberfindid post 호출");
+		String nickname = m.getNickname();
+		String email = m.getEmail();
+		System.out.println("별명: " + nickname);
+		System.out.println("이메일: " + email);
+
+		Member member = service.findId(m);
+		redirectAttr.addFlashAttribute("member", member);
+		return "redirect:/member/memberfindid-result";
+	}
+	
+
+	@RequestMapping(value="/memberfindpw" , method=RequestMethod.GET)
+	public void memberfindpw() {
+		System.out.println("memberfindpw 호출");
+	}
+	
+	@RequestMapping(value="/memberfindid-result" , method=RequestMethod.GET)
+	public void memberfindid_result() {
+		System.out.println("memberfindid-result 호출");
 	}
 	
 	

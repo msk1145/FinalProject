@@ -23,4 +23,8 @@ public interface MemberDao {
 	
 	// 회원 탈퇴
 	int memberdelete(String userid);
+	
+	// id 찾기(별명, 이메일)
+	Member findId(Member m);
+	
 }

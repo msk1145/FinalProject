@@ -34,6 +34,12 @@ delete from ${tblMember}
 where ${colUserid} = #{userid}
 </delete>
 
+<select id="memberFindId" resultType="Member">
+select * from ${tblMember}
+where ${colNickname} = #{nickname}
+	and ${colEmail} = #{email}
+</select>
+
 </mapper>
 
 
