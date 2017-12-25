@@ -36,14 +36,27 @@ public class FindIdPwInterceptor extends HandlerInterceptorAdapter{
 			return super.preHandle(request, response, handler);
 		// 비밀번호 찾기
 		} else {
-			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-			uuid = uuid.substring(0, 10);
-			System.out.println("uuid: " + uuid);
-			Member m = new Member(userid, uuid, null, null, null);
-			service.setTempPw(m);
-			//TODO: 이메일로 임시비밀번호 보내기
-			tempPwSend(request, email, uuid);
+			// 임시비밀번호 생성
+			char pwArray[] = new char[] { 
+                    '1','2','3','4','5','6','7','8','9','0', 
+                    'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z', 
+                    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', 
+                    '!','@','#','$','%','^','&','*','(',')'};
+			StringBuffer tempPw = new StringBuffer();
+			int idx = 0;
+			for (int i = 0; i < 10; i++) {
+				idx = (int) (pwArray.length * Math.random());
+				tempPw.append(pwArray[idx]);
+			}
 			
+//			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+//			uuid = uuid.substring(0, 10);
+//			System.out.println("uuid: " + uuid);
+			System.out.println("임시비밀번호: " + tempPw.toString());
+			Member m = new Member(userid, tempPw.toString(), null, null, null);
+			service.setTempPw(m);
+			
+			tempPwSend(request, email, tempPw.toString());
 			
 			response.sendRedirect("memberfindpw-result");
 			return false;
@@ -61,7 +74,7 @@ public class FindIdPwInterceptor extends HandlerInterceptorAdapter{
 	
 	// 임시비밀번호 메일 전송
 	public void tempPwSend(HttpServletRequest request,
-			 String email, String uuid)
+			 String email, String tempPw)
 			throws AddressException, MessagingException {
 		System.out.println("메일발송 테스트");
 		String host = "smtp.gmail.com";
@@ -74,7 +87,7 @@ public class FindIdPwInterceptor extends HandlerInterceptorAdapter{
 		System.out.println("email:" + email);
 		String subject = "WILLKOREANS 임시 비밀번호입니다.";
 		String body = username + "님으로부터 발송된 메일입니다. \n"
-				+ "임시비밀번호는 " + uuid + " 입니다.";
+				+ "임시비밀번호는 " + tempPw + " 입니다.";
 		
 		Properties props = System.getProperties(); // 정보를 담기위한 객체
 		
