@@ -1,6 +1,7 @@
-package edu.spring.project.controller;
+package edu.spring.project.interceptor;
 
 import java.util.Properties;
+import java.util.UUID;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -10,57 +11,57 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import edu.spring.project.domain.Member;
 import edu.spring.project.service.MemberService;
 
-@RestController
-@RequestMapping(value="/member")
-public class MemberRestController {
-	
+public class FindIdPwInterceptor extends HandlerInterceptorAdapter{
 	@Autowired MemberService service;
 	
-	@RequestMapping(value="/idCheck" , method=RequestMethod.POST)
-	public boolean logincheck(String userid) {		
-		boolean bool = false;
-		bool = service.idCheck(userid);
-		return bool;
-	}
-	
-	@RequestMapping(value="/findInfo", method=RequestMethod.POST)
-	public ResponseEntity<String> findInfo(@RequestBody Member m) {
-		System.out.println("MemberRestController::findInfo 호출");
-		System.out.println("이메일:" + m.getEmail());
-		System.out.println("아이디:" + m.getUserid());
-		System.out.println("별명:" + m.getNickname());
-		Member member = service.findInfo(m);
-		System.out.println("member:" + member);
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		System.out.println("FindIdPwInterceptor::preHandle()");
+		String userid = (String) request.getParameter("userid");
+		String email = (String) request.getParameter("email");
+		String nickname = (String) request.getParameter("nickname");
 		
-		ResponseEntity<String> entity = null;
-		if (member != null) {
-			entity = new ResponseEntity<String>("success", HttpStatus.OK);
+		// 아이디 찾기
+		if (nickname != null) {
+			return super.preHandle(request, response, handler);
+		// 비밀번호 찾기
 		} else {
-			entity = new ResponseEntity<String>("fail", HttpStatus.OK);
+			String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+			uuid = uuid.substring(0, 10);
+			System.out.println("uuid: " + uuid);
+			Member m = new Member(userid, uuid, null, null, null);
+			service.setTempPw(m);
+			//TODO: 이메일로 임시비밀번호 보내기
+			tempPwSend(request, email, uuid);
+			
+			
+			response.sendRedirect("memberfindpw-result");
+			return false;
 		}
-		return entity;
+		
 	}
 	
-	@RequestMapping(value = "/authNumberSend",
-			method = RequestMethod.POST)
-	public int authNumberSend(HttpServletRequest request,
-			ModelMap mo, @RequestBody String email)
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		System.out.println("FindIdPwInterceptor::postHandle()");
+	
+		super.postHandle(request, response, handler, modelAndView);
+	}
+	
+	// 임시비밀번호 메일 전송
+	public void tempPwSend(HttpServletRequest request,
+			 String email, String uuid)
 			throws AddressException, MessagingException {
 		System.out.println("메일발송 테스트");
 		String host = "smtp.gmail.com";
@@ -69,15 +70,11 @@ public class MemberRestController {
 		final String password = "willkoreans@@";
 		int port = 465;
 		
-		// 인증번호 생성
-		int authNumber = (int) (Math.random() * 1000000);
-		System.out.println("authNumber:" + authNumber);
-		
 		String recipient = email;
 		System.out.println("email:" + email);
-		String subject = "WILLKOREANS 인증번호입니다.";
+		String subject = "WILLKOREANS 임시 비밀번호입니다.";
 		String body = username + "님으로부터 발송된 메일입니다. \n"
-				+ "인증번호는 " + authNumber + " 입니다.";
+				+ "임시비밀번호는 " + uuid + " 입니다.";
 		
 		Properties props = System.getProperties(); // 정보를 담기위한 객체
 		
@@ -108,8 +105,6 @@ public class MemberRestController {
 		mimeMessage.setText(body); // 내용 셋팅
 		Transport.send(mimeMessage); // javax.mail.Transport.send() 이용
 		
-		return authNumber;
 	}
-	
 	
 }
