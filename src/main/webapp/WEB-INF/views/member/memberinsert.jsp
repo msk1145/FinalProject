@@ -44,9 +44,10 @@
 				</div>
 				
 				<div class="form-group" id="emailSuccess">
-				<label class="control-label" for="email" >이메일</label><br/>
-				<input type="text" class="form-control" id="email"	name="email" placeholder="이메일 입력..." required><br/><br/>
+					<label class="control-label" for="email" >이메일</label><br/>
+					<input type="text" class="form-control" id="email" name="email" placeholder="이메일 입력1..." required>
 				</div>
+				<br/><br/>
 				
 				<div class="form-group" id="nicknameSuccess">
 				<label class="control-label" for="nickname">닉네임</label><br/>
