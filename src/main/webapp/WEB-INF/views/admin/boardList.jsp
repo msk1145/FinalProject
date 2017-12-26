@@ -34,6 +34,7 @@
 
 	<div class="col-md-10">
 		<!-- 여기가 컨텐츠 영역 -->
+		<h2 class="text-center">게시글 리스트</h2>
 		<form action="boardList" method="post" id="submit">
 			<select class="form-control" id="select" name="category">
 				<option value="">전체</option>
@@ -48,9 +49,9 @@
 
 			</select> <br /> <br />
 		</form>
-		<table class="table table-striped table-hover">
+		<table class="table table-hover" id="tableStyle">
 			<thead>
-				<tr class="warning">
+				<tr>
 					<th>게시글 번호</th>
 					<th>제목</th>
 					<th>작성날짜</th>
@@ -75,39 +76,38 @@
 		</table>
 	</div>
 
-	<div class="container">
+	<div class="row text-center">
 		<ul id="pagination" class="pagination">
 			<c:if test="${pageMaker.prev}">
 				<!-- 이전 버튼은 (startPage - 1) -->
-				<li><a class="page-link" href="${pageMaker.startPage-1}">◀이전</a></li>
+				<li><a class="liStyle" href="${pageMaker.startPage-1}">◀이전</a></li>
 			</c:if>
 			<c:forEach var="num" begin="${pageMaker.startPage}"
 				end="${pageMaker.endPage}">
-				<li><a class="page-link" href="${num}">${num}</a></li>
+				<li><a href="${num}">${num}</a></li>
 			</c:forEach>
-
 			<c:if test="${pageMaker.next}">
 				<!-- 다음 버튼은 (endPage + 1) -->
-				<li><a class="page-link" href="${pageMaker.endPage+1}">다음▶</a></li>
+				<li><a href="${pageMaker.endPage+1}">다음▶</a></li>
 			</c:if>
 		</ul>
-
-		<form id="pageForm" action="boardList" method="get">
-			<input type="hidden" name="page" id="page"
-				value="${pageMaker.criteria.page}" /> <input type="hidden"
-				name="perPage" id="perPage"
-				value="${pageMaker.criteria.numsPerPage}" /> <input type="hidden"
-				name="category" id="cate" value="" />
-		</form>
-
-		<form id="pageForm2" action="boardList" method="post">
-			<input type="hidden" name="page" id="page2"
-				value="${pageMaker.criteria.page}" /> <input type="hidden"
-				name="perPage" id="perPage2"
-				value="${pageMaker.criteria.numsPerPage}" /> <input type="hidden"
-				name="category" id="cate2" value="" />
-		</form>
 	</div>
+
+	<form id="pageForm" action="boardList" method="get">
+		<input type="hidden" name="page" id="page"
+			value="${pageMaker.criteria.page}" /> <input type="hidden"
+			name="perPage" id="perPage" value="${pageMaker.criteria.numsPerPage}" />
+		<input type="hidden" name="category" id="cate" value="" />
+	</form>
+
+	<form id="pageForm2" action="boardList" method="post">
+		<input type="hidden" name="page" id="page2"
+			value="${pageMaker.criteria.page}" /> <input type="hidden"
+			name="perPage" id="perPage2"
+			value="${pageMaker.criteria.numsPerPage}" /> <input type="hidden"
+			name="category" id="cate2" value="" />
+	</form>
+
 
 	<div class="col-md-12">
 		<jsp:include page="bottom.jsp"></jsp:include>

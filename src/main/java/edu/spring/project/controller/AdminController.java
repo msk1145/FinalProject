@@ -48,7 +48,7 @@ public class AdminController {
 			return "redirect:/admin/login";
 		}else {
 			request.getSession().setAttribute("admin", m.getUserid());
-			return "admin/adminmaintest";
+			return "admin/main";
 		}
 		
 	}
@@ -226,9 +226,10 @@ public class AdminController {
 
 	@RequestMapping(value = "/boardDetail", method = RequestMethod.GET)
 	public String boardDetail(Integer bno, String category, Model model) {
-		
+		System.out.println("Controller : " + category);
 		Object o = adminService.boardDetail(bno, category);
 		model.addAttribute("selectCategory", category);
+		
 		if (category.equals("free")) {
 			BoardFree b = (BoardFree) o;
 			model.addAttribute("board", b);
@@ -264,7 +265,7 @@ public class AdminController {
 
 	@RequestMapping(value = "/boardConDelete", method = RequestMethod.GET)
 	public String boardConDelete(int bno) {
-
+		
 		int result = adminService.boardConDelete(bno);
 		System.out.println("result : " + result);
 

@@ -5,15 +5,45 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+body{
+	color: #F2FBEF;
+	background-color : #1C1C1C;
+}
+#ulStyle { 
+height: 40px; 
+width: 1300px; 
+cursor: pointer;
+display:inline-block;
+} 
+
+#ulStyle li { 
+list-style: none; 
+color: white;  
+line-height: 50px; 
+text-align: center;
+}
+
+#ulStyle .liStyle { 
+text-decoration:none; 
+color: white; 
+width: 150px; 
+font-size: 15px; 
+font-weight: bold; 
+}
+
+#ulStyle .liStyle:hover { 
+color: #FA5858; 
+background-color: #4d4d4d;
+}
+
+</style>
 </head>
 <body>
 	<div class="col-md-12">
-			<ul class="list-group">
+			<ul id="ulStyle">
 				<c:forEach var="m" items="${menu}">
-					<li class="list-group-item"><a
-						href="/project/board/boardmain?category=${m.href}"
-						class="list-group-item list-group-item-action btn-info">${m.menuname}</a>
-					</li>
+					<li class="liStyle" onclick="location.href='/project/board/boardmain?category=${m.href}'">${m.menuname}</li>
 				</c:forEach>
 			</ul>
 	</div>

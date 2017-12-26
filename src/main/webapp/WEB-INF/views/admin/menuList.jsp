@@ -34,9 +34,9 @@
 	<div class="col-md-10">
 		<div class="container">
 			<h2 class="text-center">메뉴 리스트</h2>
-			<table class="table table-striped table-hover">
+			<table class="table table-hover" id="tableStyle">
 				<thead>
-					<tr class="warning">
+					<tr>
 						<th>메뉴 번호</th>
 						<th>메뉴 이름</th>
 						<th>활성/비활성</th>
@@ -44,10 +44,12 @@
 				</thead>
 				<tbody>
 					<c:forEach var="m" items="${menu}">
-						<tr>
-							<td><a href="menuUpdate?mnum=${m.mnum}">${m.mnum}</a></td>
-							<td><a href="menuUpdate?mnum=${m.mnum}">${m.menuname}</a></td>
-							<td><a href="menuUpdate?mnum=${m.mnum}">${m.hideandshow}</a></td>
+					<tr class="text-center text-info"
+							onClick="location.href='/project/admin/menuUpdate?mnum=${m.mnum}'"
+							style="cursor: pointer;">
+							<td>${m.mnum}</td>
+							<td>${m.menuname}</td>
+							<td>${m.hideandshow}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

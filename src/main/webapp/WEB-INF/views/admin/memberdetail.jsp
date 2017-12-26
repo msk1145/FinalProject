@@ -35,22 +35,22 @@
 		<div class="container">
 			<form action="memberUpdate" method="post">
 				<div class="form-group">
-					<label for="userid">아이디</label> <input type="text"
+					<label for="userid">아이디▼</label> <input type="text"
 						class="form-control" name="userid" id="userid"
 						value="${member.userid}" />
 				</div>
 				<div class="form-group">
-					<label for="password">비밀번호</label> <input type="text"
+					<label for="password">비밀번호▼</label> <input type="text"
 						class="form-control" name="password" id="password"
 						value="${member.password}" />
 				</div>
 				<div class="form-group">
-					<label for="email">이메일</label> <input type="text"
+					<label for="email">이메일▼</label> <input type="text"
 						class="form-control" name="email" id="email"
 						value="${member.email}" />
 				</div>
 				<div class="form-group">
-					<label for="nickname">별명</label> <input type="text"
+					<label for="nickname">별명▼</label> <input type="text"
 						class="form-control" name="nickname" id="nickname"
 						value="${member.nickname}" />
 				</div>
@@ -62,7 +62,7 @@
 			</form>
 			<form action="memberGradeUpdate" method="post">
 				<div class="form-group">
-					<label for="grade">등급</label> <select name="grade"
+					<label for="grade">등급▼</label> <select name="grade"
 						class="form-control" id="grade">
 						<option value="guest">회원</option>
 						<option value="admin">관리자</option>

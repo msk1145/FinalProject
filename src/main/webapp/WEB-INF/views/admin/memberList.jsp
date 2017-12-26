@@ -35,9 +35,9 @@
 
 		<div class="container">
 			<h2 class="text-center">회원 리스트</h2>
-			<table class="table table-striped table-hover">
+			<table class="table table-hover" id="tableStyle">
 				<thead>
-					<tr class="warning">
+					<tr>
 						<th>아이디</th>
 						<th>비밀번호</th>
 						<th>이메일</th>
@@ -47,8 +47,10 @@
 				</thead>
 				<tbody>
 					<c:forEach var="m" items="${member}">
-						<tr>
-							<td><a href="memberdetail?userid=${m.userid}">${m.userid}</a></td>
+						<tr class="text-center text-info"
+							onClick="location.href='/project/admin/memberdetail?userid=${m.userid}'"
+							style="cursor: pointer;">
+							<td>${m.userid}</td>
 							<td>${m.password}</td>
 							<td>${m.email}</td>
 							<td>${m.nickname}</td>

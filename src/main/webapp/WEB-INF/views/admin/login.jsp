@@ -21,12 +21,13 @@
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
 </head>
-<body>
+<body style="color: #F2FBEF; background-color : #1C1C1C;">
 <c:if test="${result eq 1}">
 	<script>
 		alert('로그인이 필요합니다..');
 	</script>
 </c:if>
+	
 	<h2 class="text-center">로그인</h2>
 		<div class="container form-group" >
 			<form action="login" method="post">
