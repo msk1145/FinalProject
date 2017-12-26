@@ -11,11 +11,13 @@ public class AdminInterceptor extends HandlerInterceptorAdapter{
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		
+	
 		String admin = (String)request.getSession().getAttribute("admin");
+	
 		if(admin == null || admin == "") {
-			response.sendRedirect("/project/admin/login");
 			request.getSession().setAttribute("result", 1);
+			response.sendRedirect("/project/admin/login");
+			
 		}
 		
 		return super.preHandle(request, response, handler);

@@ -72,7 +72,7 @@
 	<!-- Admin 인터셉터 -->
 	<interceptors>
 		<interceptor>
-			<mapping path="/admin/*"/>
+			<mapping path="/admin/main"/>
 			<exclude-mapping path="/admin/login"/>
 			<beans:ref bean="admininterceptor" />
 		</interceptor>
