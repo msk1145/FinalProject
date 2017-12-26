@@ -33,37 +33,14 @@ if (request.getProtocol().equals("HTTP/1.1"))
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/project/">Home</a>
-			</div>
-			<ul class="nav navbar-nav pull-right">
-				<c:if test="${not empty member}">
-				<li><a>${member.nickname}님 </a></li>
-				<li><a href="/project/member/memberdetail?userid=${member.userid}">회원 정보</a></li>
-			</c:if>
-			<c:if test="${empty member}">
-				<li><a id="btn-login">로그인</a></li>
-				<li><a id="btn-insert">회원가입</a></li>
-			</c:if>
-			</ul>
-		</div>
-	</nav>
-	<div class="jumbotron text-center">
-		<h2>detail</h2>
-		
+	<!-- 헤더 영역 -->
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+
+	<!-- 메뉴 영역 -->
+	<div class="col-md-2">
+		<jsp:include page="/WEB-INF/views/menu.jsp"></jsp:include>
 	</div>
 	
-		<div class="col-md-2">
-				<ul class="list-group">
-					<c:forEach var="m" items="${menu}">
-						<li class="list-group-item">
-						 <a href="/project/board/boardmain?category=${m.href}" class="list-group-item list-group-item-action btn-info">${m.menuname}</a>
-						</li>
-					</c:forEach>
-				</ul>
-		</div>
 		<div class="form-group">
 			<div class="col-md-10 contentsArea">
 				<!-- 여기가 컨텐츠 영역 -->

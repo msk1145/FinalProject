@@ -5,10 +5,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 </head>
 <body>
@@ -21,12 +17,14 @@
 			<ul class="nav navbar-nav pull-right">
 				<c:if test="${not empty member}">
 				<li><a>${member.nickname}님 </a></li>
-				<li><a href="./member/memberlogout">로그아웃</a>
+				<li><a href="/project/member/memberlogout">로그아웃</a>
 				<li><a href="/project/member/memberdetail?userid=${member.userid}">회원 정보</a></li>
 			</c:if>
 			<c:if test="${empty member}">
-				<li><a id="btn-login">로그인</a></li>
-				<li><a id="btn-insert">회원가입</a></li>
+				<li><a id="btn-findId" style="cursor: pointer;">아이디 찾기</a></li>
+				<li><a id="btn-findPw" style="cursor: pointer;">비밀번호 찾기</a></li>
+				<li><a id="btn-login" style="cursor: pointer;">로그인</a></li>
+				<li><a id="btn-insert" style="cursor: pointer;">회원가입</a></li>
 			</c:if>
 			</ul>
 		</div>

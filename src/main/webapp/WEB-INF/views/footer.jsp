@@ -38,7 +38,7 @@
 	<br/>
 	<footer>
 		<div style="border: 2px solid Gainsboro;"></div>
-		<div class="footer text-center" style="background-color: #2C2F3E; height:100px;">
+		<div class="footer text-center" style="background-color: #212121; height:100px;">
 			<div class="copyright-content" style="color: #D8D8D8; padding: 10px;">
 				<div class="copyright-option">
 					<ul class="copyright-menu">

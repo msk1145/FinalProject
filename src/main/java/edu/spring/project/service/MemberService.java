@@ -22,4 +22,9 @@ public interface MemberService {
 	// 회원 탈퇴
 	int memberdelete(String userid);
 	
+	// 회원 id,pw 찾기
+	Member findInfo(Member m);
+	
+	// 회원 임시비밀번호 설정
+	int setTempPw(Member m);
 }

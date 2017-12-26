@@ -34,6 +34,26 @@ delete from ${tblMember}
 where ${colUserid} = #{userid}
 </delete>
 
+<select id="memberFindInfo" resultType="Member">
+select * from ${tblMember}
+where 
+	<choose>
+		<when test="nickname != null">
+			${colNickname} = #{nickname}
+		</when>
+		<when test="userid != null">
+			${colUserid} = #{userid}
+		</when>
+	</choose>
+		and ${colEmail} = #{email}
+</select>
+
+<update id="setTempPw">
+update ${tblMember}
+set ${colPassword} = #{password}
+where ${colUserid} = #{userid}
+</update>
+
 </mapper>
 
 

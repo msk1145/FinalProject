@@ -66,4 +66,14 @@ public class MemberServiceImple implements MemberService {
 		return dao.memberdelete(userid);
 	}
 
+	@Override
+	public Member findInfo(Member m) {
+		return dao.findInfo(m);
+	}
+
+	@Override
+	public int setTempPw(Member m) {
+		return dao.setTempPw(m);
+	}
+
 }
