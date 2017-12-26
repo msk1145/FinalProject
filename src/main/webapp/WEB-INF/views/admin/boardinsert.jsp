@@ -45,13 +45,13 @@
 		<!-- 여기가 컨텐츠 영역 -->
 		<form class="form-vertical" action="boardinsert" method="post"
 			enctype="multipart/form-data">
-			<div class="box">
-				<h3>게시글 작성</h3>
-			</div>
+			
+			<h2 class="text-center">게시글 작성</h2>
 
 			<div class="col-md-1">
-				<label for="title">게시판 선택</label>
+				<label for="title">게시판 선택 ▶</label>
 			</div>
+			
 			<div class="col-md-11">
 				<select class="form-control" name="category">
 					<c:forEach var="m" items="${menu}">
@@ -59,39 +59,45 @@
 					</c:forEach>
 				</select>
 			</div>
-			<br />
+			<br /><br/>
+			<br/><br/>
 
 			<div class="col-md-1">
-				<label for="title">제 목</label>
+				<label for="title">제 목 ▶</label>
 			</div>
 			<div class="col-md-11">
 				<input class="form-control" type="text" name="title" id="title"
 					required />
 			</div>
-			<br />
+			<br /><br/>
+			<br/><br/>
 
 
 			<div class="col-md-1">
-				<label for="content">본문</label><br />
+				<label for="content">본 문 ▶</label><br />
 			</div>
 			<div class="col-md-11">
 				<textarea style="resize: none;" rows="10" class="form-control"
 					name="content" id="content" required></textarea>
-
+				<br/><br/><br/>
 			</div>
-			<br />
-
+			
+			
 			<div class="col-md-12">
-				<span class="pull-right">이미지파일</span> <input class="pull-right"
+				<span class="pull-right"></span> <input class="pull-right"
 					type="file" name="imageFile" placeholder="이미지파일 선택" />
+					<h4 class="pull-right">이미지파일 ▶</h4>
+					<br/><br/>					
 			</div>
-
+			<br/><br/>
 			<div class="col-md-12">
-				<span class="pull-right">동영상파일</span> <input class="pull-right"
+				<span class="pull-right"></span> <input class="pull-right"
 					type="file" name="videoFile" placeholder="동영상파일 선택"
 					value="파일선택하라고시발놈아" />
+					<h4 class="pull-right">동영상파일 ▶</h4>
+					<br/><br/>
 			</div>
-			<br /> <br /> <br />
+			<br /> <br /> <br /><br/>
 			<hr />
 			<div>
 				<button type="submit" class="btn btn-default pull-right">등록</button>

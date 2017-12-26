@@ -37,11 +37,11 @@
 			<br />
 			<br />
 			<form action="menuInsert" method="post" id="form">
-				<label>한글메뉴이름</label> <input type="text" class="form-control"
+				<label>한글메뉴이름▼</label> <input type="text" class="form-control"
 					name="menuname" required /> <br />
-				<br /> <label>영어메뉴이름</label> <input type="text" class="form-control"
+				<br /> <label>영어메뉴이름▼</label> <input type="text" class="form-control"
 					id="href" name="href" required /> <br />
-				<br /> <label>활성/비활성</label> <select class="form-control"
+				<br /> <label>활성/비활성▼</label> <select class="form-control"
 					name="hideandshow">
 					<option value="show">활성</option>
 					<option value="hide">비활성</option>

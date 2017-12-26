@@ -26,13 +26,8 @@
 
 </head>
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/project/">Home</a>
-			</div>
-		</div>
-	</nav>
+	<!-- 헤더 영역 -->
+	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<!-- 메뉴 영역 -->
 	<div class="col-md-2">

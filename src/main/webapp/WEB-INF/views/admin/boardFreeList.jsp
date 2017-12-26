@@ -48,9 +48,9 @@
 
 				</select> <br /> <br />
 			</form>
-			<table class="table table-striped table-hover">
+			<table class="table table-hover" id="tableStyle">
 				<thead>
-					<tr class="warning">
+					<tr>
 						<th>게시글 번호</th>
 						<th>제목</th>
 						<th>작성날짜</th>
@@ -73,7 +73,8 @@
 			</table>
 		</div>
 	</div>
-	<div class="container">
+	
+	<div class="row text-center">
 		<ul id="pagination" class="pagination">
 			<c:if test="${pageMaker.prev}">
 				<!-- 이전 버튼은 (startPage - 1) -->
@@ -89,6 +90,7 @@
 				<li><a class="page-link" href="${pageMaker.endPage+1}">다음▶</a></li>
 			</c:if>
 		</ul>
+	</div>
 
 		<form id="pageForm" action="boardList" method="get">
 			<input type="hidden" name="page" id="page"
@@ -105,7 +107,6 @@
 				value="${pageMaker.criteria.numsPerPage}" /> <input type="hidden"
 				name="category" id="cate2" value="" />
 		</form>
-	</div>
 
 	<div class="col-md-12">
 		<jsp:include page="bottom.jsp"></jsp:include>

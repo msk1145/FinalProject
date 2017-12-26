@@ -39,9 +39,9 @@
 				<h3 class="text-center">게시글 수정 및 삭제</h3>
 			</div>
 			<input type="hidden" name="fbno" value="${board.fbno}" /> 
-			<label for="title">제 목</label> 
+			<label for="title">제 목▼</label> 
 			<input class="form-control" type="text"	name="ftitle" id="title" value="${board.ftitle}" required /> 
-			<label for="content">본문</label><br />
+			<label for="content">본문▼</label><br />
 			<textarea style="resize: none;" rows="20" class="form-control"
 				name="fcontent" id="content" required>${board.fcontent}</textarea>
 			<br /> <br />

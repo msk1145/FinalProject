@@ -39,7 +39,7 @@
 				<h3 class="text-center">게시글 수정 및 삭제</h3>
 			</div>
 			<input type="hidden" name="bno" value="${board.bno}" /> <label
-				for="title">카테 고리</label> <select class="form-control"
+				for="title">카테 고리▼</label> <select class="form-control"
 				name="category">
 				<c:forEach var="c" items="${menu}">
 					<c:if test="${selectCategory eq c.href}">
@@ -49,17 +49,17 @@
 						<option id="selectvalue" value="${c.href}">${c.menuname}</option>
 					</c:if>
 				</c:forEach>
-			</select> <label for="title">제 목</label> <input class="form-control"
+			</select> <label for="title">제 목▼</label> <input class="form-control"
 				type="text" name="title" id="title" value="${board.title}" required />
 
 
 
 
-			<label for="content">본문</label><br />
+			<label for="content">본문▼</label><br />
 			<textarea style="resize: none;" rows="20" class="form-control"
 				name="content" id="content" required>${board.content}</textarea>
 			<br /> <br /> <a class="btn btn-danger pull-right"
-				href="boardConDelete?fbno=${board.bno}">삭제</a>
+				href="boardConDelete?bno=${board.bno}">삭제</a>
 			<button type="submit" class="btn btn-info pull-right">수정</button>
 
 		</form>
