@@ -32,7 +32,7 @@
 	<div class="col-md-10 contentsArea">
 		<jsp:include page="/WEB-INF/views/mainview.jsp"></jsp:include>
 	</div>
-
+		
 	<!-- 푸터 영역 -->
 	<div class="col-md-12">
 	<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
