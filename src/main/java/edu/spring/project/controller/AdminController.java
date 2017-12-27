@@ -213,8 +213,9 @@ public class AdminController {
 
 		String saveImagePath = "/resources/images/" + resultimage;
 		String saveVideoPath = "/resources/video/" + resultmovie;
-		System.out.println(saveImagePath);
-		System.out.println(saveVideoPath);
+		
+		content.setImagePath(saveImagePath);
+		content.setVideoPath(saveVideoPath);
 
 		int result = boardConService.insert(content);
 		System.out.println("삽입결과: " + result);
@@ -284,9 +285,11 @@ public class AdminController {
 	private String saveImageFile(MultipartFile file) {
 
 		String saveName = file.getOriginalFilename();
+		System.out.println("saveName: " +saveName);
 
 		// 저장할 File 객체를 생성
 		File saveFile = new File(UPLOAD_PATH_IMAGE, saveName);
+		System.out.println("saveFile: "+saveFile);
 
 		// 생성된 파일 객체를 저장
 		try {

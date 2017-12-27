@@ -64,7 +64,7 @@ table#tableStyle td {
 	</nav>
 	
 	<div class="jumbotron text-center" id="topDiv">
-		<h2>Main</h2>
+		<h2>WillKoreans 가즈아 ~</h2>
 	</div>
 
 </body>
