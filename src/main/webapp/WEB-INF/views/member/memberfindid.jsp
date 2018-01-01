@@ -6,19 +6,21 @@
 <head>
 <meta charset=UTF-8>
 <title>main</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<c:url value='/resources/js/memberFindId.js'/>"></script>
+
 </head>
 <body>
+	<!-- 스크립트 &amp; CSS 영역 -->
+	<jsp:include page="/WEB-INF/views/styleNscript.jsp"></jsp:include>
+	
 	<!-- 헤더 영역 -->
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 	
 	<!-- 메뉴 영역 -->
-	<div class="col-md-2">
+	<div class="col-md-2 menuArea">
 		<jsp:include page="/WEB-INF/views/menu.jsp"></jsp:include>
 	</div>
+	
+	<script src="<c:url value='/resources/js/memberFindId.js'/>"></script>
 	
 	<div class="col-md-10">
 
@@ -48,6 +50,10 @@
 				<button type="button" class="btn btn-success" id="searchId">아이디 찾기</button>
 			</form>
 		</div>
+	</div>
+
+	<div class="col-md-12 footerArea">
+		<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	</div>
 
 </body>

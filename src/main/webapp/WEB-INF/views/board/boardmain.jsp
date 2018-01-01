@@ -1,32 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="ROOT" value="${pageContext.request.contextPath}"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset=UTF-8>
 <title>main</title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/resources/css/poster.css'/>" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
-
 
 </head>
 <body>
-
+	<!-- 스크립트 &amp; CSS 영역 -->
+	<jsp:include page="/WEB-INF/views/styleNscript.jsp"></jsp:include>
+	
 	<!-- 헤더 영역 -->
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<!-- 메뉴 영역 -->
-	<div class="col-md-2">
+	<div class="col-md-2 menuArea">
 		<jsp:include page="/WEB-INF/views/menu.jsp"></jsp:include>
 	</div>
+	
+	<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 	<!-- 메인 뷰 영역 -->
 	<div class="col-md-10 contentsArea">
@@ -63,7 +59,12 @@
 							<h4 class="text-center">${b.title}</h4>
 							<div class="poster_content trans">
 								<span class="outline">줄거리</span><br />
-								<div>${b.content}</div>
+								<div>
+									${fn:substring(b.content, 0, 120)}
+									<c:if test="${fn:length(b.content) > 120}">
+										…
+									</c:if>
+								</div>
 								<br /> <a class="detail_poster" href="boarddetail?bno=${b.bno}">상세보기</a>
 							</div>
 						</div>
@@ -99,21 +100,12 @@
 						id="category" name="category" value="${board[0].category}" />
 				</form>
 			</div>
-			<br />
-			<br />
-			<br />
 		</div>
 	</div>
 
-	<div class="col-md-12">
+	<div class="col-md-12 footerArea">
 		<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	</div>
-
-
-
-
-
-
 
 	<script>
 		$(document).ready(function() {

@@ -27,7 +27,15 @@
 		<h2 class="text-center">비밀번호 찾기 결과</h2>
 		<div class="container">
 			<!-- 여기가 컨텐츠 영역 -->
-			임시비밀번호가 이메일로 전송되었습니다.
+			<div style="border-top: 4px solid #1B4C74; border-bottom: 2px solid #D9D8D6; margin: 20px; padding: 20px;">
+			<ul style="font-size: 20px; list-style-type: none;">
+				<li><strong></strong>임시비밀번호가 이메일로 전송되었습니다.</li>
+			</ul>
+			</div>
+			<div class="text-center">
+			<a class="btn btn-danger" href="/project/member/memberlogin?url=/project/">로그인하러가기</a>
+			<a class="btn btn-info" href="/project">홈으로</a>
+			</div>
 		</div>
 	</div>
 	

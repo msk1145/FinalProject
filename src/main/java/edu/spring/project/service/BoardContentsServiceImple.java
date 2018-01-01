@@ -86,13 +86,31 @@ public class BoardContentsServiceImple implements BoardContentsService {
 		List<List<BoardContentsVO>> boardlist = new ArrayList<>();
 		for(Menu m : list) {
 			List<BoardContentsVO> li = boardConDao.selectbyCategoryBoard(m.getHref());
+			
+			for(int i = li.size(); i < 5; i++) {
+				BoardContentsVO vo = new BoardContentsVO();
+				// 게시물하나도 없는경우
+				if(li.size() == 0) {
+					vo.setTitle("none");
+					li.add(vo);
+					break;
+				// 게시물이 5개 미만인 경우
+				} else {
+					vo.setTitle("blank");
+					li.add(vo);
+				}
+			}
+			
+			/*
 			if(li.size() == 0) {
 				BoardContentsVO vo = new BoardContentsVO();
 				vo.setTitle("등록된 게시글이 없음");
 				li.add(vo);
 			}
+			*/
 			boardlist.add(li);
 		}
+		
 		return boardlist;
 	}
 

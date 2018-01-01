@@ -42,7 +42,7 @@
 		<jsp:include page="side.jsp"></jsp:include>
 	</div>
 
-	<div class="col-md-10">
+	<div class="col-md-10 contentsArea">
 		<!-- 여기가 컨텐츠 영역 -->
 		<div class="container">
 			<br />

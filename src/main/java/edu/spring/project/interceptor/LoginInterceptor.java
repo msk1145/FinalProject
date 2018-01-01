@@ -30,14 +30,14 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		String target = request.getParameter("url");
-		
+		System.out.println("url: " + target);
 		Map<String,Object> model = modelAndView.getModel();
 		Member m = (Member)model.get("member");
 		if(m != null) { 
 			HttpSession session = request.getSession();
 			session.setAttribute("member", m);
 			response.sendRedirect(target);
-		}else {
+		} else {
 			response.sendRedirect("/project/member/memberlogin?url=" + target);
 		}
 		

@@ -31,7 +31,7 @@
 		<jsp:include page="side.jsp"></jsp:include>
 	</div>
 	
-	<div class="col-md-10">
+	<div class="col-md-10 contentsArea">
 
 		<div class="container">
 			<h2 class="text-center">회원 리스트</h2>

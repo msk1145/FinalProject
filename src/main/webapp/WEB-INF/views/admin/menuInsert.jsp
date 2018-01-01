@@ -31,7 +31,7 @@
 		<jsp:include page="side.jsp"></jsp:include>
 	</div>
 	
-	<div class="col-md-10">
+	<div class="col-md-10 contentsArea">
 		<div class="container">
 			<h2 class="text-center">새로운 메뉴 넣기</h2>
 			<br />

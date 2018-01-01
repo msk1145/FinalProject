@@ -32,7 +32,7 @@
 		<jsp:include page="side.jsp"></jsp:include>
 	</div>
 
-	<div class="col-md-10">
+	<div class="col-md-10 contentsArea">
 		<!-- 여기가 컨텐츠 영역 -->
 		<h2 class="text-center">게시글 리스트</h2>
 		<form action="boardList" method="post" id="submit">

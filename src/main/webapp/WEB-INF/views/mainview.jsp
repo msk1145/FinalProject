@@ -32,14 +32,29 @@
 					</thead>
 					<tbody>
 						<c:forEach var="data" items="${boardTbl}">
-							<tr class="text-center text-info"
-								onClick="location.href='./board/boarddetail?bno=${data.bno}'"
-								style="cursor: pointer;">
-								<td>${data.bno}</td>
-								<td>${data.title}</td>
-								<td>admin</td>
-								<td>${data.count}</td>
-							</tr>
+							<c:choose>
+								<c:when test="${data.title eq 'blank'}">
+									<tr class="text-center text-info blank">
+										<td>&nbsp;</td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+								</c:when>
+								<c:when test="${data.title eq 'none'}">
+									<tr class="text-center text-info none">
+										<td colspan="4">조회된 검색결과가 없습니다.</td>
+									</tr>
+								</c:when>
+								<c:otherwise>
+									<tr class="text-center text-info" onClick="location.href='./board/boarddetail?bno=${data.bno}'">
+										<td>${data.bno}</td>
+										<td>${data.title}</td>
+										<td>관리자</td>
+										<td>${data.count}</td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
 						</c:forEach>
 					</tbody>
 				</table>

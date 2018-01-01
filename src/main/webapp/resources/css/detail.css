@@ -9,8 +9,8 @@
 	background-color: #FFFFE9;
 }
 .divLine{
- border-bottom: 1px dotted Gainsboro;
- margin: 10px;"
+ border-bottom: 1px dotted #656565;
+ margin: 10px;
 }
 video {
 display: inline-block;
@@ -19,16 +19,3 @@ width: auto !important;
 max-width: 100%; 
 height: auto !important; 
 }
-/* .video-container { 
-position: relative; 
-height: 0; 
-padding-top: 30px; 
-padding-bottom: 56.25%; 
-overflow: hidden; }  */
-/* .video-container iframe,.video-container object,.video-container embed { 
-position: absolute; 
-top: 0; 
-left: 0; 
-width: 100%; 
-height: 100%; 
-} */

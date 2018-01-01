@@ -8,7 +8,7 @@
 <script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 
 <style type="text/css">
-table#tableStyle {
+/* table#tableStyle {
     border-collapse: collapse;
     text-align: left;
     line-height: 1.5;
@@ -37,7 +37,7 @@ table#tableStyle td {
 #topDiv{
 	background-color: #1C1C1C;
 	border-bottom: 3px solid #E0E0F8;
-}
+}  */
 </style>
 </head>
 <body>
@@ -54,8 +54,6 @@ table#tableStyle td {
 				<li><a href="/project/member/memberdetail?userid=${member.userid}">회원 정보</a></li>
 			</c:if>
 			<c:if test="${empty member}">
-				<li><a id="btn-findId" style="cursor: pointer;">아이디 찾기</a></li>
-				<li><a id="btn-findPw" style="cursor: pointer;">비밀번호 찾기</a></li>
 				<li><a id="btn-login" style="cursor: pointer;">로그인</a></li>
 				<li><a id="btn-insert" style="cursor: pointer;">회원가입</a></li>
 			</c:if>
@@ -63,8 +61,9 @@ table#tableStyle td {
 		</div>
 	</nav>
 	
-	<div class="jumbotron text-center" id="topDiv">
-		<h2>Main</h2>
+	<div class="jumbotron text-center">
+		<a href="/project"><img src="<c:url value='/resources/images/will.png'/>" 
+			style="width:600px; height:100px;"/></a>
 	</div>
 
 </body>

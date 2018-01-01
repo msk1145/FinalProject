@@ -1,18 +1,25 @@
 $(function(){
 	
 	$('#btn-login').click(function(){
-		location = encodeURI('/project/member/memberlogin?url='+location.href);
+		var params = new URL(location.href).searchParams;
+		var url = params.get('url');
+		console.log('url: ' + url);
+		if (url) {
+			location = encodeURI('/project/member/memberlogin?url='+url);
+		} else {
+			location = encodeURI('/project/member/memberlogin?url='+location.href);
+		}
 	});
 	
 	$('#btn-insert').click(function(){
-		location = encodeURI('/project/member/memberinsert?url='+location.href);
+		var params = new URL(location.href).searchParams;
+		var url = params.get('url');
+		console.log('url: ' + url)
+		if (url) {
+			location = encodeURI('/project/member/memberinsert?url='+url);
+		} else {
+			location = encodeURI('/project/member/memberinsert?url='+location.href);
+		}
 	});
 	
-	$('#btn-findId').click(function(){
-		location = encodeURI('/project/member/memberfindid?url='+location.href);
-	});
-	
-	$('#btn-findPw').click(function(){
-		location = encodeURI('/project/member/memberfindpw?url='+location.href);
-	});
  });

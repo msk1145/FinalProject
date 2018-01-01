@@ -7,39 +7,32 @@
 <meta charset=UTF-8>
 <title>main</title>
 
-<!-- 1. Bootstrap CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 
-<!-- 2. jQuery : Bootstrap JS 파일은 jQuery 라이브러리를 사용 -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-<!-- 3. Bootstrap JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<!-- jQuery 3.2.1 라이브러리 사용 -->
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 </head>
 <body>
-<c:if test="${bool == 1}">
-<script>
-$(function(){
-	alert('수정 완료');
-});
-</script>
-</c:if>
+
+	<!-- 스크립트 &amp; CSS 영역 -->
+	<jsp:include page="/WEB-INF/views/styleNscript.jsp"></jsp:include>
+	
+	<c:if test="${bool == 1}">
+	<script>
+	$(function(){
+		alert('수정 완료');
+	});
+	</script>
+	</c:if>
+
+
 	<!-- 헤더 영역 -->
 	<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 	<!-- 메뉴 영역 -->
-	<div class="col-md-2">
+	<div class="col-md-2 menuArea">
 		<jsp:include page="/WEB-INF/views/menu.jsp"></jsp:include>
 	</div>
+	<script src="<c:url value='/resources/js/logininterceptor.js'/>"></script>
 	
-	
-	<div class="col-md-10">
+	<div class="col-md-10 contentsArea">
 		<div class="container">
 			<!-- 여기가 컨텐츠 영역 -->
 			<h2 class="text-center">회원 정보</h2>
@@ -57,6 +50,10 @@ $(function(){
 			</form>
 			<button class="btn btn-danger" id="btn-delete">계정 삭제</button>
 		</div>
+	</div>
+	
+	<div class="col-md-12 footerArea">
+		<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 	</div>
 
 <script>

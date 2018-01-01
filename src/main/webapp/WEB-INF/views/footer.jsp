@@ -33,9 +33,11 @@
 </style>
 </head>
 <body>
+	<!-- 
 	<br/>
 	<br/>
 	<br/>
+	 -->
 	<footer>
 		<div style="border: 2px solid Gainsboro;"></div>
 		<div class="footer text-center" style="background-color: #212121; height:100px;">

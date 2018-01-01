@@ -18,7 +18,7 @@ $(document).ready(function() {
 			}),
 			success: function(result) {
 				if (result === 'success') {
-					alert('일치하는 아이디 있음');
+					alert('인증번호를 발송하였습니다.');
 					$('#authNumber').attr('readonly', false);
 					$.ajax({
 						type: 'POST',
@@ -29,12 +29,11 @@ $(document).ready(function() {
 						},
 						data: email,
 						success: function(result) {
-							alert('메일보내기 성공!');
 							$('#sendedAuthNumber').val(result);
 						}
 					});
 				} else {
-					alert('일치하는 아이디 없음');
+					alert('정보가 일치하지 않습니다.');
 				}
 			}
 		});
@@ -47,10 +46,9 @@ $(document).ready(function() {
 		var userWriteNumber = $('#authNumber').val();
 		
 		if (authNumber === userWriteNumber) {
-			alert('인증번호 같음!');
 			$('#findIdForm').submit();
 		} else {
-			alert('인증번호 다름!');
+			alert('인증번호를 확인해주세요.');
 		}
 	});
 });

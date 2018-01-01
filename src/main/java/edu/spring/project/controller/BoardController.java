@@ -58,14 +58,6 @@ public class BoardController {
 		
 	}
 
-	@RequestMapping(value = "/boardupdate", method = RequestMethod.GET)
-	public void update(Model model) {
-		logger.info("BoardController::update() 호출");
-		int bno = 3;
-		BoardContents boardContents = boardConService.read(bno);
-		model.addAttribute("boardContents", boardContents);
-	}
-
 	// Board Insert
 	@RequestMapping(value = "/boardinsert", method = RequestMethod.GET)
 	public void boardinsert() {
