@@ -61,6 +61,7 @@ table#tableStyle td {
 		</div>
 	</nav>
 	
+
 	<div class="jumbotron text-center">
 		<a href="/project"><img src="<c:url value='/resources/images/will.png'/>" 
 			style="width:600px; height:100px;"/></a>

@@ -26,7 +26,6 @@
 		<jsp:include page="top.jsp"></jsp:include>
 	</div>
 
-
 	<div class="col-md-2">
 		<jsp:include page="side.jsp"></jsp:include>
 	</div>

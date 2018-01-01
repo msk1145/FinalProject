@@ -5,6 +5,7 @@ $(document).ready(function() {
 			console.log("left: " + obj.left + "px, top: " + obj.top + "px");
 			
 			var footerHeight = $('.footerArea').height();
+			var chatHeight = $('#contentstSuccess').height();
 			
 			$(window).scroll(function() {
 				if ($(this).width() <= '980') {
@@ -12,7 +13,7 @@ $(document).ready(function() {
 					event.preventDefault();
 				} else {
 					// console.log('d');
-					var position = $(this).scrollTop() - footerHeight; // 현재 스크롤 위치 반환
+					var position = $(this).scrollTop() - (footerHeight + chatHeight); // 현재 스크롤 위치 반환
 					
 					position = (position < 0 ? 0 : position);
 					

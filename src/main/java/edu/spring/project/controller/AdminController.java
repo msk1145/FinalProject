@@ -1,7 +1,10 @@
 package edu.spring.project.controller;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import edu.spring.project.pageutil.PaginationCriteria;
@@ -213,8 +217,9 @@ public class AdminController {
 
 		String saveImagePath = "/resources/images/" + resultimage;
 		String saveVideoPath = "/resources/video/" + resultmovie;
-		System.out.println(saveImagePath);
-		System.out.println(saveVideoPath);
+		
+		content.setImagePath(saveImagePath);
+		content.setVideoPath(saveVideoPath);
 
 		int result = boardConService.insert(content);
 		System.out.println("삽입결과: " + result);
@@ -284,9 +289,11 @@ public class AdminController {
 	private String saveImageFile(MultipartFile file) {
 
 		String saveName = file.getOriginalFilename();
+		System.out.println("saveName: " +saveName);
 
 		// 저장할 File 객체를 생성
 		File saveFile = new File(UPLOAD_PATH_IMAGE, saveName);
+		System.out.println("saveFile: "+saveFile);
 
 		// 생성된 파일 객체를 저장
 		try {
